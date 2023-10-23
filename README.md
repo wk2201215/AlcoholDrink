@@ -1,2 +1,2 @@
 # AlcoholDrink
-# waki dekita　4 5
+# waki dekita
