@@ -1,3 +1,4 @@
 # AlcoholDrink
-# waki dekita　4 5
-# tanimoto dekita
+# waki dekita
+野﨑伊晋　できました。
+# Tanimoto
