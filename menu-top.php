@@ -9,9 +9,12 @@
            </span>
         </a>
         <a class="navbar-item is-expanded is-block has-text-centered">
-           <span class="is-size-1">
-           <input type="text" name="key">
-           </span>
+            <form id="keys" action="login-output.php" method="post">
+                <span class="is-size-1">
+                <input id="sbox1" id="s" name="key" type="text" placeholder="フリーワードを入力">
+                <button type="submit" id="sbtn1"><i class="fa fa-search"></i></button>
+                </span>
+            </form>
         </a>
         <a class="navbar-item is-expanded is-block has-text-centered">
            <span class="is-size-1">
@@ -40,6 +43,76 @@
 
 <!-- 以下にコンテンツを書く -->
 <div class="contents">
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
+    <p>a</p>
     <p>a</p>
     <p>a</p>
     <p>a</p>
