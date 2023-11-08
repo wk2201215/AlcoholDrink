@@ -33,11 +33,11 @@ CREATE TABLE categories(
 CREATE TABLE products(
     product_id INT auto_increment,
     product_name VARCHAR(100) NOT NULL,
-    category_id INT,
+    category_id INT NOT NULL,
     price INT NOT NULL,
-    stock INT NOT NULL,
+    stock INT DEFAULT 0 NOT NULL,
     image_pass VARCHAR(100),
-    description VARCHAR(100),
+    description VARCHAR(1023),
     PRIMARY KEY(product_id),
     FOREIGN KEY(category_id) REFERENCES categories(category_id)
 );
@@ -94,7 +94,7 @@ CREATE TABLE carts(
 CREATE TABLE knowledge(
     knowledge_id INT auto_increment,
     knowledge_name VARCHAR(50) NOT NULL,
-    knowledge_text VARCHAR(200) NOT NULL,
+    knowledge_text VARCHAR(1023) NOT NULL,
     PRIMARY KEY(knowledge_id)
 );
 
