@@ -84,7 +84,7 @@ CREATE TABLE recipe_ingredients(
     recipe_id INT,
     ingredient_number INT,
     ingredient_name VARCHAR(50) NOT NULL,
-    ingredient_quantity INT NOT NULL,
+    ingredient_quantity VARCHAR(50) NOT NULL,
     PRIMARY KEY(recipe_id,ingredient_number),
     FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
 );
