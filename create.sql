@@ -67,7 +67,7 @@ CREATE TABLE recipes(
     customer_id INT NOT NULL,
     recipe_created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     recipe_updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    cooking VARCHAR(200) NOT NULL,
+    cooking VARCHAR(1023) NOT NULL,
     recipe_image_pass VARCHAR(100),
     PRIMARY KEY(recipe_id),
     FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
