@@ -14,7 +14,7 @@ CREATE TABLE customers(
     telephone VARCHAR(16) NOT NULL,
     mail VARCHAR(50),
     birth DATE NOT NULL,
-    identification_image VARCHAR(100) NOT NULL,
+    identification_image_pass VARCHAR(100) NOT NULL,
     identification_id INT,
     identification_detail VARCHAR(100),
     created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -67,13 +67,20 @@ CREATE TABLE recipes(
     customer_id INT NOT NULL,
     recipe_created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     recipe_updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    cooking VARCHAR(1023) NOT NULL,
     recipe_image_pass VARCHAR(100),
     PRIMARY KEY(recipe_id),
     FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
 
-CREATE TABLE ingredients(
+CREATE TABLE recipe_cooking(
+    recipe_id INT,
+    cooking_number INT,
+    cooking_procedure VARCHAR(300) NOT NULL,
+    PRIMARY KEY(recipe_id,cooking_number),
+    FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
+);
+
+CREATE TABLE recipe_ingredients(
     recipe_id INT,
     ingredient_number INT,
     ingredient_name VARCHAR(50) NOT NULL,
