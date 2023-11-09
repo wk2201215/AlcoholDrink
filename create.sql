@@ -37,7 +37,7 @@ CREATE TABLE products(
     price INT NOT NULL,
     stock INT DEFAULT 0 NOT NULL,
     image_pass VARCHAR(100),
-    description VARCHAR(1023),
+    product_description VARCHAR(1023),
     PRIMARY KEY(product_id),
     FOREIGN KEY(category_id) REFERENCES categories(category_id)
 );
@@ -68,6 +68,7 @@ CREATE TABLE recipes(
     recipe_created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     recipe_updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     recipe_image_pass VARCHAR(100),
+    recipe_description VARCHAR(1023),
     PRIMARY KEY(recipe_id),
     FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
