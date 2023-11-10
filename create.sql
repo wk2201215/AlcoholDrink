@@ -1,10 +1,10 @@
-CREATE TABLE identifications(
+CREATE TABLE Identifications(
     identification_id INT auto_increment,
     identification_name VARCHAR(50) NOT NULL,
     PRIMARY KEY(identification_id)
 );
 
-CREATE TABLE customers(
+CREATE TABLE Customers(
     customer_id INT auto_increment,
     login_id VARCHAR(50) NOT NULL,
     customer_name VARCHAR(50) NOT NULL,
@@ -24,13 +24,13 @@ CREATE TABLE customers(
     FOREIGN KEY(identification_id) REFERENCES identifications(identification_id)
 );
 
-CREATE TABLE categories(
+CREATE TABLE Categories(
     category_id INT auto_increment,
     category_name VARCHAR(50) NOT NULL,
     PRIMARY KEY(category_id)
 );
 
-CREATE TABLE products(
+CREATE TABLE Products(
     product_id INT auto_increment,
     product_name VARCHAR(100) NOT NULL,
     category_id INT NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE products(
     FOREIGN KEY(category_id) REFERENCES categories(category_id)
 );
 
-CREATE TABLE orders(
+CREATE TABLE Orders(
     order_id INT auto_increment,
     customer_id INT NOT NULL,
     order_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE orders(
     FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
 
-CREATE TABLE order_details(
+CREATE TABLE Order_details(
     order_id INT,
     product_id INT,
     quantity INT NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE order_details(
     FOREIGN KEY(product_id) REFERENCES products(product_id)
 );
 
-CREATE TABLE recipes(
+CREATE TABLE Recipes(
     recipe_id INT auto_increment,
     recipe_name VARCHAR(50) NOT NULL,
     customer_id INT NOT NULL,
@@ -73,7 +73,7 @@ CREATE TABLE recipes(
     FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
 );
 
-CREATE TABLE recipe_cooking(
+CREATE TABLE Recipe_cooking(
     recipe_id INT,
     cooking_number INT,
     cooking_procedure VARCHAR(300) NOT NULL,
@@ -81,7 +81,7 @@ CREATE TABLE recipe_cooking(
     FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
 );
 
-CREATE TABLE recipe_ingredients(
+CREATE TABLE Recipe_ingredients(
     recipe_id INT,
     ingredient_number INT,
     ingredient_name VARCHAR(50) NOT NULL,
@@ -90,7 +90,7 @@ CREATE TABLE recipe_ingredients(
     FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
 );
 
-CREATE TABLE carts(
+CREATE TABLE Carts(
     customer_id INT,
     product_id INT,
     cart_quantity INT NOT NULL,
@@ -99,14 +99,14 @@ CREATE TABLE carts(
     FOREIGN KEY(product_id) REFERENCES products(product_id)
 );
 
-CREATE TABLE knowledge(
+CREATE TABLE Knowledge(
     knowledge_id INT auto_increment,
     knowledge_name VARCHAR(50) NOT NULL,
     knowledge_text VARCHAR(1023) NOT NULL,
     PRIMARY KEY(knowledge_id)
 );
 
-CREATE TABLE knowledge_products(
+CREATE TABLE Knowledge_products(
     knowledge_id INT,
     product_id INT,
     PRIMARY KEY(knowledge_id,product_id),

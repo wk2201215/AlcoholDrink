@@ -1,21 +1,21 @@
 --顧客テーブル--
 
-INSERT INTO customers(login_id,customer_name,customer_password,postcode,address,telephone,mail,birth,identification_image_pass)
+INSERT INTO Customers(login_id,customer_name,customer_password,postcode,address,telephone,mail,birth,identification_image_pass)
 VALUES ('admin', '管理者', 'Pass1036', '8120016', '福岡市博多区博多駅南2－12－32', '0120－371－007', 'asojuku@asojuku.co.jp','2023－11－08','https://asojuku.ac.jp/abcc/images/mv_pc.jpg');
 
 --半角の－は使えない--
 
 
 --身分証テーブル--
-INSERT INTO identifications(identification_name)
+INSERT INTO Identifications(identification_name)
 VALUES ('運転免許証'),('保険証'),('マイナンバーカード'),('パスポート'),('身体障害者手帳'),('在留カード'),('写真付き住民基本台帳カード');
 
 --カテゴリ--
-INSERT INTO categories(category_name)
+INSERT INTO Categories(category_name)
 VALUES ('ビール'),('発泡酒'),('その他の発泡性酒類'),('清酒'),('果実酒'),('その他の醸造酒'),('連続式蒸留焼酎'),('単式蒸留焼酎'),('ウイスキー'),('ブランデー'),('原料用アルコール'),('スピリッツ'),('合成清酒'),('みりん'),('甘味果実酒'),('リキュール'),('粉末酒'),('雑酒');
 
 ---レシピ--
-INSERT INTO recipes(recipe_name,customer_id,recipe_image_pass,recipe_description)
+INSERT INTO Recipes(recipe_name,customer_id,recipe_image_pass,recipe_description)
 VALUES 
 ('オリジナルカクテル「逆さ富士」',1,
 'https://img.cpcdn.com/recipes/7458128/894x1461s/201eeb389b9a557a83626ae185bab4fe?u=7003538&p=1677196506',
@@ -34,7 +34,7 @@ VALUES
 スーパーにせせりが売っていたので、今夜のビールのおともに作りました。');
 
 --レシピ材料--
-INSERT INTO recipe_ingredients(recipe_id,ingredient_number,ingredient_name,ingredient_quantity)
+INSERT INTO Recipe_ingredients(recipe_id,ingredient_number,ingredient_name,ingredient_quantity)
 VALUES 
 (1,1,'日本酒','30ｍｌ（大さじ２）'),
 (1,2,'ブルーキュラソー','15ｍｌ（大さじ１）'),
@@ -50,7 +50,7 @@ VALUES
 (2,8,'黒こしょう','少々');
 
 --レシピ手順--
-INSERT INTO recipe_cooking(recipe_id,cooking_number,cooking_procedure)
+INSERT INTO Recipe_cooking(recipe_id,cooking_number,cooking_procedure)
 VALUES 
 (1,1,'ヨーグルトリキュール以外の材料をシェーカーに入れます。氷を加えてシェークします。グラスに注ぎます。'),
 (1,2,'ヨーグルトリキュールをグラスの底に沈めて完成です。'),
@@ -61,7 +61,7 @@ VALUES
 
 --知識--
 
-INSERT INTO knowledge(knowledge_name,knowledge_text)
+INSERT INTO Knowledge(knowledge_name,knowledge_text)
 VALUES ('ウイスキーとは？','ウイスキーの定義は国や地域で異なりますが、一般的には「穀物を原料に蒸留をして樽で熟成させたもの」がウイスキーと呼ばれています。')
 ('ウイスキーの原料は？','ウイスキーの原料にはさまざまな穀物が使用されています。ジャパニーズウイスキー・スコッチウイスキー・アイリッシュウイスキーなどでは、発芽した大麦の麦芽を使用することが多いです。アメリカンウイスキーの場合はトウモロコシやライ麦・小麦や大麦など幅広く使用されています。ほかの原料にはオーツ麦・キビなどもあり、生産国それぞれの文化や伝統に基づいたルールに基づいて使用されています。'),
 ('モルトウイスキーとグレーンウイスキーの違いは？','スコッチウイスキーには大きく分けてモルトウイスキーとグレーンウイスキーの2種類があり、原料や蒸留器、味わいに違いがあります。モルトウイスキーの原料は大麦を発芽させた麦芽。砕いて水と混ぜることで酵素が働き、デンプンを糖化します。これを濾過した麦汁を発酵させたアルコール度数約7％の液体を「単式蒸留器」という蒸留器で2回、もしくは3回蒸留。蒸留直後の原液は、「ニューポット(ニューメイク)」と呼ばれ、無色透明、アルコール度数60～70％です。そしてその原液を樽熟成します。

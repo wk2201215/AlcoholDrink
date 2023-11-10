@@ -1,5 +1,5 @@
 --商品--
-INSERT INTO products(product_name,category_id,price,image_pass,product_description)
+INSERT INTO Products(product_name,category_id,price,image_pass,product_description)
 VALUES 
 (
 'ジャック ダニエル バーボン ウイスキー [アメリカ 700ml ]',9,2525,
@@ -52,5 +52,5 @@ VALUES
 );
 
 --知識商品連携--
-INSERT INTO knowledge_products(knowledge_id,product_id)
+INSERT INTO Knowledge_products(knowledge_id,product_id)
 VALUES (1,1),(1,2),(2,1);
