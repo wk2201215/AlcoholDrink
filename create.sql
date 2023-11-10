@@ -21,7 +21,7 @@ CREATE TABLE Customers(
     updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     customer_payment VARCHAR(50),
     PRIMARY KEY(customer_id),
-    FOREIGN KEY(identification_id) REFERENCES identifications(identification_id)
+    FOREIGN KEY(identification_id) REFERENCES Identifications(identification_id)
 );
 
 CREATE TABLE Categories(
@@ -39,7 +39,7 @@ CREATE TABLE Products(
     image_pass VARCHAR(100),
     product_description VARCHAR(1023),
     PRIMARY KEY(product_id),
-    FOREIGN KEY(category_id) REFERENCES categories(category_id)
+    FOREIGN KEY(category_id) REFERENCES Categories(category_id)
 );
 
 CREATE TABLE Orders(
@@ -49,7 +49,7 @@ CREATE TABLE Orders(
     shipping_address VARCHAR(100) NOT NULL,
     payment VARCHAR(50) NOT NULL,
     PRIMARY KEY(order_id),
-    FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY(customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Order_details(
@@ -57,8 +57,8 @@ CREATE TABLE Order_details(
     product_id INT,
     quantity INT NOT NULL,
     PRIMARY KEY(order_id,product_id),
-    FOREIGN KEY(order_id) REFERENCES orders(order_id),
-    FOREIGN KEY(product_id) REFERENCES products(product_id)
+    FOREIGN KEY(order_id) REFERENCES Orders(order_id),
+    FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
 
 CREATE TABLE Recipes(
@@ -70,7 +70,7 @@ CREATE TABLE Recipes(
     recipe_image_pass VARCHAR(100),
     recipe_description VARCHAR(1023),
     PRIMARY KEY(recipe_id),
-    FOREIGN KEY(customer_id) REFERENCES customers(customer_id)
+    FOREIGN KEY(customer_id) REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Recipe_cooking(
@@ -78,7 +78,7 @@ CREATE TABLE Recipe_cooking(
     cooking_number INT,
     cooking_procedure VARCHAR(300) NOT NULL,
     PRIMARY KEY(recipe_id,cooking_number),
-    FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
+    FOREIGN KEY(recipe_id) REFERENCES Recipes(recipe_id)
 );
 
 CREATE TABLE Recipe_ingredients(
@@ -87,7 +87,7 @@ CREATE TABLE Recipe_ingredients(
     ingredient_name VARCHAR(50) NOT NULL,
     ingredient_quantity VARCHAR(50) NOT NULL,
     PRIMARY KEY(recipe_id,ingredient_number),
-    FOREIGN KEY(recipe_id) REFERENCES recipes(recipe_id)
+    FOREIGN KEY(recipe_id) REFERENCES Recipes(recipe_id)
 );
 
 CREATE TABLE Carts(
@@ -95,8 +95,8 @@ CREATE TABLE Carts(
     product_id INT,
     cart_quantity INT NOT NULL,
     PRIMARY KEY(customer_id,product_id),
-    FOREIGN KEY(customer_id) REFERENCES customers(customer_id),
-    FOREIGN KEY(product_id) REFERENCES products(product_id)
+    FOREIGN KEY(customer_id) REFERENCES Customers(customer_id),
+    FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
 
 CREATE TABLE Knowledge(
@@ -110,6 +110,6 @@ CREATE TABLE Knowledge_products(
     knowledge_id INT,
     product_id INT,
     PRIMARY KEY(knowledge_id,product_id),
-    FOREIGN KEY(knowledge_id) REFERENCES knowledge(knowledge_id),
-    FOREIGN KEY(product_id) REFERENCES products(product_id)
+    FOREIGN KEY(knowledge_id) REFERENCES Knowledge(knowledge_id),
+    FOREIGN KEY(product_id) REFERENCES Products(product_id)
 );
