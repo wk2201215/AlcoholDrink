@@ -1,4 +1,4 @@
---商品--
+-- 商品
 INSERT INTO Products(product_name,category_id,price,image_pass,product_description)
 VALUES 
 (
@@ -50,7 +50,15 @@ VALUES
 製造国/地域	日本
 '
 );
-
---知識商品連携--
+-- 知識商品連携
 INSERT INTO Knowledge_products(knowledge_id,product_id)
 VALUES (1,1),(1,2),(2,1);
+-- カート
+INSERT INTO Carts(customer_id,product_id,cart_quantity)
+VALUES (1,1,3);
+-- オーダー
+INSERT INTO Orders(customer_id,shipping_address,payment)
+VALUES (1,'福岡市博多区博多駅南2-12-32','クレジットカード');
+-- オーダー詳細
+INSERT INTO Order_details(order_id,product_id,quantity)
+VALUES (1,1,100),(1,2,50);
