@@ -41,40 +41,8 @@
     echo '<tr><td>生年月日</td><td><br>';
     echo '<input type="text" name="dirthdate"  value="', $birthdate, '" >';
     echo '</td></tr>';
-    // echo '<tr><td>身分証など本人確認ができる写真をお願いします</td><td><br>';
-    // echo '<input type="file" accept="image/*" name="idcard"  value="', $idcard, '" >';
-    try{
-        $pdo=new PDO($connect,USER,PASS);
-    }catch(PDOException $e){
-        echo $e->getMessage();
-    }
-    if (isset($_POST['upload'])) {//送信ボタンが押された場合
-        $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
-        $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);//アップロードされたファイルの拡張子を取得
-        $file = "images/$image";
-        $sql = "INSERT INTO images(name) VALUES (:image)";
-        $stmt = $dbh->prepare($sql);
-        $stmt->bindValue(':image', $image, PDO::PARAM_STR);
-        if (!empty($_FILES['image']['name'])) {//ファイルが選択されていれば$imageにファイル名を代入
-            move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesディレクトリにファイル保存
-            if (exif_imagetype($file)) {//画像ファイルかのチェック
-                $message = '画像をアップロードしました';
-                $stmt->execute();
-            } else {
-                $message = '画像ファイルではありません';
-            }
-        }
-    }
-    if (isset($_POST['upload'])){
-        echo '<p>',$message,'</p>';
-        echo '<p><a href="image.php">画像表示へ</a></p>';
-    }else{
-        echo '<form method="post" enctype="multipart/form-data">';
-            echo '<tr><td>身分証など本人確認ができる写真をお願いします</td><td><br>';
-            echo '<input type="file" accept="image/*" name="idcard"  value="', $idcard, '" >';
-            echo '<button><input type="submit" name="upload" value="アップロード"></button>';
-        echo '</form>';
-    }
+    echo '<tr><td>身分証など本人確認ができる写真をお願いします</td><td><br>';
+    echo '<input type="file" accept="image/*" name="idcard"  value="', $idcard, '" >';
     echo '</td></tr>';
     echo '</table>';
     echo '<input type="submit"  value="登録">';
