@@ -3,20 +3,22 @@
 <?php require 'header.php'; ?>
 <?php require 'menu.php'; ?>
 <?php
-$pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
 $pdo=new PDO($connect,USER,PASS);
+$pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
 if(isset($_SESSION['customer'])){
     $id=$_SESSION['customer']['id'];
-    $sql=$pdo->prepare('select * from customer where id!=? and login=?');
+    $sql=$pdo->prepare('select * from Customers where id!=? and login=?');
     $sql->execute([$id,$_POST['login']]);
 } else {
-    $sql=$pdo->prepare('select * from customer where login=?');
-    $sql->execute([$_POST['login']]); 
+    $sql=$pdo->prepare('select * from Customers where id!=? and login=?');
+    $sql->execute([$id,$_POST['login']]); 
+}else{
+    $sql=$pdo->prepare('select * from Customers where login=?');
+    $sql->execute([$_POST['login']]);
 }
 if(empty($sql->fetchAll())) {
     if(isset($_SESSION['customer'])){
-        $sql=$pdo->prepare('update  customer set name=?,  address=?, '. 'login=?, password=? where id=?');
-
+        $sql=$pdo->prepare('update  Customers set login_id customer_name customer_password postcode address telephone mail birth  where id=?');
         $sql->execute([
             $_POST['name'],$_POST['address'],
             $_POST['login'],$pass,$id]);
