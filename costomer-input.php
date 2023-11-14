@@ -18,7 +18,7 @@
     echo '<form action="costomer-output.php" method="post">';
     echo '<table>';
     echo '<tr><td>アカウントID</td><td><br>';
-    echo '<input type="text" name="accountid"  value="', $login_id, '" >';
+    echo '<input type="text" name="login_id"  value="', $login_id, '" >';
     echo '</td></tr>';
     echo '<tr><td>氏名</td><td><br>';
     echo '<input type="text" name="name"  value="', $name, '" >';
@@ -27,7 +27,7 @@
     echo '<input type="password" name="password"  value="', $password, '" >';
     echo '</td></tr>';
     echo '<tr><td>郵便番号</td><td><br>';
-    echo '<input type="text" name="zipcode"  value="', $postcode, '" >';
+    echo '<input type="text" name="postcode"  value="', $postcode, '" >';
     echo '</td></tr>';
     echo '<tr><td>住所</td><td><br>';
     echo '<input type="text" name="address"  value="', $address, '" >';
@@ -39,7 +39,7 @@
     echo '<input type="text" name="mail"  value="', $mail, '" >';
     echo '</td></tr>';
     echo '<tr><td>生年月日</td><td><br>';
-    echo '<input type="date" name="dirthdate"  value="', $birth, '" >';
+    echo '<input type="date" name="dirth"  value="', $birth, '" >';
     echo '</td></tr>';
     echo '<tr><td>身分証など本人確認ができる写真をお願いします</td><td><br>';
     echo '<input type="file" accept="image/*" name="idcard"  value="', $idcard, '" >';
