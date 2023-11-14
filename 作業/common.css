@@ -1,0 +1,24 @@
+body {
+	margin: 0;
+}
+header {
+	position: fixed;
+	padding: 3em 0;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+	z-index: 2;
+	transition: .3s;
+}
+main {
+	height: 2000px;
+	text-align: center;
+	background-color: #fff;
+}
+footer {
+	padding: 3em 0;
+	text-align: center;
+	color: #fff;
+	background-color: #000;
+}
