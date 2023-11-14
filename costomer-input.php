@@ -3,22 +3,22 @@
 <?php require 'header.php'; ?>
 <?php require 'menu.php'; ?>
 <?php
-    $id=$name=$password=$zipcode=$address=$tel=$mail=$birthdate=$login=$idcard='';
+    $login_id=$name=$password=$postcode=$address=$tel=$mail=$birth=$idcard='';
     if(isset($_SESSION['customer'])){
-        $accountid=$_SESSION['customer']['id'];
+        $login_id=$_SESSION['customer']['login_id'];
         $name=$_SESSION['customer']['name'];
         $password=$_SESSION['customer']['password'];
-        $zipcode=$_SESSION['customer']['zipcode'];
+        $postcode=$_SESSION['customer']['postcode'];
         $address=$_SESSION['customer']['address'];
-        $telephonenumber=$_SESSION['customer']['tel'];
-        $mailadores=$_SESSION['customer']['mail'];
-        $birthdate=$_SESSION['customer']['birthdate'];
-        $identificationcard=$_SESSION['customer']['idcard'];
+        $tel=$_SESSION['customer']['tel'];
+        $mail=$_SESSION['customer']['mail'];
+        $birth=$_SESSION['customer']['birth'];
+        $idcard=$_SESSION['customer']['idcard'];
     }
     echo '<form action="costomer-output.php" method="post">';
     echo '<table>';
     echo '<tr><td>アカウントID</td><td><br>';
-    echo '<input type="text" name="id"  value="', $id, '" >';
+    echo '<input type="text" name="accountid"  value="', $login_id, '" >';
     echo '</td></tr>';
     echo '<tr><td>氏名</td><td><br>';
     echo '<input type="text" name="name"  value="', $name, '" >';
@@ -27,7 +27,7 @@
     echo '<input type="password" name="password"  value="', $password, '" >';
     echo '</td></tr>';
     echo '<tr><td>郵便番号</td><td><br>';
-    echo '<input type="text" name="zipcode"  value="', $zipcode, '" >';
+    echo '<input type="text" name="zipcode"  value="', $postcode, '" >';
     echo '</td></tr>';
     echo '<tr><td>住所</td><td><br>';
     echo '<input type="text" name="address"  value="', $address, '" >';
@@ -39,7 +39,7 @@
     echo '<input type="text" name="mail"  value="', $mail, '" >';
     echo '</td></tr>';
     echo '<tr><td>生年月日</td><td><br>';
-    echo '<input type="text" name="dirthdate"  value="', $birthdate, '" >';
+    echo '<input type="date" name="dirthdate"  value="', $birth, '" >';
     echo '</td></tr>';
     echo '<tr><td>身分証など本人確認ができる写真をお願いします</td><td><br>';
     echo '<input type="file" accept="image/*" name="idcard"  value="', $idcard, '" >';
