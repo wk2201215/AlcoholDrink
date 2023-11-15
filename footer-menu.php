@@ -1,3 +1,4 @@
+</main>
 <footer>
 <nav class="navbar is-link is-fixed-bottom" role="navigation">
     <div class="navbar-brand">
