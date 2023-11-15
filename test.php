@@ -1,6 +1,6 @@
+<?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<header>ヘッダー</header>
-<main>
+<?php require 'header-menu.php'; ?>
     <p>フェー</p>
     <p>フェー</p>
     <p>フェー</p>
@@ -39,6 +39,5 @@
     <p>するよ</p>
     <p>するよ</p>
     <p>するよ</p>
-</main>
-<footer>フッター</footer>
+<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

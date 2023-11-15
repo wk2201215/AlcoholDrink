@@ -1,0 +1,11 @@
+footer a{
+	display: flex;
+	justify-content: center;
+}
+header a{
+	display: flex;
+	justify-content: center;
+}
+main{
+	margin-top: 3.25rem;
+}
