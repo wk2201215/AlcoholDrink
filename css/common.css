@@ -1,4 +1,8 @@
-.navbar-burger {
-	margin-left: 0;
-	margin-right: auto;
-  }
+footer a{
+	display: flex;
+	justify-content: center;
+}
+header a{
+	display: flex;
+	justify-content: center;
+}

@@ -39,4 +39,5 @@
     <p>するよ</p>
     <p>するよ</p>
     <p>するよ</p>
+<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
