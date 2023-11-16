@@ -72,6 +72,10 @@
     echo '<dd><input type="file" accept="image/*" name="idcard"  value="', $idcard, '" ></dd>';
     echo '</dl>';
 
+    echo '<input type="submit" class="toroku" id="toroku" value="登録">';
+    echo '</form>';
+    echo'</div>';
+
     
 ?>
 <?php require 'footer.php'; ?>
