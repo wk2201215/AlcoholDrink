@@ -25,7 +25,7 @@
         // $idcard=$_SESSION['customer']['idcard'];
     }
 
-    echo '<form action="costomer-output.php" method="post">';
+    echo '<form action="costomer-output.php" method="post" enctype="multipart/form-data">';
     echo '<div>';
     echo '<dl>';
     echo '<dt>アカウントID</dt>';
