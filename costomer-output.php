@@ -20,14 +20,14 @@ if(empty($sql->fetchAll())) {
         telephone mail birth where id=?');
         $sql->execute([
             $_POST['login_id'],$_POST['name'],
-            $_POST['password'],$_POST['postcode'],
+            $pass,$_POST['postcode'],
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['dirth'],
-            $id]);
+            $_POST[''],$id]);
         $_SESSION['customer']=[
             'id'=>$id, 'accountid'=>$_POST['login_id'],
             'name'=>$_POST['name'],
-            'password'=>$_POST['password'], 
+            'password'=>$pass, 
             'zipcode'=>$_POST['postcode'],
             'address'=>$_POST['address'], 
             'tel'=>$_POST['tel'],'mail'=>$_POST['mail'],
@@ -36,16 +36,15 @@ if(empty($sql->fetchAll())) {
             echo 'お客様情報を更新しました。';
     } else {
         $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
-        $image .= '.' . substr(strrchr($_FILES['image']['name'], '.'), 1);//アップロードされたファイルの拡張子を取得
-        $file = "images/$image";
-        $sql=$pdo->prepare('insert into Customer value(null,?,?,?,?,?,?,?,?,?,null,null,null,null,null)');
+        $image = 'images/'.$_FILES['idcard']['name'];
+        $sql=$pdo->prepare('insert into Customers value(null,?,?,?,?,?,?,?,?,?,null,null,default,null,null)');
         $sql->execute([
             $_POST['login_id'],$_POST['name'],
-            $_POST['password'],$_POST['postcode'],
+            $pass,$_POST['postcode'],
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['dirth'],
             $image]);
-            move_uploaded_file($_FILES['image']['tmp_name'], './images/' . $image);//imagesディレクトリにファイル保存
+            move_uploaded_file($_FILES['idcard']['tmp_name'],$image);//imagesディレクトリにファイル保存
         echo 'お客様情報を登録しました。';
     }
 } else {
