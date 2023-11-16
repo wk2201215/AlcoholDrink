@@ -1,8 +1,10 @@
 <header>
-<nav class="navbar is-danger is-fixed-top" role="navigation">
+<nav class="navbar is-block is-fixed-top has-shadow" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item is-expanded">
-            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+            <span class="is-size-3">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </span>
         </a>
         <div class="navbar-item is-expanded">
             <div class="field has-addons">
@@ -15,7 +17,9 @@
             </div>
         </div>
         <a class="navbar-item is-expanded">
-            <i class="fa fa-filter fa-lg" aria-hidden="true"></i>
+            <span class="is-size-4">
+                <i class="fa fa-filter" aria-hidden="true"></i>
+            </span>
         </a>
     </div>
 </nav>

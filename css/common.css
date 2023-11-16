@@ -1,11 +1,20 @@
+.navbar-item.is-expanded{
+	justify-content: center;
+}
+
 footer a{
-	display: flex;
-	justify-content: center;
+	width:20vw;
 }
+
 header a{
-	display: flex;
-	justify-content: center;
+	width: 15vw;
 }
+
+header div.navbar-item.is-expanded{
+	width: 70vw;
+}
+
 main{
 	margin-top: 3.25rem;
+	margin-bottom: 3.25rem;
 }
