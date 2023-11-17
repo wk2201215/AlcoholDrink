@@ -1,3 +1,18 @@
+-- 支払い方法 --
+
+INSERT INTO Payments(payment_name)
+VALUES
+('クレジットカード'),
+('コンビニ払い'),
+('電子マネー'),
+('銀行ATM'),
+('ネットバンキング'),
+('代金引換'),
+('ギフトカード'),
+('PayPay'),
+('携帯決済'),
+('あと払い (ペイディ)');
+
 -- 顧客テーブル
 INSERT INTO Customers(login_id,customer_name,customer_password,postcode,address,telephone,mail,birth,identification_image_pass)
 VALUES ('admin', '管理者', 'Pass1036', '8120016', '福岡市博多区博多駅南2-12-32', '0120-371-007', 'asojuku@asojuku.co.jp',

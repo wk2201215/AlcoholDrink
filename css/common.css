@@ -14,7 +14,6 @@ header div.navbar-item.is-expanded{
 	width: 70vw;
 }
 
-main{
-	margin-top: 3.25rem;
-	margin-bottom: 3.25rem;
+.navbar.is-fixed-bottom, .navbar.is-fixed-top {
+	position: sticky;
 }

@@ -1,5 +1,6 @@
-</main>
-<footer>
+        </div>
+    </div>
+</section>
 <nav class="navbar is-block is-fixed-bottom has-shadow" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item is-expanded" href="">
@@ -29,4 +30,3 @@
         </a>
     </div>
 </nav>
-<footer>
