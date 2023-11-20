@@ -23,5 +23,5 @@
     </div>
 </nav>
 <section class="hero">
-    <div class="hero-body">
+    <div class="hero-body py-5">
         <div class="container">

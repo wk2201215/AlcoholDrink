@@ -2,18 +2,6 @@
 	justify-content: center;
 }
 
-footer a{
-	width:20vw;
-}
-
-header a{
-	width: 15vw;
-}
-
-header div.navbar-item.is-expanded{
-	width: 70vw;
-}
-
 .navbar.is-fixed-bottom, .navbar.is-fixed-top {
 	position: sticky;
 }
