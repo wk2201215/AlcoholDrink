@@ -1,4 +1,4 @@
--- 商品
+-- 商品 --
 INSERT INTO Products(product_name,category_id,price,image_pass,product_description)
 VALUES 
 (
@@ -525,15 +525,15 @@ VALUES ('グリーンシードル ほのかな酸味 ニッカ弘前 生シー�
 原材料	リンゴ（日本産）／炭酸、酸化防止剤（亜硫酸塩）'
 );
 
--- 知識商品連携
+-- 知識商品連携 --
 INSERT INTO Knowledge_products(knowledge_id,product_id)
 VALUES (1,1),(1,2),(2,1);
--- カート
+-- カート --
 INSERT INTO Carts(customer_id,product_id,cart_quantity)
 VALUES (1,1,3);
--- オーダー
+-- オーダー --
 INSERT INTO Orders(customer_id,shipping_address,payment)
 VALUES (1,'福岡市博多区博多駅南2-12-32','クレジットカード');
--- オーダー詳細
+-- オーダー詳細 --
 INSERT INTO Order_details(order_id,product_id,quantity)
 VALUES (1,1,100),(1,2,50);
