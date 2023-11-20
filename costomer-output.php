@@ -46,6 +46,44 @@ if(empty($sql->fetchAll())) {
             $image]);
             move_uploaded_file($_FILES['idcard']['tmp_name'],$image);//imagesディレクトリにファイル保存
         echo 'お客様情報を登録しました。';
+        echo '<div>';
+        echo '<dl>';
+        echo '<dt>アカウントID  ',$_POST['login_id'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>氏名  ',$_POST['name'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>パスワード ';
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>郵便番号  ',$_POST['postcode'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>住所  ',$_POST['address'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>電話番号  ',$_POST['tel'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>メールアドレス  ',$_POST['mail'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>生年月日  ',$_POST['dirth'];
+        echo '</dl>';
+
+        echo '<dl>';
+        echo '<dt>提出画像  ',$image;
+        echo '</dl>';
+        echo '</div>';
+
     }
 } else {
     echo 'ログイン名が既に使用されていますので、変更してください。';

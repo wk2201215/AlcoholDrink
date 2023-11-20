@@ -1,11 +1,7 @@
-footer a{
-	display: flex;
+.navbar-item.is-expanded{
 	justify-content: center;
 }
-header a{
-	display: flex;
-	justify-content: center;
-}
-main{
-	margin-top: 3.25rem;
+
+.navbar.is-fixed-bottom, .navbar.is-fixed-top {
+	position: sticky;
 }

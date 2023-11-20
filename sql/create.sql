@@ -4,6 +4,12 @@ CREATE TABLE Identifications(
     PRIMARY KEY(identification_id)
 );
 
+CREATE TABLE Payments(
+    payment_id INT auto_increment,
+    payment_name VARCHAR(50) NOT NULL,
+    PRIMARY KEY(payment_id)
+);
+
 CREATE TABLE Customers(
     customer_id INT auto_increment,
     login_id VARCHAR(50) NOT NULL,
@@ -19,9 +25,10 @@ CREATE TABLE Customers(
     identification_detail VARCHAR(100),
     created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    customer_payment VARCHAR(50),
+    payment_id Int,
     PRIMARY KEY(customer_id),
-    FOREIGN KEY(identification_id) REFERENCES Identifications(identification_id)
+    FOREIGN KEY(identification_id) REFERENCES Identifications(identification_id),
+    FOREIGN KEY(payment_id) REFERENCES Payments(payment_id)
 );
 
 CREATE TABLE Categories(

@@ -1,16 +1,31 @@
--- 顧客テーブル
+-- 支払い方法 --
+
+INSERT INTO Payments(payment_name)
+VALUES
+('クレジットカード'),
+('コンビニ払い'),
+('電子マネー'),
+('銀行ATM'),
+('ネットバンキング'),
+('代金引換'),
+('ギフトカード'),
+('PayPay'),
+('携帯決済'),
+('あと払い (ペイディ)');
+
+-- 顧客テーブル --
 INSERT INTO Customers(login_id,customer_name,customer_password,postcode,address,telephone,mail,birth,identification_image_pass)
 VALUES ('admin', '管理者', 'Pass1036', '8120016', '福岡市博多区博多駅南2-12-32', '0120-371-007', 'asojuku@asojuku.co.jp',
 '2023-11-08','https://asojuku.ac.jp/abcc/images/mv_pc.jpg');
--- 身分証テーブル
+-- 身分証テーブル --
 INSERT INTO Identifications(identification_name)
 VALUES ('運転免許証'),('保険証'),('マイナンバーカード'),('パスポート'),('身体障害者手帳'),('在留カード'),('写真付き住民基本台帳カード');
--- カテゴリ
+-- カテゴリ --
 INSERT INTO Categories(category_name)
 VALUES ('ビール'),('発泡酒'),('その他の発泡性酒類'),('清酒'),('果実酒'),('その他の醸造酒'),('連続式蒸留焼酎'),
 ('単式蒸留焼酎'),('ウイスキー'),('ブランデー'),('原料用アルコール'),('スピリッツ'),('合成清酒'),('みりん'),
 ('甘味果実酒'),('リキュール'),('粉末酒'),('雑酒');
--- レシピ
+-- レシピ --
 INSERT INTO Recipes(recipe_name,customer_id,recipe_image_pass,recipe_description)
 VALUES 
 ('オリジナルカクテル「逆さ富士」',1,
@@ -28,7 +43,7 @@ VALUES
 今回は塩こしょうを少し多めに入れて作りました。（5振りくらい）
 このレシピの生い立ち
 スーパーにせせりが売っていたので、今夜のビールのおともに作りました。');
--- レシピ材料
+-- レシピ材料 --
 INSERT INTO Recipe_ingredients(recipe_id,ingredient_number,ingredient_name,ingredient_quantity)
 VALUES 
 (1,1,'日本酒','30ｍｌ（大さじ２）'),
@@ -43,7 +58,7 @@ VALUES
 (2,6,'ラー油','3適宜'),
 (2,7,'ごま油','適宜'),
 (2,8,'黒こしょう','少々');
--- レシピ手順
+-- レシピ手順 --
 INSERT INTO Recipe_cooking(recipe_id,cooking_number,cooking_procedure)
 VALUES 
 (1,1,'ヨーグルトリキュール以外の材料をシェーカーに入れます。氷を加えてシェークします。グラスに注ぎます。'),
@@ -51,7 +66,7 @@ VALUES
 (2,1,'フライパンに油を熱し、おろしニンニクを入れ、せせりを中火で炒め、塩こしょうする。'),
 (2,2,'玉ねぎはスライスし、水に5分さらし、よく水を切る。ラー油とごま油を混ぜ合わせておく。'),
 (2,3,'しっかり火を通し、黒こしょうをふり、器に取り分け、②の玉ねぎを盛り付け完成！');
--- 知識
+-- 知識 --
 INSERT INTO Knowledge(knowledge_name,knowledge_text)
 VALUES ('ウイスキーとは？','ウイスキーの定義は国や地域で異なりますが、一般的には「穀物を原料に蒸留をして樽で熟成させたもの」がウイスキーと呼ばれています。');
 INSERT INTO Knowledge(knowledge_name,knowledge_text)
