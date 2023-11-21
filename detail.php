@@ -1,6 +1,5 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
 <?php 
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from Products where product_id=?');
