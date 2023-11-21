@@ -536,4 +536,4 @@ INSERT INTO Orders(customer_id,shipping_address,payment)
 VALUES (1,'福岡市博多区博多駅南2-12-32','クレジットカード');
 -- オーダー詳細 --
 INSERT INTO Order_details(order_id,product_id,quantity)
-VALUES (1,1,100),(1,2,50);
+VALUES (1,1,100),(1,2,50),(2,1,1),(2,2,2);

@@ -25,7 +25,8 @@ CREATE TABLE Customers(
     identification_detail VARCHAR(100),
     created_date DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL,
     updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    payment_id Int,
+    payment_id INT,
+    delete_flag TINYINT DEFAULT 0,
     PRIMARY KEY(customer_id),
     FOREIGN KEY(identification_id) REFERENCES Identifications(identification_id),
     FOREIGN KEY(payment_id) REFERENCES Payments(payment_id)
