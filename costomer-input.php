@@ -1,16 +1,16 @@
-<?php require 'db-connect.php';?>
 <?php session_start(); ?>
+<?php require 'db-connect.php';?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>アカウント登録</title>
-    <link rel="stylesheet" href="../css/customer-input.css">
+    <link rel="stylesheet" href="./css/customer-input.css">
 </head>
 <body>
     
-<?php require 'menu.php'; ?>
+<?php require 'header-menu.php'; ?>
 <?php
     $login_id=$name=$password=$postcode=$address=$tel=$mail=$birth='';
     if(isset($_SESSION['customer'])){
