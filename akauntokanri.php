@@ -9,7 +9,7 @@
 <!-- アイコン -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <title>購入完了</title>
-    <link rel="stylesheet" href="../../css/akauntokanri.css"/>
+    <link rel="stylesheet" href="../css/akauntokanri.css"/>
 </head>
 <body>
 <?php require 'header-menu.php'; ?>
@@ -43,7 +43,7 @@ echo '</div>';
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- Common.Script -->
-<script src="../../script/script.js"></script>
+<script src="../script/common.js"></script>
 
 </body>
 </html>
