@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/akauntokanri.css"/>
 </head>
 <body>
+<?php require 'header-menu.php'; ?>
     <?php
     echo '<div class="mar">';
 
@@ -37,6 +38,8 @@ echo '</div>';
 
 echo '</div>';
 ?>
+<?php require 'footer-menu.php'; ?>
+
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- Common.Script -->
