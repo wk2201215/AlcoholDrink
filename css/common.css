@@ -5,3 +5,13 @@
 .navbar.is-fixed-bottom, .navbar.is-fixed-top {
 	position: sticky;
 }
+
+.navbar.is-fixed-top {
+	height: 10vh;
+}
+.navbar.is-fixed-bottom {
+	height: 7vh;
+}
+.hero{
+	min-height: 83vh;
+}
