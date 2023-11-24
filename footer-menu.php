@@ -11,7 +11,7 @@
                 <i class="fa fa-home fa-lg" aria-hidden="true"></i>
             </span>
         </a>
-        <a class="navbar-item is-expanded" style="width: 20vw" href="">
+        <a class="navbar-item is-expanded" style="width: 20vw" href="knowledge-top.php">
             <span class="is-size-4">
                 <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i>
             </span>

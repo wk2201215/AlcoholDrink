@@ -1,4 +1,4 @@
-<nav class="navbar is-block is-fixed-top has-shadow" role="navigation">
+<nav v-if="Scroll" class="navbar is-block is-fixed-top has-shadow" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item is-expanded pl-5" style="width: 12vw">
             <span class="is-size-3">
