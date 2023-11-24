@@ -13,9 +13,8 @@ if(isset($_POST['keyword'])){
     $sql->execute(['%'.$_POST['keyword'].'%']);
 }else{
     $pdor=new PDO($connect,USER,PASS);
-    $sqlr=$pdor->query('set @rowr=0;
-    select P.*,num,
-    @rowr:=@rowr+1 as rank
+    $sqlr=$pdor->query('
+    select P.*,num
     from Products as P 
     inner join
     (select product_id,sum(quantity) as num
@@ -24,28 +23,30 @@ if(isset($_POST['keyword'])){
     P.product_id=O.product_id
     order by num desc
     limit 10;');
-    $k=$sqlr->fetchAll();
-    var_dump($k);
-    echo '<hr>';
+    // var_dump($sqlr);
+    // $k=$sqlr->fetchAll();
+    // var_dump($k);
+    // echo '<hr>';
+    $rank=1;
     foreach($sqlr as $row){
         $id=$row['product_id'];
-        echo $row['rank'];
+        echo $rank;
+        $rank++;
         echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/',$row['image_pass'],'">
             ',$row['product_name'],'</a>';
         echo '<p>価格:',$row['price'],'</p>';
     }
     $sql=$pdo->query('select * from Products');
 }
-var_dump($sqlr);
-echo '<hr>';
-var_dump($sql);
-echo '<hr>';
+// var_dump($sqlr);
+// echo '<hr>';
+// var_dump($sql);
+// echo '<hr>';
 foreach ($sql as $row) {
     $id=$row['product_id'];
     echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/',$row['image_pass'],'">
          ',$row['product_name'],'</a>';
     echo '<p>価格:',$row['price'],'</p>';
-    echo 'k';
 }
 ?>
 <?php require 'footer.php'; ?>
