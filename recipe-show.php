@@ -1,6 +1,5 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    //$recipe_id=2;
     $sql=$pdo->prepare('SELECT * FROM Recipes where recipe_id = ?');
     $sql->execute([$recipe_id]);
     $item=$sql->fetchAll();
