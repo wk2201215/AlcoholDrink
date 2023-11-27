@@ -47,3 +47,27 @@
 .width55 input,.width35 input,.width95 textarea{
 	width:95%
 }
+
+.txt-limit {
+	overflow: hidden;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2; /* 任意の行数を指定 */
+  }
+
+.media_recipe_image{
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+}
+
+.media_recipe_imege img{
+	max-height:100%;
+	width:auto;
+	max-width:100%;
+	height:auto;
+}
+
+.media_recipe :hover{
+    background-color: hsl(219, 70%, 96%);
+}
