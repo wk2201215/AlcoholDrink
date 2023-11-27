@@ -2,21 +2,20 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-
 <form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 
-<div class="field">
+<div class="field" id="cookingimage">
     <div class="file is-boxed image has-name is-fullwidth">
         <label class="file-label">
-            <input class="file-input" type="file" name="cooking_image" accept="image/*">
+            <input class="file-input" type="file" name="cooking_image" accept="image/*" @change="onImageUploaded">
             <span class="file-cta">
                 <span class="file-icon"><i class="fas fa-upload"></i></span>
                 <span class="file-label has-text-centered">
-                    料理の写真を載せる
+                    料理の写真をのせる
                 </span>
             </span>
             <span class="file-name has-text-centered">
-                ファイル名
+                {{ image_name }}
             </span>
         </label>
     </div>

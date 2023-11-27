@@ -1,17 +1,19 @@
-const app=new Vue({
-    el: '#app',
-    data(){
-        return{
-        };
-    },
-    methods:{
-    },
-    computed:{
-        Scroll(){
-            return true;
-        },
+const app = new Vue({
+  el: '#cookingimage', // Vue.jsを適用する要素のCSSセレクター 
+  data() {
+    return {
+        image_name : "ファイル名"
     }
-});
+  },
+  methods: {
+    onImageUploaded(e) {
+      // event(=e)から画像データを取得する
+      const image = e.target.files[0];
+      this.image_name=image.name;
+    }
+  }
+})
+
 
 //材料テーブルjs
 function deleteIngredient(element) {
