@@ -22,6 +22,7 @@
         </a>
     </div>
 </nav>
+<div id="app">
 <section class="hero">
     <div class="hero-body py-5">
         <div class="container">

@@ -48,12 +48,19 @@
 	width:95%
 }
 
-.txt-limit {
+.txt-limit1 {
 	overflow: hidden;
 	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2; /* 任意の行数を指定 */
   }
+
+.txt-limit2 {
+		width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	  }
 
 .media_recipe_image{
 	display: flex;
@@ -68,6 +75,9 @@
 	height:auto;
 }
 
-.media_recipe :hover{
-    background-color: hsl(219, 70%, 96%);
+.Mydropdown{
+	left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
 }

@@ -1,8 +1,8 @@
 const app = new Vue({
-  el: '#cookingimage', // Vue.jsを適用する要素のCSSセレクター 
+  el: '#app', // Vue.jsを適用する要素のCSSセレクター 
   data() {
     return {
-        image_name : "ファイル名"
+        image_name : "ファイル名",
     }
   },
   methods: {
@@ -10,10 +10,12 @@ const app = new Vue({
       // event(=e)から画像データを取得する
       const image = e.target.files[0];
       this.image_name=image.name;
+    },
+    Myrecipes_dropdown(){
+      document.getElementById('Myrecipes').classList.toggle("is-active");
     }
   }
 })
-
 
 //材料テーブルjs
 function deleteIngredient(element) {

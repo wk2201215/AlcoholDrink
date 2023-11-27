@@ -4,6 +4,7 @@
         <p><small>Copyright&copy;2023 Nozaki Corporation.</small></p>
     </div>
 </section>
+</div>
 <nav class="navbar is-block is-fixed-bottom has-shadow" role="navigation">
     <div class="navbar-brand">
         <a class="navbar-item is-expanded" style="width: 20vw" href="top.php">
