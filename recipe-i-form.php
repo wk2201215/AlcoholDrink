@@ -2,8 +2,8 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-<form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 
+<form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 <div class="field" id="cookingimage">
     <div class="file is-boxed image has-name is-fullwidth">
         <label class="file-label">
