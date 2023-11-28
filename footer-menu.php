@@ -21,7 +21,7 @@
                 <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
             </span>
         </a>
-        <a class="navbar-item is-expanded" style="width: 20vw" href="">
+        <a class="navbar-item is-expanded" style="width: 20vw" href="recipe-top.php">
             <span class="is-size-4">
                 <i class="fa fa-book fa-lg" aria-hidden="true"></i>
             </span>
