@@ -2,7 +2,6 @@
 <?php require 'db-connect.php';?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-
 <?php
     $pdo1=new PDO($connect, USER, PASS);
     $pdo2=new PDO($connect, USER, PASS);
@@ -10,7 +9,7 @@
     foreach($pdo1->query('select * from Knowledge') as $row1){
         echo '<div class="box is-clipped">';
         echo '<label class="label txt-show">', $row1['knowledge_name'],'</label>';
-        echo '<button class="more" @click="change"><i class="fas fa-angle-down"></i></button>';
+        echo '<button class="button more" @click="change">本文</button>';
         echo '<p class="txt-hide">', $row1['knowledge_text'],'</p>';
         echo '<p>関連商品</p>';
         echo '<figure class="mt-3">';
