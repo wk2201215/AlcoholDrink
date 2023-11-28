@@ -1,7 +1,9 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
+<?php require 'header-menu.php'; ?>
 <?php
     $login_id=$name=$password=$postcode=$address=$tel=$mail=$birth='';
+    $b='登録';
     if(isset($_SESSION['customer'])){
         $login_id=$_SESSION['customer']['login_id'];
         $name=$_SESSION['customer']['name'];
@@ -11,6 +13,7 @@
         $tel=$_SESSION['customer']['tel'];
         $mail=$_SESSION['customer']['mail'];
         $birth=$_SESSION['customer']['birth'];
+        $b='変更';
         // $idcard=$_SESSION['customer']['idcard'];
     }
     echo '<form action="costomer-output.php" method="post" enctype="multipart/form-data">';
@@ -43,7 +46,8 @@
     echo '<input type="file" accept="image/*" name="idcard" required>';
     echo '</td></tr>';
     echo '</table>';
-    echo '<input type="submit"  value="登録">';
+    echo '<input type="submit"  value="',$b,'">';
     echo '</form>';
 ?>
+<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

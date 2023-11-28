@@ -1,11 +1,12 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<form action="top.php" method="post">
+<?php require 'header-menu.php'; ?>
+<!-- <form action="top.php" method="post">
     商品検索
     <input type="text" name="keyword">
     <input type="submit" name="検索">
 </form>
-<hr>
+<hr> -->
 <?php
 $pdo=new PDO($connect,USER,PASS);
 if(isset($_POST['keyword'])){
@@ -49,4 +50,5 @@ foreach ($sql as $row) {
     echo '<p>価格:',$row['price'],'</p>';
 }
 ?>
+<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

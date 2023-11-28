@@ -8,7 +8,7 @@
         <div class="navbar-item is-expanded" style="width: 77vw">
             <div class="field has-addons" style="width: 100%">
                 <div class="control" style="width: 70%">
-                    <input class="input" type="text" name="keyword" placeholder="キーワード検索">
+                    <input class="input" type="text" name="search" placeholder="キーワード検索">
                 </div>
                 <div class="control" style="width: 30%">
                     <a class="button is-info" style="width: 100%"><i class="fa fa-search" aria-hidden="true"></i>検索</a>
@@ -22,7 +22,6 @@
         </a>
     </div>
 </nav>
-<div id="app">
 <section class="hero">
     <div class="hero-body py-5">
         <div class="container">

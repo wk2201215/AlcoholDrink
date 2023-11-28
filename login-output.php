@@ -1,6 +1,7 @@
 <?php session_start();?>
 <?php require 'db-connect.php';?>
 <?php require 'header.php';?>
+<?php require 'header-menu.php'; ?>
 <?php
 unset($_SESSION['customer']);
 $pdo=new PDO($connect, USER, PASS);
@@ -15,7 +16,7 @@ foreach ($sql as $row){
     // $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
     // echo $pass;
     if(password_verify($_POST['password'],$row['customer_password'])){
-        echo '1';
+        // echo '1';
         $_SESSION['customer']=[
             'id'=>$row['customer_id'],
             'login_id'=>$row['login_id'],
@@ -25,15 +26,15 @@ foreach ($sql as $row){
             'address'=>$row['address'],
             'tel'=>$row['telephone'],
             'mail'=>$row['mail'],
-            'birth'=>$row['birth']
+            'birth'=>$row['birth'],
+            'payment'=>$row['customer_payment']
         ];
     }
 }
 // var_dump($_SESSION);
 if(isset($_SESSION['customer'])){
     echo 'いらっしゃいませ、', $_SESSION['customer']['name'], 'さん。';
-    $top='top.php'
-    echo '<button type="button" onclick="location.href='.$top.'">トップページへ</button>';
+    // echo '<button type="button" onclick="location.href='top.php'">トtop.phpップページへ</button>';
     // var_dump($_SESSION['customer']['id']);
 }else{
     echo 'ログイン名またはパスワードが違います。';
@@ -41,4 +42,5 @@ if(isset($_SESSION['customer'])){
     // echo $pass;
 }
 ?>
+<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php';?>
