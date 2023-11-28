@@ -9,8 +9,8 @@
     foreach($pdo1->query('select * from Knowledge') as $row1){
         echo '<div class="box is-clipped">';
         echo '<label class="label txt-show">', $row1['knowledge_name'],'</label>';
-        echo '<button class="button more" @click="change">本文</button>';
-        echo '<p class="txt-hide">', $row1['knowledge_text'],'</p>';
+        echo '<div class="contents-hide">';
+        echo '<p>', $row1['knowledge_text'],'</p>';
         echo '<p>関連商品</p>';
         echo '<figure class="mt-3">';
         $sql=$pdo2->prepare('
@@ -25,6 +25,8 @@
             src="images/',$row2['image_pass'],'">','</a>';
         }
         echo '</figure>';
+        echo '</div>';
+        echo '<button class="more" onclick="change(event)"></button>';
         echo '</div>';
     }
     ?>

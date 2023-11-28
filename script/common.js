@@ -13,18 +13,20 @@ const app = new Vue({
     },
     Myrecipes_dropdown(){
       document.getElementById('Myrecipes').classList.toggle("is-active");
-    },
-    change(e){
-      const elm = e.target.nextElementSibling;
-      elm.classList.toggle("open"); 
-      if(elm.classList.contains("open")){
-         elm.style.height = elm.scrollHeight + 'px';
-      }else{
-         elm.style.height = "0";
-      }
-   }
+    }
   }
 })
+
+function change(e){
+  const elm = e.target.parentNode.querySelector('.contents-hide');
+  e.target.classList.toggle("on-click");
+  elm.classList.toggle("open"); 
+  if(elm.classList.contains("open")){
+     elm.style.height = elm.scrollHeight + 'px';
+  }else{
+     elm.style.height = "3em";
+  }
+}
 
 //材料テーブルjs
 function deleteIngredient(element) {
