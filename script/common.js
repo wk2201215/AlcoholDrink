@@ -13,7 +13,16 @@ const app = new Vue({
     },
     Myrecipes_dropdown(){
       document.getElementById('Myrecipes').classList.toggle("is-active");
-    }
+    },
+    change(e){
+      const elm = e.target.nextElementSibling;
+      elm.classList.toggle("open"); 
+      if(elm.classList.contains("open")){
+         elm.style.height = elm.scrollHeight + 'px';
+      }else{
+         elm.style.height = "0";
+      }
+   }
   }
 })
 

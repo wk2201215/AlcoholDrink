@@ -24,9 +24,17 @@
     $sql=$pdo->prepare('SELECT recipe_id,recipe_name FROM Recipes where customer_id = ?');
     $sql->execute([$id]);
     foreach($sql as $row){
-        echo '<a href="recipe-detail.php?recipe_id=',$row['recipe_id'],'" class="dropdown-item" style="max-width: 90vw;">';
+        echo '<div class="dropdown-item columns is-mobile mx-0 my-0 Myrecipe" style="max-width: 90vw;">';
+        echo '<a href="recipe-detail.php?recipe_id=',$row['recipe_id'],'" class="column is-three-fifths">';
         echo '<p class="txt-limit2">',$row['recipe_name'],'</p>';
         echo '</a>';
+        echo '<a href="recipe-u-form.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
+        echo '<p class="txt-limit2">','編集','</p>';
+        echo '</a>';
+        echo '<a href="recipe-delete.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
+        echo '<p class="txt-limit2">','削除','</p>';
+        echo '</a>';
+        echo '</div>';
     }    
 ?>
     </div>
