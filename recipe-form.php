@@ -3,6 +3,7 @@
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
 
+if(empty($_GET['recipe_id'])){
 <form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 <div class="field" id="cookingimage">
     <div class="file is-boxed image has-name is-fullwidth">
@@ -73,6 +74,10 @@
 <input class="button is-link" type = "submit" value = "投稿">
 </div>
 </form>
+}else{
+
+}
+
 
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

@@ -28,7 +28,7 @@
         echo '<a href="recipe-detail.php?recipe_id=',$row['recipe_id'],'" class="column is-three-fifths">';
         echo '<p class="txt-limit2">',$row['recipe_name'],'</p>';
         echo '</a>';
-        echo '<a href="recipe-u-form.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
+        echo '<a href="recipe-form.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
         echo '編集';
         echo '</a>';
         echo '<a onclick="delete_recipe(event)" class="column has-text-centered is-one-fifth">';
