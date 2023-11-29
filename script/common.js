@@ -24,7 +24,7 @@ function change(e){
   if(elm.classList.contains("open")){
      elm.style.height = elm.scrollHeight + 'px';
   }else{
-     elm.style.height = "3em";
+     elm.style.height = "0";
   }
 }
 
@@ -61,4 +61,18 @@ function deleteIngredient(element) {
       <td class="width5 clear-column pb-2"><span class="cooking_close-icon" onclick="deleteCooking(this)">✖</span></td>
     `;
     tbody2.appendChild(newRow2);
+  }
+
+  function delete_recipe(e){
+    const id = e.target.childNodes[0].value;
+    const name = e.target.childNodes[1].value;
+    var result = window.confirm(name+'\nを削除しますか？');
+    if( result ) {
+      "recipe-delete.php?recipe_id="+id
+      
+      location.href = 'recipe-top.php';
+  }
+  else {
+  
+  }
   }

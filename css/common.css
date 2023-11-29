@@ -107,15 +107,19 @@ label,p,a{
 }
 
 .contents-hide{
-	height:3em;
+	height:0;
 	overflow:hidden;
 	transition:all 0.5s;
 }
 
+.txt-show{
+	margin-bottom: 0;
+}
 
 button.more {
 	width: 120px;
-	margin: 20px auto;
+	margin: 0 auto;
+	margin-top: 0.5rem;
 	display: block;
 	background-color: #666;
 	color: #fff;
@@ -127,7 +131,7 @@ button.more {
 	}
 	 
 	button.more::after {
-	content: "もっと見る";
+	content: "閲覧";
 	transition: .2s;
 	-erbkit-transition: .2s;
 	}

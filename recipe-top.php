@@ -9,7 +9,7 @@
 <div id="Myrecipes" class="dropdown mx-auto">
     <div class="dropdown-trigger">
         <button class="button is-large" aria-haspopup="true" aria-controls="dropdown-menu" @click="Myrecipes_dropdown">
-            <span>your recipe name</span>
+            <span>my recipe name</span>
             <span class="icon is-small">
             <i class="fas fa-angle-down" aria-hidden="true"></i>
             </span>
@@ -29,10 +29,12 @@
         echo '<p class="txt-limit2">',$row['recipe_name'],'</p>';
         echo '</a>';
         echo '<a href="recipe-u-form.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
-        echo '<p class="txt-limit2">','編集','</p>';
+        echo '編集';
         echo '</a>';
-        echo '<a href="recipe-delete.php?recipe_id=',$row['recipe_id'],'" class="column has-text-centered is-one-fifth">';
-        echo '<p class="txt-limit2">','削除','</p>';
+        echo '<a onclick="delete_recipe(event)" class="column has-text-centered is-one-fifth">';
+        echo '<input type="hidden" value="',$row['recipe_id'],'">';
+        echo '<input type="hidden" value="',$row['recipe_name'],'">';
+        echo '削除';
         echo '</a>';
         echo '</div>';
     }    
