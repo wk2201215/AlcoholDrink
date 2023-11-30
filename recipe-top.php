@@ -45,7 +45,7 @@
 </div>
 
 <div class="is-flex">
-    <a class="button is-link is-medium mx-auto my-3" href="recipe-i-form.php">新規投稿</a>
+    <a class="button is-link is-medium mx-auto my-3" href="recipe-form.php">新規投稿</a>
 </div>
 
 <label class="label">みんなのレシピ</label>

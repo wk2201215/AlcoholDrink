@@ -7,24 +7,44 @@ $sql=$pdo->prepare('select * from Products where product_id=?');
 $sql->execute([$_GET['id']]);
 foreach($sql as $row){
     $id=$row['product_id'];
-    echo '<p><img alt="images" src="images/',$row['image_pass'],'"></p>';
-    echo '<form action="cart-insert.php" method="post">';
+    echo '<figure class="box product_image_slide">';
+    echo '<img class="mx-auto" alt="images" src="images/products/',$row['image_pass'],'" style="width:auto;height:100%;">';
+    echo '</figure>';
+    echo '<form action="cart-insert.php" method="post" class="block">';
     // echo '<p>商品番号:',$row['id'],'</p>';
-    echo '<p>商品名:',$row['product_name'],'</p>';
-    echo '<p>価格:￥',$row['price'],'</p>';
-    echo '<p>個数:<select name="count"';
-    for($i=0;$i<=10;$i++){
-        echo '<option value="',$i,'">',$i,'</option>';
+    echo '<div class="block">';
+    echo '<label class="heading" style="font-size: 16px;font-weight: bolder;">商品名</label>';
+    echo '<p class="txt-limit1 ml-4">',$row['product_name'],'</p>';
+    echo '</div>';
+    echo '<div class="block price mb-0">';
+    echo '<label class="heading" style="font-size: 18px;">￥</label>';
+    echo '<p class="title">',number_format($row['price']),'</p>';
+    echo '<label class="heading" style="font-size: 17px;">税込</label>';
+    echo '</div>';
+    echo '<div class="block">';
+    echo '<label class="selectbox-001">';
+    echo '<select name="count" class="pl-5">';
+    for($i=0;$i<=$row['stock'];$i++){
+        echo '<option value="',$i,'">数量：',$i,'</option>';
     }
-    echo '</select></p>';
+    echo '</select>';
+    echo '</label>';
+    echo '</div>';
     echo '<input type="hidden" name="id" value="',$row['product_id'],'">';
     echo '<input type="hidden" name="name" value="',$row['product_name'],'">';
     // echo '<input type="hidden" name="category" value="',$row['category_id'],'">';
     echo '<input type="hidden" name="price" value="',$row['price'],'">';
-    echo '<p><input type="submit" value="カートに入れる"></p>';
-    echo '<p>商品説明:',$row['product_description'],'</p>';
+    echo '<div class="is-flex block">';
+    echo '<input class="button is-large is-warning mx-auto" type="submit" value="カートに入れる" style="width:90vw;background-color:#ffce5d;">';
+    echo '</div>';
+    echo '<div class="block">';
+    echo '<label class="label">商品説明</label>';
+    echo '<p style="white-space: pre-wrap;">',$row['product_description'],'</p>';
+    echo '</div>';
     echo '</form>';
-    echo '<p><a href="favorite-insert.php?id=',$row['product_id'],'">お気に入りに追加</a></p>';
+    echo '<div class="block">';
+    echo '<a href="favorite-insert.php?id=',$row['product_id'],'">お気に入りに追加</a>';
+    echo '</div>';
 }
 echo '</table>';
 ?>

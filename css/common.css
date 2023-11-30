@@ -130,15 +130,73 @@ button.more {
 	-erbkit-transition: .5s;
 	}
 	 
-	button.more::after {
+button.more::after {
 	content: "閲覧";
 	transition: .2s;
 	-erbkit-transition: .2s;
 	}
 	
-	button.more.on-click::after{
+button.more.on-click::after{
 	content: "閉じる";
 	}
 	
+.product_image_slide{
+	width: 100vw;
+	height:50vh;
+	border: 2px solid #CCC;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+}
 
+.price *{
+	display: inline-block;
+}
+
+.selectbox-001 {
+    position: relative;
+}
+
+.selectbox-001::before,
+.selectbox-001::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-001::before {
+    display: inline-block;
+    right: 0;
+    width: 2.8em;
+    height: 2.8em;
+    border-radius: 0 3px 3px 0;
+    background-color: #2589d0;
+}
+
+.selectbox-001::after {
+    position: absolute;
+    top: 50%;
+    right: 1.4em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+}
+
+.selectbox-001 select {
+    appearance: none;
+    min-width: 9rem;
+    height: 2.8em;
+    padding: .4em 3.6em .4em .8em;
+    border: none;
+    border-radius: 3px;
+    background-color: #e6edf3;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.selectbox-001 select:focus {
+    outline: 2px solid #2589d0;
+}
 	

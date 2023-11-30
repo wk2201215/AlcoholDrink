@@ -1,11 +1,11 @@
 <nav v-if="Scroll" class="navbar is-block is-fixed-top has-shadow" role="navigation">
     <div class="navbar-brand">
-        <a class="navbar-item is-expanded pl-5" style="width: 12vw">
+        <a class="navbar-item is-expanded" style="width: 12vw">
             <span class="is-size-3">
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </span>
         </a>
-        <div class="navbar-item is-expanded" style="width: 77vw">
+        <div class="navbar-item is-expanded px-0" style="width: 70vw">
             <div class="field has-addons" style="width: 100%">
                 <div class="control" style="width: 70%">
                     <input class="input" type="text" name="search" placeholder="キーワード検索">
@@ -15,7 +15,7 @@
                 </div>
             </div>
         </div>
-        <a class="navbar-item is-expanded pr-5" style="width: 11vw">
+        <a class="navbar-item is-expanded" style="width: 11vw">
             <span class="is-size-4">
                 <i class="fa fa-filter" aria-hidden="true"></i>
             </span>

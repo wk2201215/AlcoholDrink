@@ -68,8 +68,8 @@ function deleteIngredient(element) {
     const name = e.target.childNodes[1].value;
     var result = window.confirm(name+'\nを削除しますか？');
     if( result ) {
-      alert("レシピが削除されました！");
       location.href = "recipe-delete.php?recipe_id="+id
+      alert("レシピが削除されました！");
   }
   else {
   
