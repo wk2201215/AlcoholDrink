@@ -39,7 +39,7 @@ if(isset($_POST['keyword'])){
 // echo '<hr>';
 foreach ($sql as $row) {
     $id=$row['product_id'];
-    echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/',$row['image_pass'],'">
+    echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">
          ',$row['product_name'],'</a>';
     echo '<p>価格:',$row['price'],'</p>';
 }
