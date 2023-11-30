@@ -1,22 +1,15 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
-    <link rel="stylesheet" href="../css/login.css">
-</head>
-<body>
-    <div>
-<form action="../alcoholdrink/Top.php" method="post">
-    <p class="acount">アカウントID</p>
-    <input type="text" id="login"><br>
-    <p class="pass">パスワード</p>
-    <input type="text" id="password"><br>
-    <input type="submit" id="logina" value="ログイン">
-    <p>アカウント新規作成は<a href=../account-registration.php>こちら</a></p>
-</div>
+<?php session_start(); ?>
+<?php require 'header.php'; ?>
+<?php
+    if(isset($_GET['hogeA'])){
+        echo $_GET['hogeA'];
+    }
+?>
+<form action="login-output2.php" method="post">
+    アカウントID<input type="text" name="login_id"><br>
+    パスワード<input type="password" name="password"><br>
+    <input type="submit" value="ログイン">
+    アカウント新規作成は<a href="customer-input.php">こちら</a>
 </form>
-</body>
-</html>
+
+<?php require 'footer.php'; ?>
