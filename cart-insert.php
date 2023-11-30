@@ -1,26 +1,20 @@
 <?php session_start(); ?>
-<?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
+<?php require 'db-connect.php'; ?>
 <?php
 $id=$_POST['id'];
-// var_dump($_POST);
-if(!isset($_SESSION['product'])){
-    $_SESSION['product']=[];
+$pdo=new PDO($connect,USER,PASS);
+$sql=$pdo->prepare('select * from Carts where customer_id=? and product_id=?');
+$sql->execute([$_SESSION['customer']['id'],$id]);
+$cart=$sql->fetchAll();
+if(empty($cart)){
+    $sql=$pdo->prepare('update  Carts set cart_quantity=? where customer_id=? and product_id=?');
+    $sql->execute([$cart['cart_quantity']+$_POST['count'],$_SESSION['customer']['id'],$id]);
+}else{
+    $sql2=$pdo->prepare('insert into Carts value(?,?,?)');
+    $sql2->execute([$_SESSION['customer']['id'],$id,$_POST['count']]);
 }
-$count=0;
-if(isset($_SESSION['product'][$id])){
-    $count=$_SESSION['product'][$id]['count'];
-}
-$_SESSION['product'][$id]=[
-    'name'=>$_POST['name'],
-    'price'=>$_POST['price'],
-    'count'=>$count+$_POST['count']
-];
-echo '<br>';
-// var_dump($_SESSION);
-echo '<p>カートに商品を追加しました。</p>';
-echo '<hr>';
-require 'cart.php';
+header('Location:cart.php?');
+exit();
 ?>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

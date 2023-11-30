@@ -1,22 +1,29 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ログイン</title>
-    <link rel="stylesheet" href="../css/login.css">
-</head>
-<body>
-    <div>
-<form action="../alcoholdrink/Top.php" method="post">
-    <p class="acount">アカウントID</p>
-    <input type="text" id="login"><br>
-    <p class="pass">パスワード</p>
-    <input type="text" id="password"><br>
-    <input type="submit" id="logina" value="ログイン">
-    <p>アカウント新規作成は<a href=../account-registration.php>こちら</a></p>
-</div>
-</form>
-</body>
-</html>
+<?php session_start(); ?>
+<?php require 'header.php'; ?>
+<form action="login-output.php" method="post">
+<?php
+    if(isset($_GET['hogeA'])){
+        echo $_GET['hogeA'];
+    }
+?>
+<?php
+echo '<div class="field">';
+        echo '<label class="label">アカウントID</label>';
+        echo '<input type="text" class="input" name="login_id"><br>';
+        echo  '</div>';
+
+        echo '<div class="field">';
+        echo '<label class="label">パスワード</label>';
+        echo  '<input type="password" class="input" name="password"><br>';
+        echo '</div>';
+
+        echo '<div class="field">';    
+        echo  '<input type="submit" class=" button mx-auto " value="ログイン">';
+        echo '</div>';
+        
+        echo '<div class="field">';
+        echo  '<label>アカウント新規作成は<a href="customer-input.php">こちら</a></label>';
+        echo '<div class="field">';
+?>
+
+<?php require 'footer.php'; ?>
