@@ -5,16 +5,16 @@
                 <i class="fa fa-bars" aria-hidden="true"></i>
             </span>
         </a>
-        <div class="navbar-item is-expanded px-0" style="width: 70vw">
+        <form action="top.php" method="post" class="navbar-item is-expanded px-0" style="width: 70vw">
             <div class="field has-addons" style="width: 100%">
                 <div class="control" style="width: 70%">
-                    <input class="input" type="text" name="search" placeholder="キーワード検索">
+                    <input class="input" type="text" name="keyword" placeholder="キーワード検索">
                 </div>
                 <div class="control" style="width: 30%">
-                    <a class="button is-info" style="width: 100%"><i class="fa fa-search" aria-hidden="true"></i>検索</a>
+                    <button type="submit" class="button is-info" style="width: 100%"><i class="fa fa-search" aria-hidden="true"></i>検索</button>
                 </div>
             </div>
-        </div>
+        </form>
         <a class="navbar-item is-expanded" style="width: 11vw">
             <span class="is-size-4">
                 <i class="fa fa-filter" aria-hidden="true"></i>

@@ -1,12 +1,6 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-<!-- <form action="top.php" method="post">
-    商品検索
-    <input type="text" name="keyword">
-    <input type="submit" name="検索">
-</form>
-<hr> -->
 <?php
 $pdo=new PDO($connect,USER,PASS);
 if(isset($_POST['keyword'])){
@@ -33,7 +27,7 @@ if(isset($_POST['keyword'])){
         $id=$row['product_id'];
         echo $rank;
         $rank++;
-        echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/',$row['image_pass'],'">
+        echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">
             ',$row['product_name'],'</a>';
         echo '<p>価格:',$row['price'],'</p>';
     }
