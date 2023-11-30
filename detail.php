@@ -37,8 +37,10 @@ foreach($sql as $row){
     echo '<div class="is-flex block">';
     echo '<input class="button is-large is-warning mx-auto" type="submit" value="カートに入れる" style="width:90vw;background-color:#ffce5d;">';
     echo '</div>';
+    echo '<hr>';
     echo '<div class="block">';
     echo '<label class="label">商品説明</label>';
+    echo '<hr>';
     echo '<p style="white-space: pre-wrap;">',$row['product_description'],'</p>';
     echo '</div>';
     echo '</form>';

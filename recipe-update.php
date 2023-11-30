@@ -5,8 +5,8 @@
 
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    //$id=$_SESSION['customer']['id'];
-    $id=1;
+    $id=$_SESSION['customer']['id'];
+    //$id=1;
     if(!empty($_POST)) {
         $recipe_id=$_POST['recipe_id'];
       //画像処理

@@ -22,7 +22,7 @@
         foreach($sql as $row2){
             echo '<a class="image box is-inline-block mb-0 mr-1" style="vertical-align: top;width:96px;" href="detail.php?id=',$row2['product_id'],'">
             <img alt="images" class="mx-auto" style="height:96px;width:auto;"
-            src="images/',$row2['image_pass'],'">','</a>';
+            src="images/products/',$row2['image_pass'],'">','</a>';
         }
         echo '</figure>';
         echo '</div>';

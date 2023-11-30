@@ -19,8 +19,8 @@
         <div class="dropdown-content">
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    //$id=$_SESSION['customer']['id'];
-    $id=1;
+    $id=$_SESSION['customer']['id'];
+    //$id=1;
     $sql=$pdo->prepare('SELECT recipe_id,recipe_name FROM Recipes where customer_id = ?');
     $sql->execute([$id]);
     foreach($sql as $row){

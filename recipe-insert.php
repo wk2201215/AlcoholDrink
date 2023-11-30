@@ -5,8 +5,8 @@
 
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    //$id=$_SESSION['customer']['id'];
-    $id=1;
+    $id=$_SESSION['customer']['id'];
+    //$id=1;
     if(!empty($_POST)) {
       //画像処理
         $image_name = null;
