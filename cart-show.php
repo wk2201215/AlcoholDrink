@@ -1,9 +1,9 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<?php require 'db-connect.php'; ?>
 <?php
 //DBに接続
-require 'db-connect.php'
 $pdo=new PDO($connect, USER, PASS);
 //cartテーブルの中身を出力
 foreach ($sql=$pdo->query('select * from Carts') as $row){
