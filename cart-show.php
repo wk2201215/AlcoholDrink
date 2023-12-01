@@ -3,7 +3,7 @@
 require 'db-connect.php'
 $pdo=new PDO($connect, USER, PASS);
 //cartテーブルの中身を出力
-foreach ($sql=$pdo->prepare('select * from Carts') as $row);{
+foreach ($sql=$pdo->query('select * from Carts') as $row){
     echo '<table>';
     echo '<tr>';
     echo '<td>',$row["customer_id"],'</td>';
