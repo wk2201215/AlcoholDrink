@@ -37,7 +37,7 @@ if(empty($sql->fetchAll())) {
     } else {
         $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
         $image = 'images/'.$_FILES['idcard']['name'];
-        $sql=$pdo->prepare('insert into Customers value(null,?,?,?,?,?,?,?,?,?,null,null,default,null,null,null)');
+        $sql=$pdo->prepare('insert into Customers value(null,?,?,?,?,?,?,?,?,?,null,null,default,null,null,default)');
         $sql->execute([
             $_POST['login_id'],$_POST['name'],
             $pass,$_POST['postcode'],
