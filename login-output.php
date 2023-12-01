@@ -18,7 +18,6 @@ foreach($sql as $row) {
             'mail'=>$row['mail'],
             'birth'=>$row['birth'],
             'payment'=>$row['payment_id']
-
         ];
     }
 }
