@@ -58,6 +58,6 @@
     }
 ?>
 <?php $recipe_id=$last_resipi_id; ?>
-<?php header("Location: shouhin-list.php");
+<?php header("Location: recipe-top.php");
         exit;
 ?>

@@ -51,9 +51,7 @@
     $sql=$pdo->query('SELECT * FROM Recipes');
 
 foreach($sql as $row){
-    echo '<div class="box media">';
-    // echo '<a class="box media" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
-    echo '<a href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
+    echo '<a class="box media" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
     echo '<figure class="media-left">';
         echo '<div class="media_recipe_image image is-96x96">';
     echo '<img src="../images/cooking/',$row['recipe_image_pass'],'" alt="image">';
@@ -68,12 +66,15 @@ foreach($sql as $row){
             echo '</div>';
         echo '</div>';
     echo '</a>';
-    echo '<div class="media-right">';
-    echo '<div class="content">';
-    echo '<a class="button  is-light" href="recipe-update.php?recipe_id=', $row['recipe_id'] ,'">','更新</a>';
+    echo '<nav class="level">';
+        echo '<div class="level-right">';
+            echo '<div class="level-item">';
+    //echo '<div class="content">';
+    echo '<a class="button  is-light" href="recipe-u-form.php?recipe_id=', $row['recipe_id'] ,'">','更新</a>';
     echo '<a class="button  is-light" href="recipi_delete.php?recipe_id=', $row['recipe_id'] ,'">','削除</a>';
-    echo '</div>';
-    echo '</div>';
+            echo '</div>';
+        echo '</div>';
+    echo '</nav>';
     echo '</div>';
 }
 ?>

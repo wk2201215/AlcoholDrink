@@ -80,6 +80,7 @@
 <input class="button is-link" type = "submit" value = "投稿">
 </div>
 </form>
+<a class="button is-link is-medium mx-auto my-3" href="recipe-top.php">戻る</a>
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <!-- Common.Script -->
