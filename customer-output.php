@@ -37,13 +37,13 @@ if(empty($sql->fetchAll())) {
     } else {
         $image = uniqid(mt_rand(), true);//ファイル名をユニーク化
         $image = 'images/'.$_FILES['idcard']['name'];
-        $sql=$pdo->prepare('insert into Customers value(null,?,?,?,?,?,?,?,?,?,null,null,default,null,?)');
+        $sql=$pdo->prepare('insert into Customers value(null,?,?,?,?,?,?,?,?,?,null,null,default,null,null,default)');
         $sql->execute([
             $_POST['login_id'],$_POST['name'],
             $pass,$_POST['postcode'],
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['dirth'],
-            $image,'なし']);
+            $image]);
             move_uploaded_file($_FILES['idcard']['tmp_name'],$image);//imagesディレクトリにファイル保存
         echo 'アカウントの登録が完了しました。';
     }
