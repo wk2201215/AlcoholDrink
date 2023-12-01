@@ -4,6 +4,7 @@
 <?php
     if(isset($_GET['hogeA'])){
         echo $_GET['hogeA'];
+        echo $_GET['hogeB'];
     }
 ?>
 <?php
