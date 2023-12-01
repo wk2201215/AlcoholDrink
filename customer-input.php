@@ -16,7 +16,7 @@
         $b='変更';
         // $idcard=$_SESSION['customer']['idcard'];
     }
-    echo '<form action="costomer-output.php" method="post" enctype="multipart/form-data">';
+    echo '<form action="customer-output.php" method="post" enctype="multipart/form-data">';
     echo '<table>';
     echo '<tr><td>アカウントID</td><td><br>';
     echo '<input type="text" name="login_id"  value="', $login_id, '" required>';
