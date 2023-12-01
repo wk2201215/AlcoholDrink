@@ -1,4 +1,6 @@
 <?php session_start(); ?>
+<?php require 'header.php'; ?>
+<?php require 'header-menu.php'; ?>
 <?php
 //DBに接続
 require 'db-connect.php'
@@ -14,25 +16,16 @@ foreach ($sql=$pdo->query('select * from Carts') as $row){
     echo '</table>';
 }
 ?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
     <!-- 表示成形 -->
     小計<br>
     \1980<br>
     <button type="button" onclick="location.href='purchase-input.php'">レジに進む</button>
 
 
-</body>
-</html>
 
-
-
+<?php require 'footer-menu.php'; ?>
+<?php require 'footer.php'; ?>
 <?php
 // if (!empty($_SESSION['product'])) {
 //     echo '<table>';
