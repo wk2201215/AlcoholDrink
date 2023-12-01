@@ -25,5 +25,6 @@
     echo '<label>アカウント新規作成は<a href="customer-input.php">こちら</a></label>';
     echo '</div>';
 ?>
+</form>
 
 <?php require 'footer.php'; ?>
