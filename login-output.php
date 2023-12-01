@@ -11,7 +11,7 @@ foreach($sql as $row) {
             'id'=>$row['customer_id'],
             'login_id'=>$row['login_id'],
             'name'=>$row['customer_name'],
-            'password'=>$row['customer_password'],
+            'password'=>$_POST['password'],
             'postcode'=>$row['postcode'],
             'address'=>$row['address'],
             'tel'=>$row['telephone'],
@@ -25,10 +25,7 @@ if(isset($_SESSION['customer'])){
 header('Location:top.php');
 exit();    
 }else{
-    $b=$_POST['login_id'];
-    $c=$_POST['password'];
-    $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
-header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います&hogeB='.$b.'&hogeC='.$c.'&pass='.$pass);
+header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
 exit();
 }
 ?>

@@ -102,6 +102,11 @@ label,p,a{
     -ms-transform: translateX(-50%);
 }
 
+.Myrecipe{
+	max-width: 90vw;
+	min-width: 60vw;
+}
+
 .Myrecipe a:hover{
 	background-color: hsl(219, 70%, 96%);
 }
