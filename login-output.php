@@ -27,7 +27,7 @@ exit();
 }else{
     $b=$_POST['login_id'];
     $c=$_POST['password'];
-    $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);;
+    $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
 header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います&hogeB='.$b.'&hogeC='.$c.'&pass='.$pass);
 exit();
 }
