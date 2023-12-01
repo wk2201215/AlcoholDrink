@@ -27,7 +27,7 @@ header('Location:top.php');
 exit();    
 }else{
     $b=$_POST['login_id'];
-    $c=$_POST['password']
+    $c=$_POST['password'];
 header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います&hogeB='.$b.'&hogeC='.$c);
 exit();
 }
