@@ -17,7 +17,7 @@ foreach($sql as $row) {
             'tel'=>$row['telephone'],
             'mail'=>$row['mail'],
             'birth'=>$row['birth'],
-            'payment'=>$row['customer_payment']
+            'payment'=>$row['payment_id']
 
         ];
     }
