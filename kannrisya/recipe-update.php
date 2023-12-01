@@ -1,5 +1,4 @@
 <?php require '../db-connect.php'; ?>
-<?php require 'header.php'; ?>
 <?php
     $pdo=new PDO($connect, USER, PASS);
     $id=1;
@@ -66,11 +65,9 @@
         $sql=$pdo->prepare('UPDATE Recipes SET recipe_name = ? , recipe_description = ? WHERE recipe_id = ?');
         $sql->execute([$_POST['recipe_name'], $_POST['recipe_description'], $recipe_id]);
     }
+    header("Location: recipe-top.php");
+        exit;
 ?>
-
-<?php require 'recipe-show.php'; ?>
-
-<?php require 'footer.php'; ?>
 
 
 
