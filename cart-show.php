@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 //DBに接続
 require 'db-connect.php'
