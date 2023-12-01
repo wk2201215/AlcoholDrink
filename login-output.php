@@ -26,7 +26,7 @@ if(isset($_SESSION['customer'])){
 header('Location:top.php');
 exit();    
 }else{
-header('Location:login.php?hogeA=ログイン名またはパスワードが違います');
+header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
 exit();
 }
 ?>
