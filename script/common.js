@@ -86,7 +86,7 @@ function deleteIngredient(element) {
   function delete_customer(){
     const form = document.getElementById("form");
     if(form.checkValidity()){
-      alert("アカウントが削除されました！");
+      alert("アカウントが削除されました");
       document.customer_delete.submit();
     } 
   }
