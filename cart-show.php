@@ -6,9 +6,11 @@
 $sum=0;
 //DBに接続
 $pdo=new PDO($connect, USER, PASS);
+//
+$id=$_SESSION['customer']['id'];
 //cartテーブルの中身を出力
 $sql=$pdo->prepare('select * from Carts where customer_id=?');
-$sql->execute([1]);
+$sql->execute([$id]);
 foreach ($sql as $row){
     echo '<p>';
     echo $row["customer_id"];

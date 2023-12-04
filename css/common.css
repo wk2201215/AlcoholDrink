@@ -52,7 +52,7 @@ label,p,a{
 	opacity: .7;
 }
 
-#cooking_table,#ingredient_table{
+#cooking_table,#ingredient_table,#customer_table{
 	width:100%;
 }
 

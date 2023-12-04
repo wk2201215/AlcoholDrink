@@ -64,18 +64,26 @@
     echo '<div class="field">';
     echo '<label class="label">生年月日</label>';
     echo '<div class="control">';
-    echo '<input class="input" type="date" name="dirth"  value="', $birth, '" required>';
+    echo '<input class="input" type="date" name="birth"  value="', $birth, '" required>';
     echo '</div></div>';
 
     echo '<div class="field">';
     echo '<label class="label">身分証など本人確認ができる写真をお願いします</label>';
     echo '<div class="file is-boxed image has-name is-fullwidth">';
     echo '<label class="file-label">';
-    echo '<input class="file-input" type="file" accept="image/*" name="idcard" @change="onImageUploaded" required>';
-    echo '<span class="file-cta">';
-    echo '<span class="file-icon"><i class="fas fa-upload"></i></span>';
-    echo '<span class="file-label has-text-centered">写真をのせる</span>';
-    echo '</span>';
+    if(isset($_SESSION['customer'])){
+        echo '<input class="file-input" type="file" accept="image/*" name="idcard" @change="onImageUploaded">';
+        echo '<span class="file-cta">';
+        echo '<span class="file-icon"><i class="fas fa-upload"></i></span>';
+        echo '<span class="file-label has-text-centered">写真を変更する</span>';
+        echo '</span>';
+    }else{
+        echo '<input class="file-input" type="file" accept="image/*" name="idcard" @change="onImageUploaded" required>';
+        echo '<span class="file-cta">';
+        echo '<span class="file-icon"><i class="fas fa-upload"></i></span>';
+        echo '<span class="file-label has-text-centered">写真をのせる</span>';
+        echo '</span>';
+    }
     echo '<span class="file-name has-text-centered">{{ image_name }}</span>';
     echo '</label>';
     echo '</div></div>';
