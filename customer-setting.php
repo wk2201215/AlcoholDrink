@@ -30,7 +30,7 @@
 </span>
 </li>
 <li class="control has-icons-right">
-<a class="input" href="logout.php">ログアウト</a>
+<button class="input" @click="logout">ログアウト</button>
 <span class="icon is-right is-medium">
 <i class="fa fa-angle-right"></i>
 </span>

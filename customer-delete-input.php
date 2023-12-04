@@ -13,12 +13,12 @@
             投稿されたレシピ情報など一部のデータは
             退会後も削除されません。</p>
         </div>
-        <form class="field" method="post" action="customer-delete-output.php">
+        <form class="field" method="post" action="customer-delete-output.php" name="customer_delete" id="form">
         <label class="field checkbox mb-5">
-            <input type="checkbox" name="k" value="1" required>
+            <input type="checkbox" name="k" id="check" value="1" required>
             今後このアカウントを使用しません。
         </label>
-            <button class="button" type="submit" style="width:100%;">アカウントを削除</button>
+            <button class="button" onclick="delete_customer()" style="width:100%;" type="submit">アカウントを削除</button>
         </form>
     </div>
 </div>

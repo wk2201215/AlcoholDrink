@@ -1,9 +1,5 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
-<div class="displaycenter">
-    <div class="has-text-centered" style="width:85%;">
 <?php
     if(isset($_POST['k'])){
         $pdo=new PDO($connect,USER,PASS);
@@ -11,13 +7,11 @@
         $id=$_SESSION['customer']['id'];
         $sql->execute([$id]);
         unset($_SESSION['customer']);
-        echo '<label class="label">アカウントの削除が完了しました。</label>';
+        header('Location:login-input.php');
+        exit();
     }else{
-        echo '<label class="label">アカウントが削除できませんでした。</label>';
+        unset($_SESSION['customer']);
+        header('Location:login-input.php');
+        exit();
     }
 ?>
-    <button class="button" type="button" onclick="location.href='login-input.php'">ログイン画面へ</button>
-    </div>
-</div>
-<?php require 'footer-menu.php'; ?>
-<?php require 'footer.php'; ?>

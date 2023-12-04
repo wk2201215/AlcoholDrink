@@ -7,7 +7,7 @@
     $hai=[
         'name'=>'',
         'nostock'=>''
-    ]
+    ];
     // var_dump($_SESSION['customer']['id']);
     $sql->execute([
         $_SESSION['customer']['id'], 
