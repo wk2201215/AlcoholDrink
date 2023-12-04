@@ -285,7 +285,7 @@ button.more.on-click::after{
 	color: #000;
 }
 
-.setting_ul a {
+.setting_ul a,.setting_ul button {
 	border-color: solid 1px silver;
 	border-radius: 0;
 	box-shadow: none;
