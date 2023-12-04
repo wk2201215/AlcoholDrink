@@ -7,7 +7,7 @@ $sum=0;
 //DBに接続
 $pdo=new PDO($connect, USER, PASS);
 //cartテーブルの中身を出力
-$sql=$pdo->prepare('select * from Carts where Customers=?');
+$sql=$pdo->prepare('select * from Carts where customer_id=?');
 $sql->execute([1]);
 foreach ($sql as $row){
     echo '<p>';
@@ -16,7 +16,7 @@ foreach ($sql as $row){
     echo $row["cart_quantity"];
     echo '</p>';
     $sum+=$row["cart_quantity"];
-    $sql2=$pdo->prepare('select * from Products where Customers=?');
+    $sql2=$pdo->prepare('select * from Products where product_id=?');
     $sql2->execute([$row["product_id"]]);
     foreach ($sql2 as $row2){
         echo $row2["product_name"];
