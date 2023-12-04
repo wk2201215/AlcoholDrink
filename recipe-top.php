@@ -3,6 +3,7 @@
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
 
+<div class="hero-body py-5">
 <label class="label">Myレシピ</label>
 
 <div class="is-flex">
@@ -71,5 +72,6 @@ foreach($sql as $row){
 }
 ?>
 
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

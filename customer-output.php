@@ -49,6 +49,7 @@ if(empty($sql->fetchAll())) {
     }
 } else {
     echo 'ログイン名が既に使用されていますので、変更してください。';
+    echo '<button type="button" onclick="history.back()">戻る</button>';
 }
 ?>
 <?php require 'footer-menu.php'; ?>

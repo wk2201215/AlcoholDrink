@@ -2,11 +2,11 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<div class="hero-body py-5">
 
 <?php
 if(empty($_GET['recipe_id'])){
     echo '<form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">';
-    echo '<div class="field" id="cookingimage">';
     echo '<div class="field" id="cookingimage">';
     echo '<div class="file is-boxed image has-name is-fullwidth">';
     echo '<label class="file-label">';
@@ -85,7 +85,6 @@ if(empty($_GET['recipe_id'])){
     echo '<form action = "recipe-update.php" class="box" method="post" enctype="multipart/form-data">';
     echo '<input type="hidden" name="recipe_id" value="',$recipe_id,'">';
     echo '<div class="field" id="cookingimage">';
-    echo '<div class="field" id="cookingimage">';
     echo '<div class="file is-boxed image has-name is-fullwidth">';
     echo '<label class="file-label">';
     echo '<input class="file-input" type="file" name="cooking_image" accept="image/*" @change="onImageUploaded">';
@@ -156,5 +155,6 @@ if(empty($_GET['recipe_id'])){
     echo '</form>';
 }
 ?>
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

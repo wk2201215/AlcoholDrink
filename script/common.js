@@ -2,7 +2,7 @@ const app = new Vue({
   el: '#app', // Vue.jsを適用する要素のCSSセレクター 
   data() {
     return {
-        image_name : "ファイル名",
+        image_name : "ファイルを選択...",
     }
   },
   methods: {

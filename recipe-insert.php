@@ -2,6 +2,7 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<div class="hero-body py-5">
 
 <?php
     $pdo=new PDO($connect, USER, PASS);
@@ -62,6 +63,7 @@
     }
 ?>
 
+</div>
 <?php $recipe_id=$last_recipe_id; ?>
 <?php require 'recipe-show.php'; ?>
 

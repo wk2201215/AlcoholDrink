@@ -18,5 +18,4 @@
     </div>
 </nav>
 <div id="app">
-<section class="hero">
-    <div class="hero-body py-5 main">
+<section class="hero main">

@@ -1,4 +1,3 @@
-    </div>
     <div class="hero-body has-background-light has-text-centered py-3">
         <p><small>Copyright&copy;2023 Nozaki Corporation.</small></p>
     </div>

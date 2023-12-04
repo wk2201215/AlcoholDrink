@@ -2,7 +2,7 @@
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
 
-
+<div class="hero-body py-5">
 <label class="label">注文</label>
 
 <ul class="field box setting_ul">
@@ -43,6 +43,7 @@
 </li>
 </ul>
 
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
 

@@ -1,6 +1,5 @@
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-
 <div class="displaycenter">
     <div style="width:85%;">
         <div class="field mb-5">
