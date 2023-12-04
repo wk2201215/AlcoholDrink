@@ -21,7 +21,7 @@ foreach ($sql as $row){
         echo $row2["product_name"];
         echo '<a href="detail.php?id=',$row["product_id"],'"><img alt="images" src="images/products/',$row2['image_pass'],'">
             ','</a>';
-            $sum+=$row["cart_quantity"]*$row2["product_price"];
+            $sum+=$row["cart_quantity"]*$row2["price"];
     }
 }
 echo $sum;
