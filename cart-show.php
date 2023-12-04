@@ -15,20 +15,21 @@ foreach ($sql as $row){
     echo $row["product_id"];
     echo $row["cart_quantity"];
     echo '</p>';
-    $sum+=$row["cart_quantity"];
     $sql2=$pdo->prepare('select * from Products where product_id=?');
     $sql2->execute([$row["product_id"]]);
     foreach ($sql2 as $row2){
         echo $row2["product_name"];
         echo '<a href="detail.php?id=',$row["product_id"],'"><img alt="images" src="images/products/',$row2['image_pass'],'">
             ','</a>';
+            $sum+=$row["cart_quantity"]*$row2["product_price"];
     }
 }
+echo $sum;
 ?>
 
     <!-- 表示成形 -->
     小計<br>
-    \1980<br>
+    \<br>
     <button type="button" onclick="location.href='purchase-input.php'">レジに進む</button>
 
 
