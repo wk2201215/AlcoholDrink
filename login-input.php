@@ -1,11 +1,7 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<form action="login-output.php" method="post">
-<?php
-    if(isset($_GET['hogeA'])){
-        echo $_GET['hogeA'];
-    }
-?>
+<div class="loginheight100">
+    <form action="login-output.php" method="post" class="box mx-auto my-auto width85">
 <?php
     echo '<div class="field">';
     echo '<label class="label">アカウントID</label>';
@@ -18,13 +14,19 @@
     echo '</div>';
 
     echo '<div class="field">';    
-    echo '<input type="submit" class=" button mx-auto " value="ログイン">';
+    echo '<input type="submit" class="button mx-auto is-link" value="ログイン" style="width:100%;">';
     echo '</div>';
+
+    if(isset($_GET['hogeA'])){
+        echo '<p class="has-text-danger">',$_GET['hogeA'],'</p>';
+    }else{
+        echo '<p class="has-text-danger"><br></p>';
+    }
         
     echo '<div class="field">';
     echo '<label>アカウント新規作成は<a href="customer-input.php">こちら</a></label>';
     echo '</div>';
 ?>
-</form>
-
+    </form>
+</div>
 <?php require 'footer.php'; ?>
