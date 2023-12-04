@@ -23,8 +23,26 @@ label,p,a{
 .navbar.is-fixed-bottom {
 	height: 7vh;
 }
-.hero{
+.main{
 	min-height: 83vh;
+}
+
+.loginheight100{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.displaycenter{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+	margin-top: calc(50% - 50vh);
+	margin-bottom: calc(50% - 50vh);
 }
 
 .close-icon {
@@ -41,6 +59,10 @@ label,p,a{
 
 .width95{
 	width:95%;
+}
+
+.width85{
+	width:85%;
 }
 
 .width80{
@@ -103,8 +125,7 @@ label,p,a{
 }
 
 .Myrecipe{
-	max-width: 90vw;
-	min-width: 60vw;
+	width: 90vw;
 }
 
 .Myrecipe a:hover{
@@ -209,4 +230,75 @@ button.more.on-click::after{
 	margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
 }
-	
+
+.payment_ul{
+	padding: 0;
+}
+
+.payment_ul label {
+	border-color: transparent;
+	border-radius: 0;
+	border-bottom: dashed 1px silver;
+	box-shadow: none;
+  }
+  
+.payment_ul i {
+	color: #ffb03f;
+}
+
+.payment_ul li:first-of-type label{
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.payment_ul li:last-of-type label{
+	border-bottom: none;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+/*デフォルトのラジオボタンのcssを無効化*/
+.payment_ul input[type="radio"] {
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+			appearance: none;
+}
+
+.payment_ul input[type="radio"] {
+	content: '';
+	width: 16px;
+	height: 24.8px;
+}
+  
+.payment_ul input[type="radio"]:checked:before {
+	font-family: "Font Awesome 5 Free","Font Awesome 5 Brands";
+  	content: '\f00c';
+	font-weight: 900;
+	color:#ffb03f;
+  }
+
+
+.setting_ul{
+	padding: 0;
+}
+
+.setting_ul i {
+	color: #000;
+}
+
+.setting_ul a {
+	border-color: solid 1px silver;
+	border-radius: 0;
+	box-shadow: none;
+  }
+
+.setting_ul li:first-of-type a{
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+}
+
+.setting_ul li:last-of-type a{
+	border-bottom: none;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+}

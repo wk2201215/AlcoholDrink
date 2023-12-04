@@ -1,4 +1,3 @@
-        </div>
     </div>
     <div class="hero-body has-background-light has-text-centered py-3">
         <p><small>Copyright&copy;2023 Nozaki Corporation.</small></p>
@@ -17,7 +16,7 @@
                 <i class="fa fa-graduation-cap fa-lg" aria-hidden="true"></i>
             </span>
         </a>
-        <a class="navbar-item is-expanded" style="width: 20vw" href="">
+        <a class="navbar-item is-expanded" style="width: 20vw" href="cart-show.php">
             <span class="is-size-4">
                 <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
             </span>
