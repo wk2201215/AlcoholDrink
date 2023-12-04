@@ -3,17 +3,26 @@
 <?php require 'header-menu.php'; ?>
 <?php require 'db-connect.php'; ?>
 <?php
+$sum=0;
 //DBに接続
 $pdo=new PDO($connect, USER, PASS);
 //cartテーブルの中身を出力
-foreach ($sql=$pdo->query('select * from Carts') as $row){
-    echo '<table>';
-    echo '<tr>';
-    echo '<td>',$row["customer_id"],'</td>';
-    echo '<td>',$row["product_id"],'</td>';
-    echo '<td>',$row["cart_quantity"],'</td>';
-    echo '</tr>';
-    echo '</table>';
+$sql=$pdo->prepare('select * from Carts where Customers=?');
+$sql->execute([1]);
+foreach ($sql as $row){
+    echo '<p>';
+    echo $row["customer_id"];
+    echo $row["product_id"];
+    echo $row["cart_quantity"];
+    echo '</p>';
+    $sum+=$row["cart_quantity"];
+    $sql2=$pdo->prepare('select * from Products where Customers=?');
+    $sql2->execute([$row["product_id"]]);
+    foreach ($sql2 as $row2){
+        echo $row2["product_name"];
+        echo '<a href="detail.php?id=',$row["product_id"],'"><img alt="images" src="images/products/',$row2['image_pass'],'">
+            ','</a>';
+    }
 }
 ?>
 
