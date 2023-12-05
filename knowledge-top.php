@@ -2,6 +2,7 @@
 <?php require 'db-connect.php';?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<div class="hero-body py-5">
 <?php
     $pdo1=new PDO($connect, USER, PASS);
     $pdo2=new PDO($connect, USER, PASS);
@@ -30,9 +31,6 @@
         echo '</div>';
     }
     ?>
-    </table>
-
-
-
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

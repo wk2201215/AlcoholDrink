@@ -3,23 +3,35 @@
 <?php require 'header-menu.php'; ?>
 <?php require 'db-connect.php'; ?>
 <?php
+$sum=0;
 //DBに接続
 $pdo=new PDO($connect, USER, PASS);
+//
+$id=$_SESSION['customer']['id'];
 //cartテーブルの中身を出力
-foreach ($sql=$pdo->query('select * from Carts') as $row){
-    echo '<table>';
-    echo '<tr>';
-    echo '<td>',$row["customer_id"],'</td>';
-    echo '<td>',$row["product_id"],'</td>';
-    echo '<td>',$row["cart_quantity"],'</td>';
-    echo '</tr>';
-    echo '</table>';
+$sql=$pdo->prepare('select * from Carts where customer_id=?');
+$sql->execute([$id]);
+foreach ($sql as $row){
+    echo '<p>';
+    echo $row["customer_id"];
+    echo $row["product_id"];
+    echo $row["cart_quantity"];
+    echo '</p>';
+    $sql2=$pdo->prepare('select * from Products where product_id=?');
+    $sql2->execute([$row["product_id"]]);
+    foreach ($sql2 as $row2){
+        echo $row2["product_name"];
+        echo '<a href="detail.php?id=',$row["product_id"],'"><img alt="images" src="images/products/',$row2['image_pass'],'">
+            ','</a>';
+            $sum+=$row["cart_quantity"]*$row2["price"];
+    }
 }
+echo $sum;
 ?>
 
     <!-- 表示成形 -->
     小計<br>
-    \1980<br>
+    \<br>
     <button type="button" onclick="location.href='purchase-input.php'">レジに進む</button>
 
 

@@ -1,6 +1,8 @@
+<?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<div class="hero-body py-5">
 <?php 
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->prepare('select * from Products where product_id=?');
@@ -50,5 +52,6 @@ foreach($sql as $row){
 }
 echo '</table>';
 ?>
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

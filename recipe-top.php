@@ -3,6 +3,7 @@
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
 
+<div class="hero-body py-5">
 <label class="label">Myレシピ</label>
 
 <div class="is-flex">
@@ -55,7 +56,7 @@
     $sql=$pdo->query('SELECT * FROM Recipes');
 
 foreach($sql as $row){
-    echo '<a class="box media" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
+    echo '<a class="box media" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'" style="overflow: hidden;">';
     echo '<figure class="media-left">';
     echo '<div class="media_recipe_image image is-96x96">';
     echo '<img src="images/cooking/',$row['recipe_image_pass'],'" alt="image">';
@@ -71,5 +72,6 @@ foreach($sql as $row){
 }
 ?>
 
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

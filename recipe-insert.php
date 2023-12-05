@@ -2,6 +2,7 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
+<div class="hero-body py-5">
 
 <?php
     $pdo=new PDO($connect, USER, PASS);
@@ -18,13 +19,12 @@
         $random_name = uniqid(mt_rand());
         $image_name = $random_name . '.' . $path_parts['extension'];
         $uploadfile = $uploaddir . $image_name;
+        //imagesディレクトリにファイル保存
         if (move_uploaded_file($_FILES['cooking_image']['tmp_name'], $uploadfile)) {
           echo "正常にアップロードされました。\n";
         } else {
           echo "画像のアップロードができませんでした\n";
         }
-        //imagesディレクトリにファイル保存
-        move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
        }
       
         $sql=$pdo->prepare('insert into Recipes values(null,?,?,default,default,?,?)');
@@ -62,6 +62,7 @@
     }
 ?>
 
+</div>
 <?php $recipe_id=$last_recipe_id; ?>
 <?php require 'recipe-show.php'; ?>
 
