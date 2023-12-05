@@ -4,13 +4,24 @@
 <?php require 'header-menu.php'; ?>
 
 <?php
+    $pdo=new PDO($connect, USER, PASS);
+    $id=$_SESSION['customer']['id'];
+    $sql=$pdo->prepare('select P.*,c.* from Products as P inner join Carts as c 
+                        on P.product_id = c.product_id
+                        where customer_id=?');
+    $sql->execute([$id]);
+    $sum=$discount=0;
     
-    $w=0.1;
-    $discount=$_SESSION['cart']['product']['id']['price']*$w;
+    foreach ($sql as $row){
+        $sum+=$row["cart_quantity"]*$row["price"];
+        $discount+=$row['price']*$row["discount"];
+
+    }
+
     $fee=100;
-    $total=$_SESSION['cart']['total']-$discount+$fee;
+    $total=$sum-$discount+$fee;
     echo '<p>ご請求金額',$total,'</p>';
-    echo '<p>小計',$_SESSION['cart']['total'],'</p>';
+    echo '<p>小計',$sum,'</p>';
     echo '<p>割引',$discount,'円(',$w*100,'%)</p>';
     echo '<p>配送料・手数料',$fee,'円','</p>';
 
@@ -25,7 +36,7 @@
     echo $SESIION['cusotmer']['payment'];
     ?>
     <button type="button" onclick="location.href='customer-payment-input.php'">支払い方法を変更</button><br>
-    <button type="button" onclick="location.href='purchase-output.php'">購入を確定する</button>
+    <button type="button" onclick="location.href='purchase-process.php'">購入を確定する</button>
 
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
