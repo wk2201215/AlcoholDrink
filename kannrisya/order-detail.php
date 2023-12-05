@@ -15,8 +15,8 @@
     $customers=$pdo->prepare($sql);
     $customers->execute([$order_id]);
     foreach($customers as $row){
-        echo '<tr><th><label class="has-text-weight-semibold">注文番号</label> No.',$row['order_id'],'</th> <th><label class="has-text-weight-semibold">購入日：</label>',$row['order_date'],'</th></tr>';
-        echo '<tr><td><label class="has-text-weight-semibold">顧客ID：</label>',$row['customer_id'],'</td> <td><label class="has-text-weight-semibold"> 氏名：',$row['customer_name'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">注文番号</label> No.',$row['order_id'],'</td> <td><label class="has-text-weight-semibold">購入日：</label>',$row['order_date'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">顧客ID：</label>',$row['customer_id'],'</td> <td><label class="has-text-weight-semibold"> 氏名：</label>',$row['customer_name'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">住所：</label>',$row['address'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">電話番号：</label>',$row['telephone'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">メールアドレス：</label>',$row['mail'],'</td></tr>';
@@ -27,7 +27,7 @@
     echo '<table class="table is-striped">';
     
     //order_detail(個数,商品ID),Products(商品名),categories(category_name)
-    echo '<tr><th>商品ID</th><th>商品名</th><th>商品種別</th><th>個数</th></tr>';
+    echo '<tr><th>商品ID</th><th>商品名</th><th>商品種別</th><th>個数</th><th></th></tr>';
     //order_detail(1)とProducts(1,2)とCategories(2)で商品種別をだす?
     $sql = $pdo->prepare('SELECT Categories.category_name FROM Order_details
     INNER JOIN Products ON Order_details.product_id  = Products.product_id

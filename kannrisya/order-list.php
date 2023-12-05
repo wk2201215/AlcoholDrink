@@ -7,7 +7,7 @@
     <h1 class="title">注文画面</h1>
     <!-- <div class="columns is-mobile is-centered"> -->
         <table class="table is-striped">
-            <tr><td>注文番号</td><td>顧客ID</td><td>購入日</td></tr>
+            <tr><th>注文番号</th><th>顧客ID</th><th>購入日</th><th></th></tr>
         <?php
         foreach($pdo->query('select * from Orders') as $row){
             echo '<tr><td>', $row['order_id'],'</td>';
