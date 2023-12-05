@@ -11,18 +11,31 @@
                         where customer_id=?');
     $sql->execute([$id]);
     $sum=$discount=0;
-    
+
+    $wari=[
+        'name'=>[],
+        'd'=>[],
+        'dp'=>[]
+    ];
+    $i=1;
     foreach ($sql as $row){
         $sum+=$row["cart_quantity"]*$row["price"];
-        $discount+=$row['price']*$row["discount"];
-
+        if($row["discount"] != 0){
+        $discount+=$row['price']*($row["discount"]/100)*$row['cart_quantity'];
+        $wari['name'][$i] = $row['product_name'];
+        $wari['d'][$i] = $row['discount'];
+        $wari['dp'][$i] = $row['price']*($row["discount"]/100)*$row['cart_quantity'];
+        $i++;
+        }
     }
 
     $fee=100;
     $total=$sum-$discount+$fee;
     echo '<p>ご請求金額',$total,'</p>';
     echo '<p>小計',$sum,'</p>';
-    echo '<p>割引',$discount,'円(',$w*100,'%)</p>';
+    foreach($wari as $row){
+    echo '<p>割引',$row['name'],$row['dp'],'円(',$row['d'],'%)</p>';
+    }
     echo '<p>配送料・手数料',$fee,'円','</p>';
 
     echo 'お届け先';
