@@ -1,6 +1,7 @@
 <?php require 'db-connect.php'; ?>
-<?php require 'header.php'; ?>
+<?php require 'header-top.php'; ?>
 <?php require 'header-menu.php'; ?>
+<?php require 'top-s.php'; ?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 if(isset($_POST['keyword'])){
@@ -22,15 +23,22 @@ if(isset($_POST['keyword'])){
     // $k=$sqlr->fetchAll();
     // var_dump($k);
     // echo '<hr>';
-    $rank=1;
-    foreach($sqlr as $row){
-        $id=$row['product_id'];
-        echo $rank;
-        $rank++;
-        echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">
-            ',$row['product_name'],'</a>';
-        echo '<p>価格:',$row['price'],'</p>';
-    }
+    echo '<ul class="horizontal_scroll">';
+        foreach($sqlr as $row){
+            $id=$row['product_id'];
+            // $rank=1;
+            // echo $rank;
+            // $rank++;
+            // echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">
+            //     ',$row['product_name'],'</a>';
+            // echo '<p>価格:',$row['price'],'</p>';
+            echo '<li>';
+                echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">';
+                echo '<div>',$row['product_name'],'</div></a>';
+                echo '<div>価格:',$row['price'],'</div>';
+            echo '</li>';
+        }
+    echo '</ul>';
     $sql=$pdo->query('select * from Products');
 }
 // var_dump($sqlr);
@@ -45,4 +53,4 @@ foreach ($sql as $row) {
 }
 ?>
 <?php require 'footer-menu.php'; ?>
-<?php require 'footer.php'; ?>
+<?php require 'footer-top.php'; ?>
