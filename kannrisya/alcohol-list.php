@@ -4,7 +4,7 @@
     <?php
     $pdo=new PDO($connect, USER, PASS);
     ?>
-    <h1>お酒の知識管理</h1><button class="button is-outlined " onclick="location.href='alcohol-i-form.php'">登録</button>
+    <h1 class="title">お酒の知識管理</h1><button class="button is-link is-medium" onclick="location.href='alcohol-i-form.php'">登録</button>
     <div class="table-container">
         <table class="table is-striped">
             <tr><th>お酒</th><th>詳細</th><th></th><th></th></tr>

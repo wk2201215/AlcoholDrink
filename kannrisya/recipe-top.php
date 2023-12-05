@@ -39,6 +39,7 @@
   </div>
 </div>
 </div> -->
+<h1 class="title">レシピ</h1>
 
 <div class="is-flex">
     <a class="button is-link is-medium mx-auto my-3" href="recipe-i-form.php">新規投稿</a>
@@ -51,18 +52,22 @@
     $sql=$pdo->query('SELECT * FROM Recipes');
 
 foreach($sql as $row){
-    echo '<a class="box media" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
+    echo '<div class="box media">';
+    echo '<a style="width: 1000px;" href="recipe-detail.php?recipe_id=',$row['recipe_id'],'">';
     echo '<figure class="media-left">';
         echo '<div class="media_recipe_image image is-96x96">';
-    echo '<img src="../images/cooking/',$row['recipe_image_pass'],'" alt="image">';
+            echo '<img src="../images/cooking/',$row['recipe_image_pass'],'" alt="image">';
         echo '</div>';
     echo '</figure>';
         echo '<div class="media-content">';
-            echo '<div class="content">';
-    echo '<label class="label">',$row['recipe_name'],'</label>';
+            echo '<div class="content1">';
+            //echo '<label class="label">',$row['recipe_name'],'</label>';
+                echo 'レシピ名：',$row['recipe_name'];
+            echo '</div>';
+            echo '<div class="content2">';
     // echo '<p class="txt-limit1">',$row['recipe_description'],'</p>';
     // echo '<div class="txt-limit1">',$row['recipe_description'],'</div>';
-    echo $row['recipe_description'];
+                echo '作り方：',$row['recipe_description'];
             echo '</div>';
         echo '</div>';
     echo '</a>';

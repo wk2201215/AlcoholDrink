@@ -4,7 +4,9 @@
     <?php
     $pdo=new PDO($connect, USER, PASS);
     ?>
-    <h1>注文詳細画面</h1>
+    <h3 class="title">注文詳細画面</h1>
+
+    <table class="mb-4 mx-4">
     <?php
     $order_id=$_GET['order_id'];
 
@@ -13,12 +15,13 @@
     $customers=$pdo->prepare($sql);
     $customers->execute([$order_id]);
     foreach($customers as $row){
-        echo '注文番号 No.',$row['order_id'],' 購入日：',$row['order_date'],'<br>';
-        echo '顧客ID：',$row['customer_id'],' 氏名：',$row['customer_name'],'<br>';
-        echo '住所：',$row['address'],'<br>';
-        echo '電話番号：',$row['telephone'],'<br>';
-        echo 'メールアドレス：',$row['mail'],'<br>';
+        echo '<tr><th><label class="has-text-weight-semibold">注文番号</label> No.',$row['order_id'],'</th> <th><label class="has-text-weight-semibold">購入日：</label>',$row['order_date'],'</th></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">顧客ID：</label>',$row['customer_id'],'</td> <td><label class="has-text-weight-semibold"> 氏名：',$row['customer_name'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">住所：</label>',$row['address'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">電話番号：</label>',$row['telephone'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">メールアドレス：</label>',$row['mail'],'</td></tr>';
     }
+    echo '</table>';
     
     echo '<div class="table-container">';
     echo '<table class="table is-striped">';

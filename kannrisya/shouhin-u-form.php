@@ -14,24 +14,48 @@
 	$result = $sql->fetch(PDO::FETCH_ASSOC);
 
 	//情報を保持して表示したい
-	echo '<div class="level-item">
-    		<div class="field has-addons">';
-			echo '<form action="shouhin-update.php" method="post">';
+	echo '<form action="shouhin-update.php" method="post">';
+		echo '<div class="field">';
 			echo '<input type="hidden" name="product_id" value="' . $product_id . '">';
-			echo '<p>商品名<input type = "text" name = "product_name" value ="'.$result['product_name'].'">';
-    		echo '商品種別<input type = "text" name = "category_name" value ="'.$result['category_name'].'"></p>';
-    		echo '<p>販売価格<input type = "text" name = "price" value ="'.$result['price'].'">';
-    		echo '商品画像パス<input type = "text" name = "image_pass" value ="'.$result['image_pass'].'"></p>';
-    		echo '<p>商品説明<textarea name="product_description" class="textarea is-normal"> '.$result['product_description'].'</textarea></p>';
+			
+				echo '<p class="control1">';
+					
+					echo '<label class="has-text-weight-semibold">商品名</label>       
+						<input style="width:200px;" type = "text" name = "product_name" value ="'.$result['product_name'].'">';
+    				echo '<label class="has-text-weight-semibold">商品種別</label>     
+						<input style="width:200px;" type = "text" name = "category_name" value ="'.$result['category_name'].'">';
+					
+				echo '</p>';
+			
 		echo '</div>';
-	echo '</div>';
-			echo '<div class="has-text-centered">';
-    		echo '<p><input type = "submit" value = "更新"></p>';
-			echo '</div>';
-			echo '</form>';
+
+		echo '<div class="field">';
+			
+				echo '<p class="control2">';
+					
+						echo '<label class="has-text-weight-semibold"">販売価格</label>     
+							<input style="width:200px;" type = "text" name = "price" value ="'.$result['price'].'">';
+    					echo '<label class="has-text-weight-semibold">商品画像パス</label> 
+							<input style="width:200px;" type = "text" name = "image_pass" value ="'.$result['image_pass'].'">';
+					
+				echo '</p>';
+			
+		echo '</div>';
+
+		echo '<div class="field">';
+			echo '<p class="control3">';
+				echo '<label class="has-text-weight-semibold">商品説明</label>
+					<textarea name="product_description" class="textarea is-normal"> '.$result['product_description'].'</textarea>';
+			echo '</p>';
+		echo '</div>';
+		
+		echo '<div class="has-text-centered">';
+    		echo '<p><input class="button is-link is-medium" type = "submit" value = "更新"></p>';
+		echo '</div>';
+	echo '</form>';
 ?>
 
-
+<button class="button is-light tabs is-right" onclick="location.href='shouhin-list.php'">戻る</button>
 <!-- <form action = "shouhin-update.php" method="post">
     商品名<input type = "text" name = "product_name">
     商品種別<input type = "text" name = "categori_name"><br>

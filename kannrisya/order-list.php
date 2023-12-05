@@ -4,7 +4,7 @@
     <?php
     $pdo=new PDO($connect, USER, PASS);
     ?>
-    <h1>注文画面</h1>
+    <h1 class="title">注文画面</h1>
     <!-- <div class="columns is-mobile is-centered"> -->
         <table class="table is-striped">
             <tr><td>注文番号</td><td>顧客ID</td><td>購入日</td></tr>

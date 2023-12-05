@@ -14,7 +14,7 @@ table th{
 </head>
 <body>
   <!-- 左揃え -->
-  <div class="has-text-right">
+  <div class="mx-4 my-4 has-text-right">
     <button class="button is-light" onclick="location.href='start.html'"><i class="fas fa-th-large"></i></button>
   </div>
 </nav>
