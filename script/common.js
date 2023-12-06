@@ -95,3 +95,13 @@ function deleteIngredient(element) {
     location.href='purchase-input.php';
   }
 
+  function delete_cart_product(e){
+    const id = e.target.childNodes[0].value;
+    location.href = "cart-show-change-stock.php?change=delete&product_id="+id;
+  }
+
+  function cart_change(e){
+    const id = e.target.nextElementSibling.value;
+    const value=e.target.value;
+    location.href = "cart-show-change-stock.php?change="+value+"&product_id="+id;
+  }

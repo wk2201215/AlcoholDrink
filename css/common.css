@@ -173,13 +173,6 @@ button.more.on-click::after{
 	margin-right: calc(50% - 50vw);
 }
 
-.product_image{
-	max-width: 100%;
-	width:auto;
-	max-height: 100%;
-	height:auto;
-}
-
 .price *{
 	display: inline-block;
 }
@@ -231,6 +224,58 @@ button.more.on-click::after{
 .selectbox-001 select:focus {
     outline: 2px solid #2589d0;
 }
+
+/**/
+
+.selectbox-002 {
+    position: relative;
+}
+
+.selectbox-002::before,
+.selectbox-002::after {
+    position: absolute;
+    content: '';
+    pointer-events: none;
+}
+
+.selectbox-002::before {
+    display: inline-block;
+    right: 0;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 0 3px 3px 0;
+    background-color: #2589d0;
+}
+
+.selectbox-002::after {
+    position: absolute;
+    top: 50%;
+    right: 1.25em;
+    transform: translate(50%, -50%) rotate(45deg);
+    width: 6px;
+    height: 6px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+}
+
+.selectbox-002 select {
+    appearance: none;
+    width: 100%;
+    height: 2.5em;
+    padding: .4em 3.6em .4em .8em;
+    border: none;
+    border-radius: 3px;
+    background-color: #e6edf3;
+    color: #333;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.selectbox-002 select:focus {
+    outline: 2px solid #2589d0;
+}
+
+
 
 .hero-body hr{
 	margin-left: calc(50% - 50vw);
@@ -312,4 +357,24 @@ button.more.on-click::after{
 .Obutton{
 	width:90vw;
 	background-color:#ffce5d;
+}
+
+.cart_image{
+	width:100%;
+	height:7.5rem;
+}
+
+.cart_image a{
+	width:100%;
+	height:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cart_image img{
+	max-width: 100%;
+	width:auto;
+	max-height: 100%;
+	height:auto;
 }
