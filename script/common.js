@@ -77,7 +77,7 @@ function deleteIngredient(element) {
     var result = window.confirm(name+'\nを削除しますか？');
     if( result ) {
       alert("レシピが削除されました！");
-      location.href = "recipe-delete.php?recipe_id="+id
+      location.href = "recipe-delete.php?recipe_id="+id;
   }
   else {
   }
@@ -89,5 +89,9 @@ function deleteIngredient(element) {
       alert("アカウントが削除されました");
       document.customer_delete.submit();
     } 
+  }
+
+  function cart_button(){
+    location.href='purchase-input.php';
   }
 

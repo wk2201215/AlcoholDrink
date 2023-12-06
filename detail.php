@@ -37,7 +37,7 @@ foreach($sql as $row){
     // echo '<input type="hidden" name="category" value="',$row['category_id'],'">';
     echo '<input type="hidden" name="price" value="',$row['price'],'">';
     echo '<div class="is-flex block">';
-    echo '<input class="button is-large is-warning mx-auto" type="submit" value="カートに入れる" style="width:90vw;background-color:#ffce5d;">';
+    echo '<input class="button is-large is-warning mx-auto Obutton" type="submit" value="カートに入れる">';
     echo '</div>';
     echo '<hr>';
     echo '<div class="block">';

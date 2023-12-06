@@ -173,6 +173,13 @@ button.more.on-click::after{
 	margin-right: calc(50% - 50vw);
 }
 
+.product_image{
+	max-width: 100%;
+	width:auto;
+	max-height: 100%;
+	height:auto;
+}
+
 .price *{
 	display: inline-block;
 }
@@ -300,4 +307,9 @@ button.more.on-click::after{
 	border-bottom: none;
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
+}
+
+.Obutton{
+	width:90vw;
+	background-color:#ffce5d;
 }
