@@ -3,11 +3,11 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?)');
-    $flag=0;
-    $hai=[
-        'name'=>[],
-        'nostock'=>[]
-    ];
+    //$flag=0;
+    //$hai=[
+    //    'name'=>[],
+    //    'nostock'=>[]
+    //];
     // var_dump($_SESSION['customer']['id']);
     $sql->execute([
         $_SESSION['customer']['id'], 
@@ -35,22 +35,22 @@
                 $row['product_id']
             ]);    
         }else{
-            $hai['name'][$flag]=$row['product_name'];
-            $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
-            $flag++;
+            //$hai['name'][$flag]=$row['product_name'];
+           // $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
+            //$flag++;
         }
     }
-    if($flag=0){
+    //if($flag=0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([$id]); 
         header('Location:purchase-output.php');
         exit();       
-    }else{
-        $str='';
-        for( $i=0;$i<$flag;$i++){
-        $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
-        }
-        header('Location:cart.php?hogeA='.$str);
-        exit();
-    }
+    //}else{
+    //    $str='';
+    //    for( $i=0;$i<$flag;$i++){
+    //    $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
+    //    }
+    //    header('Location:cart.php?hogeA='.$str);
+    //    exit();
+    //}
 ?>
