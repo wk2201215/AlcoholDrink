@@ -31,6 +31,6 @@
         </table>
     </div>
     
-        <input class="button is-light is-medium" value="戻る" onclick="history.back();" type="button">
+        <input class="button is-dark is-outlined is-medium" value="戻る" onclick="history.back();" type="button">
     
     <?php require 'footer.php'; ?>

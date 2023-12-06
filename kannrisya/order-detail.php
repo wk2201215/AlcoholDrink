@@ -15,7 +15,7 @@
     $customers=$pdo->prepare($sql);
     $customers->execute([$order_id]);
     foreach($customers as $row){
-        echo '<tr><td><label class="has-text-weight-semibold">注文番号</label> No.',$row['order_id'],'</td> <td><label class="has-text-weight-semibold">購入日：</label>',$row['order_date'],'</td></tr>';
+        echo '<tr><td><label class="has-text-weight-semibold">注文番号：</label> No.',$row['order_id'],'</td> <td><label class="has-text-weight-semibold">購入日：</label>',$row['order_date'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">顧客ID：</label>',$row['customer_id'],'</td> <td><label class="has-text-weight-semibold"> 氏名：</label>',$row['customer_name'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">住所：</label>',$row['address'],'</td></tr>';
         echo '<tr><td><label class="has-text-weight-semibold">電話番号：</label>',$row['telephone'],'</td></tr>';
