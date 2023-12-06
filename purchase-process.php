@@ -44,7 +44,7 @@
     if($flag=0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([
-            $id, 
+            $id
         ]); 
         header('Location:purchase-output.php');
         exit();       
