@@ -36,7 +36,7 @@
             ]);    
         }else{
             $hai['name'][$flag]=$stock['product_name'];
-            $hai['nostock'][$flag]=$row['stock']-$stock['stock'];
+            $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
             $flag++;
             
         }
