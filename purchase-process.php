@@ -35,17 +35,14 @@
                 $row['product_id']
             ]);    
         }else{
-            $hai['name'][$flag]=$stock['product_name'];
+            $hai['name'][$flag]=$row['product_name'];
             $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
             $flag++;
-            
         }
     }
     if($flag=0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
-        $sql6->execute([
-            $id
-        ]); 
+        $sql6->execute([$id]); 
         header('Location:purchase-output.php');
         exit();       
     }else{
@@ -55,8 +52,5 @@
         }
         header('Location:cart.php?hogeA='.$str);
         exit();
-        
     }
-
-    unset($_SESSION['cart']);
 ?>
