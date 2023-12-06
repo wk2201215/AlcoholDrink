@@ -5,9 +5,9 @@
     $sql=$pdo->prepare('insert into Orders values(null,?,null,?,?)');
     $flag=0;
     $hai=[
-        'name'=>'',
-        'nostock'=>''
-    ];
+        'name'=>[],
+        'nostock'=>[]
+    ]
     // var_dump($_SESSION['customer']['id']);
     $sql->execute([
         $_SESSION['customer']['id'], 
@@ -16,36 +16,42 @@
     ]); 
     $last_id = $pdo->lastInsertId();
     $sql2=$pdo->prepare('insert into Order_details values(?,?,?)');
-    foreach($_SESSION['cart']['puroduct'] as $id=>$product){
-        // $sql2=$pdo->prepare('insert into Purchase_detail values(?,?,?)');
-        $sql2->execute([$last_id, $id, $product['count']]);
-        $sql4=$pdo->prepare('select  stock,product_name from Products where product_id');   
+    $id=$_SESSION['customer']['id'];
+    //cartテーブルの中身を出力
+    $sql3=$pdo->prepare('select P.*,c.* from Products as P inner join Carts as c 
+                    on P.product_id = c.product_id
+                    where customer_id=?');
+    $sql3->execute([$id]);
+    foreach ($sql3 as $row){
+        // $sql2->execute([$last_id, $id, $row['cart_quantity']]);
+        $sql4=$pdo->prepare('select  stock,product_name from Products where product_id=?');
+        $sql4->execute([$row['product_id']]);
         $stock=$sql4->fetchAll(); 
-        if($stock['stock']>=$product['count']){
-            $sql3=$pdo->prepare('update  products set stock=?  where product_id=?');   
-            $not=$stock['stock']-$product['count'];      
-            $sql3->execute([
+        if($stock['stock']>=$row['stock']){
+            $sql5=$pdo->prepare('update  products set stock=?  where product_id=?');   
+            $not=$stock['stock']-$row['stock'];      
+            $sql5->execute([
                 $not,          
-                $product['id']
+                $row['product_id']
             ]);    
         }else{
-            $hai['name']=$stock['product_name'];
-            $hai['nostock']=$product['count']-$stock['stock'];
+            $hai['name'][$flag]=$stock['product_name'];
+            $hai['nostock'][$flag]=$row['stock']-$stock['stock'];
             $flag++;
             
         }
     }
     if($flag=0){
-        $sql=$pdo->prepare('delete from Carts  where customer_id=?');  
-        $sql->execute([
-            $_SESSION['cart']['id'], 
+        $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
+        $sql6->execute([
+            $id, 
         ]); 
         header('Location:purchase-output.php');
         exit();       
     }else{
         $str='';
-        foreach($hai as $row){
-            $str+=$row['name']+'の在庫が'+$row['nostock']+'個足りません\n';
+        for( $i=0;$i<$flag;$i++){
+        $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
         }
         header('Location:cart.php?hogeA='.$str);
         exit();
