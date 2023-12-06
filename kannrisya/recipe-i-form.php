@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
 </head>
 <body>
-<h1>レシピ投稿画面</h1>
+<!-- <h1>レシピ投稿画面</h1> -->
 
 <form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 <div class="field" id="cookingimage">

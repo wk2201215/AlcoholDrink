@@ -8,8 +8,8 @@
     <div class="table-container">
         <table class="table is-striped">
         <thead>
-            <tr><th>顧客ID</th><th>氏名</th><th>生年月日</th><th>郵便番号</th><th>住所</th><th>電話番号</th><th>メールアドレス</th><th>パスワード</th></tr>    
-        <!-- <tr><th style="width:200px;">顧客ID</th><th style="width:200px;">氏名</th><th style="width:300px;">生年月日</th><th style="width:200px;">郵便番号</th><th style="width:250px;">住所</th><th style="width:200px;">電話番号</th><th>メールアドレス</th><th>パスワード</th></tr> -->
+            <!-- <tr><th>顧客ID</th><th>氏名</th><th>生年月日</th><th>郵便番号</th><th>住所</th><th>電話番号</th><th>メールアドレス</th><th>パスワード</th></tr>     -->
+        <tr><th style="width:100px;">顧客ID</th><th style="width:100px;">氏名</th><th style="width:150px;">生年月日</th><th style="width:150px;">郵便番号</th><th style="width:150px;">住所</th><th style="width:150px;">電話番号</th><th>メールアドレス</th><th>パスワード</th><th style="width:80px;"></th></tr>
         </thead>
         <tbody>
         <?php
@@ -23,11 +23,14 @@
             echo '<td>', $row['address'],'</td>';
             echo '<td>', $row['telephone'],'</td>';
             echo '<td>', $row['mail'],'</td>';
-            echo '<td>', $row['customer_password'],'</td>';
+            echo '<td style="word-break: break-word">', $row['customer_password'],'</td>';
             echo '<td>', '<a href = "customer-delete.php?customer_id=', $row['customer_id'] ,'">','削除','</td></tr>';
         }
         ?>
         </tbody>
         </table>
     </div>
+    
+        <input class="button is-light is-medium" value="戻る" onclick="history.back();" type="button">
+    
     <?php require 'footer.php'; ?>

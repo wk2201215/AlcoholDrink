@@ -4,7 +4,7 @@
     <?php
     $pdo=new PDO($connect, USER, PASS);
     ?>
-    <h3 class="title">注文詳細画面</h1>
+    <h3 class="title">注文詳細画面</h3>
 
     <table class="mb-4 mx-4">
     <?php

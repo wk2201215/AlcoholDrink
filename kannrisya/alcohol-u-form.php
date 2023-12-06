@@ -16,9 +16,9 @@
 		echo '<form action="alcohol-update.php" method="post">';
 		echo '<input type="hidden" name="knowledge_id" value="' . $knowledge_id . '">';
 		echo '<p><label class="has-text-weight-semibold">タイトル</label></p>';
-		echo '<p class="mb-3 mx-4"><input type="text" name="knowledge_name" value="' . $result['knowledge_name'] . '"></p>';
+		echo '<p class="mb-3 mx-4"><input type="text" style="width: 200px" name="knowledge_name" value="' . $result['knowledge_name'] . '"></p>';
     	echo '<p><label class="has-text-weight-semibold">説明</label></p>';
-		echo '<p class="mb-4 mx-4"><textarea name="knowledge_text" class="textarea is-normal">' . $result['knowledge_text'] . '</textarea></p>';
+		echo '<p class="mb-4 mx-4"><textarea name="knowledge_text" class="textarea is-black is-normal">' . $result['knowledge_text'] . '</textarea></p>';
 		echo '<p class="has-text-centered">
 				<input class="button is-link is-medium"  type="submit" value="更新">
 			</p>';

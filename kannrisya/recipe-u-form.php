@@ -1,7 +1,7 @@
 <?php require '../db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php
-echo '<h1>レシピ更新画面</h1>';
+// echo '<h1>レシピ更新画面</h1>';
 $pdo=new PDO($connect, USER, PASS);
     $recipe_id=$_GET['recipe_id'];
     $sql=$pdo->prepare('SELECT * FROM Recipes where recipe_id = ?');
