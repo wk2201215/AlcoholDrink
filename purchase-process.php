@@ -2,12 +2,12 @@
 <?php require 'db-connect.php'; ?>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('insert into Orders values(null,?,null,?,?)');
+    $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?)');
     $flag=0;
     $hai=[
         'name'=>[],
         'nostock'=>[]
-    ]
+    ];
     // var_dump($_SESSION['customer']['id']);
     $sql->execute([
         $_SESSION['customer']['id'], 
@@ -24,12 +24,12 @@
     $sql3->execute([$id]);
     foreach ($sql3 as $row){
         // $sql2->execute([$last_id, $id, $row['cart_quantity']]);
-        $sql4=$pdo->prepare('select  stock,product_name from Products where product_id=?');
-        $sql4->execute([$row['product_id']]);
-        $stock=$sql4->fetchAll(); 
-        if($stock['stock']>=$row['stock']){
-            $sql5=$pdo->prepare('update  products set stock=?  where product_id=?');   
-            $not=$stock['stock']-$row['stock'];      
+        // $sql4=$pdo->prepare('select  stock,product_name from Products where product_id=?');
+        // $sql4->execute([$row['product_id']]);
+        // $stock=$sql4->fetchAll(); 
+        if($row['stock']>=$row['cart_quantity']){
+            $sql5=$pdo->prepare('update  Products set stock=?  where product_id=?');   
+            $not=$row['stock']-$row['cart_quantity'];      
             $sql5->execute([
                 $not,          
                 $row['product_id']
