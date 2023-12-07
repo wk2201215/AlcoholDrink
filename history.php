@@ -44,7 +44,11 @@ if(isset($_SESSION['customer'])){
         echo '購入履歴はありません';
     }
 }else{
-    echo 'ログインしてください。';
+    echo '<div class="displaycenter">';
+    echo '<div class="has-text-centered" style="width:100%;">';
+    echo '<p class="block title is-5">ログインしてください。</p>';
+    echo '</div>';
+    echo '</div>';
 }
 ?>
 <?php require 'footer-menu.php'; ?>

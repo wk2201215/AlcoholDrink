@@ -2,8 +2,9 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
-<div class="hero-body py-5">
 <?php
+    echo '<div class="hero-body py-5">';
+    if(isset($_SESSION['customer'])){
     $pdo=new PDO($connect, USER, PASS);
     //現在の支払い方法
     $sql=$pdo->prepare('SELECT payment_name	FROM Payments where payment_id = ?');
@@ -37,7 +38,14 @@
     echo '<button type="submit" class="button is-warning" style="background-color:#ffce5d";>支払い方法変更</button>';
     echo '</div>';
     echo '</form>';
+    echo '</div>';
+}else{
+    echo '<div class="displaycenter">';
+    echo '<div class="has-text-centered" style="width:100%;">';
+    echo '<p class="block title is-5">ログインしてください。</p>';
+    echo '</div>';
+    echo '</div>';
+}
 ?>
-</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
