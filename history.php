@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
+<?php require 'header-menu-back.php'; ?>
 <?php
 $count=0;
 if(isset($_SESSION['customer'])){

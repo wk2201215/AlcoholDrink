@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
+<?php require 'header-menu-back.php'; ?>
 <div class="hero-body py-5">
 <?php
     $login_id=$name=$password=$postcode=$address=$tel=$mail=$birth='';

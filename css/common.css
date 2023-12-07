@@ -229,6 +229,7 @@ button.more.on-click::after{
 
 .selectbox-002 {
     position: relative;
+	width: 100%;
 }
 
 .selectbox-002::before,
