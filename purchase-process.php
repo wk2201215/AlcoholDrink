@@ -46,7 +46,7 @@
        for( $i=0;$i<$flag;$i++){
        $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
        }
-       header('Location:cart.php?hogeA='.$str);
+       header('Location:cart-show.php?hogeA='.$str);
        exit();
     }
 ?>

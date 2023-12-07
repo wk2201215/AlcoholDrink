@@ -6,6 +6,12 @@
 <div class="hero-body py-5">
 
 <?php
+    if(isset($_GET['hogeA'])){
+        echo '<p class="has-text-danger">',$_GET['hogeA'],'</p>';
+    }else{
+        echo '<p class="has-text-danger"><br></p>';
+    }
+
 //DBに接続
 $pdo=new PDO($connect, USER, PASS);
 $id=$_SESSION['customer']['id'];
