@@ -9,9 +9,14 @@ if(isset($_SESSION['customer'])){
     $sql=$pdo->prepare('select * from Orders where customer_id=?');
     $sql->execute([$_SESSION['customer']['id']]);
     $result=$sql->fetchAll();
+    if(empty($result)){
+        echo '<div class="displaycenter">';
+        echo '<div class="has-text-centered" style="width:100%;">';
+        echo '<p class="block title is-5">購入履歴はありません。</p>';
+        echo '</div>';
+        echo '</div>';
+    }else{
     $sql2=$pdo->prepare('select * from Order_details, Products where order_id=? and product_id=product_id');
-    // var_dump($result);
-    if(!empty($result)){
         foreach($result as $id=>$roro){
             // var_dump($roro);
             $sql2->execute([$roro['order_id']]);
@@ -40,8 +45,6 @@ if(isset($_SESSION['customer'])){
                 echo '支払い方法',$roro['payment'];
                 echo '<hr>';
         }
-    }else{
-        echo '購入履歴はありません';
     }
 }else{
     echo '<div class="displaycenter">';
