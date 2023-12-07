@@ -3,12 +3,11 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?)');
-    //$flag=0;
-    //$hai=[
-    //    'name'=>[],
-    //    'nostock'=>[]
-    //];
-    // var_dump($_SESSION['customer']['id']);
+    $flag=0;
+    $hai=[
+       'name'=>[],
+       'nostock'=>[]
+    ];
     $sql->execute([
         $_SESSION['customer']['id'], 
         $_SESSION['customer']['address'], 
@@ -23,10 +22,7 @@
                     where customer_id=?');
     $sql3->execute([$id]);
     foreach ($sql3 as $row){
-        // $sql2->execute([$last_id, $id, $row['cart_quantity']]);
-        // $sql4=$pdo->prepare('select  stock,product_name from Products where product_id=?');
-        // $sql4->execute([$row['product_id']]);
-        // $stock=$sql4->fetchAll(); 
+        $sql2->execute([$last_id, $row['product_id'], $row['cart_quantity']]);
         if($row['stock']>=$row['cart_quantity']){
             $sql5=$pdo->prepare('update  Products set stock=?  where product_id=?');   
             $not=$row['stock']-$row['cart_quantity'];      
@@ -35,22 +31,22 @@
                 $row['product_id']
             ]);    
         }else{
-            //$hai['name'][$flag]=$row['product_name'];
-           // $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
-            //$flag++;
+            $hai['name'][$flag]=$row['product_name'];
+           $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
+            $flag++;
         }
     }
-    //if($flag=0){
+    if($flag=0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([$id]); 
         header('Location:purchase-output.php');
         exit();       
-    //}else{
-    //    $str='';
-    //    for( $i=0;$i<$flag;$i++){
-    //    $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
-    //    }
-    //    header('Location:cart.php?hogeA='.$str);
-    //    exit();
-    //}
+    }else{
+       $str='';
+       for( $i=0;$i<$flag;$i++){
+       $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
+       }
+       header('Location:purchase-input.php?hogeA='.$str);
+       exit();
+    }
 ?>
