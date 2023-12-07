@@ -42,6 +42,9 @@
         header('Location:purchase-output.php');
         exit();       
     }else{
+        $sql8=$pdo->prepare('delete from Orders Where order_id=?');
+        $sql8->execute([$last_id]); 
+   
        $str='';
        for( $i=0;$i<$flag;$i++){
        $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
