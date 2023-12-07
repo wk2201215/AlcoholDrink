@@ -5,13 +5,13 @@
       <img src="images/oni.jpg"> 
     </div>
     <div>
-      <p>スライド２</p>
+    <img src="images/oni.jpg"> 
     </div>
     <div>
-      <p>スライド３</p>
+    <img src="images/oni.jpg"> 
     </div>
     <div>
-      <p>スライド４</p>
+    <img src="images/oni.jpg"> 
     </div>
   </div>
   <!-- 左右のボタン -->
