@@ -83,5 +83,6 @@ foreach($sql as $row){
     echo '</div>';
 }
 ?>
+<button class="button is-dark is-outlined is-medium" onclick="location.href='start.html'">戻る</button>
 
 <?php require 'footer.php'; ?>
