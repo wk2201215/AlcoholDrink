@@ -4,10 +4,10 @@
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?)');
     //$flag=0;
-    //$hai=[
-    //    'name'=>[],
-    //    'nostock'=>[]
-    //];
+    $hai=[
+       'name'=>[],
+       'nostock'=>[]
+    ];
     // var_dump($_SESSION['customer']['id']);
     $sql->execute([
         $_SESSION['customer']['id'], 
@@ -23,7 +23,7 @@
                     where customer_id=?');
     $sql3->execute([$id]);
     foreach ($sql3 as $row){
-        $sql2->execute([$last_id, $id, $row['cart_quantity']]);
+        $sql2->execute([$last_id, $row['product_id'], $row['cart_quantity']]);
         if($row['stock']>=$row['cart_quantity']){
             $sql5=$pdo->prepare('update  Products set stock=?  where product_id=?');   
             $not=$row['stock']-$row['cart_quantity'];      
