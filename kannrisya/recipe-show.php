@@ -13,7 +13,7 @@ echo '<div class="box">';
 //画像
 echo '<div class="field">';
 echo '<div class="image is-fullwidth has-background-info-light">';
-echo '<img src="images/cooking/',$item[0]['recipe_image_pass'],'" class="mx-auto" style="max-height:50vh;width:auto;">';
+echo '<img src="../images/cooking/',$item[0]['recipe_image_pass'],'" class="mx-auto" style="max-height:50vh;width:auto;">';
 echo '</div>';
 echo '</div>';
 //レシピ名
