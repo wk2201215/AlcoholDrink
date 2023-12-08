@@ -41,13 +41,13 @@
 
     echo 'お届け先';
     
-    echo $SESIION['cusotmer']['address'];
+    echo $_SESIION['cusotmer']['address'];
     ?>
     <button type="button" onclick="location.href='customer-input.php'">住所変更</button><br>
 <?php
     echo '支払い方法';
     
-    echo $SESIION['cusotmer']['payment'];
+    echo $_SESIION['cusotmer']['payment'];
     ?>
     <button type="button" onclick="location.href='customer-payment-input.php'">支払い方法を変更</button><br>
     <button type="button" onclick="location.href='purchase-process.php'">購入を確定する</button>
