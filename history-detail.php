@@ -12,46 +12,45 @@ $pdo=new PDO($connect, USER, PASS);
 $id=$_SESSION['customer']['id'];
 
 //小計の計算
-$sum=0;
-$sql=$pdo->prepare('select * from Order_details where order_id=?');
-$sql->execute([$_GET['order_id']]);
-foreach ($sql as $row){
-    $sql2=$pdo->prepare('select * from Products where product_id=?');
-    $sql2->execute([$row["product_id"]]);
-    foreach ($sql2 as $row2){
-            $sum+=$row["quantity"]*$row2["price"];
-    }
-}
+
 $sql=$pdo->prepare('select * from Orders where order_id=?');
 $sql->execute([$_GET['order_id']]);
 foreach ($sql as $row){
-$date=$row["order_date"];
+$sum=0;
+$count=0;
+$total=$row["total"];
+$date=new DateTime($row["order_date"]);
 $address=$row["shipping_address"];
-$payment_id=$row["payment"];
+$payment=$row["payment"];
+$postage=$row["postage"];
+$sql2=$pdo->prepare('select * from Order_details where order_id=?');
+$sql2->execute([$_GET['order_id']]);
+foreach ($sql2 as $row2){
+    $sum+=$row2['quantity']*$row2['payment_price'];
+    $count+=$row2['quantity'];
 }
-$sql=$pdo->prepare('select * from Payments where payment_id=?');
-$sql->execute([$payment_id]);
-$result=$sql->fetchAll();
-$payment=$result[0]['payment_name'];
+}
+
 echo '<div class="block">';
 //注文合計
-echo '<div class="block price mb-4">';
-echo '<label class="heading" style="font-size: 1.8rem;">注文の合計：</label>';
-echo '<p>￥',number_format($sum),'</p>';
+echo '<div class="block mb-4">';
+echo '<label class="label">注文の合計：￥',number_format($total),'</label>';
+echo '<p>商品合計(',$count,'点)：￥',number_format($sum),'</p>';
+echo '<p>配送料・手数料：￥',number_format($postage),'</p>';
 echo '</div>';
 //注文日
-echo '<div class="block price mb-4">';
-echo '<label class="heading" style="font-size: 1.8rem;">注文日：</label>';
-echo '<p>',$date,'</p>';
+echo '<div class="block mb-4">';
+echo '<label class="label">注文日</label>';
+echo '<p>',$date->format('Y年m月d日'),'</p>';
 echo '</div>';
 //お届け先
-echo '<div class="block price mb-4">';
-echo '<label class="heading" style="font-size: 1.8rem;">お届け先：</label>';
+echo '<div class="block mb-4">';
+echo '<label class="label">届け先住所</label>';
 echo '<p>',$address,'</p>';
 echo '</div>';
 //支払い方法
-echo '<div class="block price mb-4">';
-echo '<label class="heading" style="font-size: 1.8rem;">支払い方法：</label>';
+echo '<div class="block mb-4">';
+echo '<label class="label">支払い方法</label>';
 echo '<p>',$payment,'</p>';
 echo '</div>';
 echo '</div>';

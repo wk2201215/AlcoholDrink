@@ -1,7 +1,16 @@
 <?php session_start(); ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu-back.php'; ?>
-<div class="hero-body py-5">
+<?php
+if(isset($_SESSION['customer'])){
+    require 'header-menu-back.php';
+    echo '<div class="hero-body">';
+}else{
+    echo '<div id="app">';
+    echo '<section class="hero main">'; 
+    echo '<div class="hero-body">';
+    echo '<div class="box">';
+}
+?>
 <?php
     $login_id=$name=$password=$postcode=$address=$tel=$mail=$birth='';
     $b='登録';
@@ -17,7 +26,7 @@
         $b='変更';
         // $idcard=$_SESSION['customer']['idcard'];
     }
-    echo '<form action="customer-output.php" method="post" enctype="multipart/form-data">';
+    echo '<form class="pb-5" action="customer-output.php" method="post" enctype="multipart/form-data">';
 
     echo '<div class="field">';
     echo '<label class="label">アカウントID</label>';
@@ -89,11 +98,21 @@
     echo '</div></div>';
 
     echo '<div class="field">';
-    echo '<div class="contro">';
+    echo '<div class="control">';
     echo '<input class="button is-primary is-medium mt-4" type="submit" value="',$b,'" style="width:100%;">';
     echo '</div></div>';
     echo '</form>';
 ?>
-</div>
-<?php require 'footer-menu.php'; ?>
+
+<?php 
+    if(isset($_SESSION['customer'])){
+        echo '</div>';
+        require 'footer-menu.php';
+    }else{
+        echo '</div>';
+        echo '</div>';
+        echo '</section>';
+        echo '</div>';
+    }
+?>
 <?php require 'footer.php'; ?>

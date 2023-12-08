@@ -6,7 +6,6 @@
 
 <?php
 $count=0;
-if(isset($_SESSION['customer'])){
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('select * from Orders where customer_id=?');
     $sql->execute([$_SESSION['customer']['id']]);
@@ -26,14 +25,19 @@ if(isset($_SESSION['customer'])){
             $result2=$sql2->fetchAll();
             echo '<a class="box" href="history-detail.php?order_id=',$result[$i]['order_id'],'">';
             echo '<div class="columns is-mobile">';
-            $sql3=$pdo->prepare('select product_name,image_pass from Products where product_id=?');
-            $sql3->execute([$result2[0]['product_id']]);
-            $result_img=$sql3->fetchAll();
             echo '<div class="column is-two-fifths is-flex is-justify-content-center is-align-content-center">';
             echo '<figure class="image is-96x96">';
-            echo '<img class="mx-auto" alt="image" src="images/products/',$result_img[0]['image_pass'],'" style="max-width:100%;max-height:100%;width:auto;height:auto;">';
+            if(!empty($result2)){
+                $sql3=$pdo->prepare('select product_name,image_pass from Products where product_id=?');
+                $sql3->execute([$result2[0]['product_id']]);
+                $result_img=$sql3->fetchAll();
+                echo '<img class="mx-auto" alt="image" src="images/products/',$result_img[0]['image_pass'],'" style="max-width:100%;max-height:100%;width:auto;height:auto;">';
+            }else{
+                echo '<img class="mx-auto" alt="image" src="" style="max-width:100%;max-height:100%;width:auto;height:auto;">';
+            }
             echo '</figure>';
             echo '</div>';
+
             echo '<div class="column is-three-fifths">';
             if(count($result2)==1){echo '<p class="txt-limit1">',$result_img[0]['product_name'],'</p>';}
             else if(count($result2)>1){echo '<p class="txt-limit1">',$result_img[0]['product_name'],'+etc</p>';}
@@ -46,13 +50,6 @@ if(isset($_SESSION['customer'])){
         }
         echo '</div>';
     }
-}else{
-    echo '<div class="displaycenter">';
-    echo '<div class="has-text-centered" style="width:100%;">';
-    echo '<p class="block title is-5">ログインしてください。</p>';
-    echo '</div>';
-    echo '</div>';
-}
 ?>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

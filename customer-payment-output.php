@@ -9,7 +9,7 @@
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('update Customers set payment_id=? where customer_id=?');
     $sql->execute([$_POST['p'],$_SESSION['customer']['id']]);
-    $_SESSION['customer']=['payment'=>$_POST['p']];
+    $_SESSION['customer']['payment']=$_POST['p'];
     echo '<p class="block title is-4">支払い方法を変更しました。</p>';
     $sql=$pdo->prepare('SELECT payment_name	FROM Payments where payment_id = ?');
     $sql->execute([$_SESSION['customer']['payment']]);
