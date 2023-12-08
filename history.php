@@ -2,6 +2,7 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
+
 <?php
 $count=0;
 if(isset($_SESSION['customer'])){
@@ -16,35 +17,33 @@ if(isset($_SESSION['customer'])){
         echo '</div>';
         echo '</div>';
     }else{
-    $sql2=$pdo->prepare('select * from Order_details, Products where order_id=? and product_id=product_id');
-        foreach($result as $id=>$roro){
-            // var_dump($roro);
-            $sql2->execute([$roro['order_id']]);
-                echo '<table>';
-                echo '<tr><th>商品番号</th><th>商品名</th>';
-                echo '<th>価格</th><th>個数</th><th>小計</th></tr>';
-                $total=0;
-                // var_dump($_SESSION);
-                foreach($sql2 as $row){
-                    echo '<tr>';
-                    echo '<td>',$row['product_id'],'</td>';
-                    echo '<td><a href="detail.php?id=',$row['product_id'],'">',$row['product_name'],'</a></td>';
-                    echo '<td>',$row['price'],'</td>';
-                    echo '<td>',$row['quantity'],'</td>';
-                    $subtotal=$row['price']*$row['quantity'];
-                    $total+=$subtotal;
-                    echo '<td>',$subtotal,'</td>';
-                    echo '</tr>';
-                }
-                echo '<tr><td>合計</td><td></td><td></td><td></td><td>',$total,'</td><td></td></tr>';
-                echo '</table>';
-                $count++;
-                echo '購入',$count;
-                echo '購入日',$roro['order_date'];
-                echo '配達先',$roro['shipping_address'];
-                echo '支払い方法',$roro['payment'];
-                echo '<hr>';
+        echo '<div class="hero-body py-5">';
+        echo '<label class="label">注文履歴</label>';
+        for($i=0;$i<count($result);$i++){
+            $sql2=$pdo->prepare('select * from Order_details where order_id=?');
+            $sql2->execute([$result[$i]['order_id']]);
+            $result2=$sql2->fetchAll();
+            echo '<a class="box" href="history-detail.php?order_id=',$result[$i]['order_id'],'">';
+            echo '<div class="columns is-mobile">';
+            $sql3=$pdo->prepare('select product_name,image_pass from Products where product_id=?');
+            $sql3->execute([$result2[0]['product_id']]);
+            $result_img=$sql3->fetchAll();
+            echo '<div class="column is-two-fifths is-flex is-justify-content-center is-align-content-center">';
+            echo '<figure class="image is-96x96">';
+            echo '<img class="mx-auto" alt="image" src="images/products/',$result_img[0]['image_pass'],'" style="max-width:100%;max-height:100%;width:auto;height:auto;">';
+            echo '</figure>';
+            echo '</div>';
+            echo '<div class="column is-three-fifths">';
+            if(count($result2)==1){echo '<p class="txt-limit1">',$result_img[0]['product_name'],'</p>';}
+            else if(count($result2)>1){echo '<p class="txt-limit1">',$result_img[0]['product_name'],'+etc</p>';}
+            else{echo '<p class="txt-limit1">注文キャンセル</p>';}
+            echo '<p class="txt-limit2">',$result[$i]['order_date'],'</p>';
+            echo '<p>に注文されました。</p>';
+            echo '</div>';
+            echo '</div>';
+            echo '</a>';
         }
+        echo '</div>';
     }
 }else{
     echo '<div class="displaycenter">';
