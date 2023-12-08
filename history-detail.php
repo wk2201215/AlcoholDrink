@@ -15,21 +15,28 @@ $sum=0;
 $sql=$pdo->prepare('select * from Order_details where order_id=?');
 $sql->execute([$_GET['order_id']]);
 foreach ($sql as $row){
-    $date=$row['order_date'];
-    $address=$row['shipping_address'];
-    $payment=$row['payment'];
     $sql2=$pdo->prepare('select * from Products where product_id=?');
     $sql2->execute([$row["product_id"]]);
     foreach ($sql2 as $row2){
             $sum+=$row["quantity"]*$row2["price"];
     }
 }
+$sql=$pdo->prepare('select * from Orders where order_id=?');
+$sql->execute([$_GET['order_id']]);
+foreach ($sql as $row){
+$date=$row["order_date"];
+$address=$row["shipping_address"];
+$payment_id=$row["payment"];
+}
+$sql=$pdo->prepare('select * from Payments where payment_id=?');
+$sql->execute([$payment_id]);
+$result=$sql->fetchAll();
+$payment=$result[0]['payment_name'];
 echo '<div class="block">';
 //注文合計
 echo '<div class="block price mb-4">';
 echo '<label class="heading" style="font-size: 1.8rem;">注文の合計：</label>';
-echo '<label class="heading" style="font-size: 18px;font-weight: 600;">￥</label>';
-echo '<p class="title">',number_format($sum),'</p>';
+echo '<p>￥',number_format($sum),'</p>';
 echo '</div>';
 //注文日
 echo '<div class="block price mb-4">';
@@ -44,7 +51,7 @@ echo '</div>';
 //支払い方法
 echo '<div class="block price mb-4">';
 echo '<label class="heading" style="font-size: 1.8rem;">支払い方法：</label>';
-echo '<p class="title">',$payment,'</p>';
+echo '<p>',$payment,'</p>';
 echo '</div>';
 echo '</div>';
 echo '<hr>';
