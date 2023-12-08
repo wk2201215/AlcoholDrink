@@ -1,7 +1,8 @@
 <?php session_start(); ?>
+<?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
-<?php require 'db-connect.php'; ?>
 
 <div class="hero-body py-5">
 

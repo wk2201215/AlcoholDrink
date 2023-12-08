@@ -1,10 +1,10 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
 <?php
     echo '<div class="hero-body py-5">';
-    if(isset($_SESSION['customer'])){
     $pdo=new PDO($connect, USER, PASS);
     //現在の支払い方法
     $sql=$pdo->prepare('SELECT payment_name	FROM Payments where payment_id = ?');
@@ -39,13 +39,6 @@
     echo '</div>';
     echo '</form>';
     echo '</div>';
-}else{
-    echo '<div class="displaycenter">';
-    echo '<div class="has-text-centered" style="width:100%;">';
-    echo '<p class="block title is-5">ログインしてください。</p>';
-    echo '</div>';
-    echo '</div>';
-}
 ?>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

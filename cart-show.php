@@ -1,7 +1,8 @@
 <?php session_start(); ?>
+<?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-<?php require 'db-connect.php'; ?>
 
 <div class="hero-body py-5">
 
@@ -27,7 +28,7 @@ echo '<label class="heading" style="font-size: 1.8rem;">小計</label>';
 echo '<label class="heading" style="font-size: 18px;font-weight: 600;">￥</label>';
 echo '<p class="title">',number_format($sum),'</p>';
 echo '</div>';
-echo '<button class="button is-large is-warning mx-auto Obutton" type="button" onclick="cart_button()">レジに進む</button>';
+echo '<a class="button is-large is-warning mx-auto Obutton" type="button" href="purchase-input.php">レジに進む</a>';
 echo '</div>';
 echo '<hr>';
 
@@ -71,7 +72,7 @@ foreach ($sql as $row){
         }else if($row["cart_quantity"]>$row2['stock']){
                 $overstock_sql=$pdo->prepare('update Carts set cart_quantity=? where customer_id=? and product_id=?');
                 $overstock_sql->execute([$row2['stock'],$_SESSION['customer']['id'],$row["product_id"]]);
-                echo '<script type="text/JavaScript"> location.reload(); </script>';
+                echo '<script type="text/JavaScript"> location.reload() ; </script>';
         }else{
             echo '<label class="selectbox-002">';
             echo '<select name="count[]" onchange="cart_change(event)">';

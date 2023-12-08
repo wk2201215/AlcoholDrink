@@ -1,9 +1,10 @@
 <?php session_start(); ?>
+<?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
 <div class="displaycenter">
 <?php
-if(isset($_SESSION['customer'])){
     echo '<div style="width:85%;">';
     echo '<div class="field mb-5">';
     echo '<label class="label has-text-danger">よくお読みください</label>';
@@ -23,11 +24,6 @@ if(isset($_SESSION['customer'])){
     echo '<button class="button" onclick="delete_customer()" style="width:100%;" type="submit">アカウントを削除</button>';
     echo '</form>';
     echo '</div>';
-}else{
-    echo '<div class="has-text-centered" style="width:100%;">';
-    echo '<p class="block title is-5">ログインしてください。</p>';
-    echo '</div>';
-}
 ?>
 </div>
 <?php require 'footer-menu.php'; ?>

@@ -10,8 +10,8 @@
                         </tr>
            
                         <tr>
-                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px; type = "text" name = "product_name"></td>
-                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px; type = "text" name = "categori_name"></td>
+                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "product_name"></td>
+                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "categori_name"></td>
                         </tr>
                     </p>
                 </div>
@@ -23,8 +23,8 @@
                             <th><label class="has-text-weight-semibold">商品画像パス</label></th>
                         </tr>
                         <tr>
-                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px; type = "text" name = "price"></td>
-                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px; type = "text" name = "image_pass"></td>
+                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "price"></td>
+                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "image_pass"></td>
                         </tr>
                     </p>
                 </div>

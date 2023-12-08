@@ -1,4 +1,6 @@
+<?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header-top.php'; ?>
 <?php require 'header-menu.php'; ?>
 <?php require 'top-s.php'; ?>
