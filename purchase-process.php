@@ -36,7 +36,7 @@
             $flag++;
         }
     }
-    if($flag==0){
+    if($flag=0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([$id]); 
         header('Location:purchase-output.php');
