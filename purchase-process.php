@@ -36,7 +36,7 @@
             $flag++;
         }
     }
-    if($flag=0){
+    if($flag==0){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([$id]); 
         header('Location:purchase-output.php');
@@ -47,7 +47,7 @@
    
        $str='';
        for( $i=0;$i<$flag;$i++){
-       $str+=$hai['name'][$i]+'の在庫が'+$hai['nostock'][$i]+'個足りません\n';
+       $str.=$hai['name'][$i].'の在庫が'.$hai['nostock'][$i].'個足りません\n';
        }
        header('Location:purchase-input.php?hogeA='.$str);
        exit();
