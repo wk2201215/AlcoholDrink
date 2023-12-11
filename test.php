@@ -10,7 +10,7 @@ foreach ($sql as $i => $row) {
    $id=$row['product_id'];
    echo '<div style="width:50vw;">'; 
    echo '<div class="box p-0 m-1">';
-   echo '<figure class="image is-fullwidth has-background-white-ter full_image py-6" style="height:41.5vh">';
+   echo '<figure class="image is-fullwidth has-background-white-ter full_image py-5" style="height:35vh">';
    echo '<a class="center_image" href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'"></a>';
    echo '</figure>';
    echo '<div style="height:calc(3rem * 1.5)">';
