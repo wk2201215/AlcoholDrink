@@ -32,7 +32,7 @@
             ]);    
         }else{
             $flag=false;
-            $str.=$row['product_name'].'の在庫が'.$row['cart_quantity']-$row['stock'].'個足りません\n';
+            $str.=$row['product_name'].'の在庫が'.$row['cart_quantity']-$row['stock'].'個足りません<br>';
         }
     }
     if($flag){
