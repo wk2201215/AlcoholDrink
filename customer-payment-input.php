@@ -7,12 +7,9 @@
     echo '<div class="hero-body py-5">';
     $pdo=new PDO($connect, USER, PASS);
     //現在の支払い方法
-    $sql=$pdo->prepare('SELECT payment_name	FROM Payments where payment_id = ?');
-    $sql->execute([$_SESSION['customer']['payment']]);
-    $result=$sql->fetch();
     echo '<label class="label">現在の支払い方法</label>';
     echo '<div class="box">';
-    echo '<p>',$result['payment_name'],'</p>';
+    echo '<p>',$_SESSION['customer']['payment'],'</p>';
     echo '</div>';
 
     //支払い方法変更

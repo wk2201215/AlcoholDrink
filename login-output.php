@@ -7,6 +7,9 @@ $sql=$pdo->prepare('select * from Customers where login_id=?');
 $sql->execute([$_POST['login_id']]);
 foreach($sql as $row) {
     if(password_verify($_POST['password'],$row['customer_password'])){
+        $sql2=$pdo->prepare('select * from Payments where payment_id=?');
+        $sql2->execute([$row['payment_id']]);
+        $result=$sql2->fetch();
         $_SESSION['customer']=[
             'id'=>$row['customer_id'],
             'login_id'=>$row['login_id'],
@@ -17,7 +20,7 @@ foreach($sql as $row) {
             'tel'=>$row['telephone'],
             'mail'=>$row['mail'],
             'birth'=>$row['birth'],
-            'payment'=>$row['payment_id']
+            'payment'=>$result['payment_name']
         ];
     }
 }
