@@ -3,11 +3,8 @@
 <?php
     $pdo=new PDO($connect, USER, PASS);
     $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?,?,?)');
-    $flag=0;
-    $hai=[
-       'name'=>[],
-       'nostock'=>[]
-    ];
+    $flag=true;
+    $str='';
     $sql->execute([
         $_SESSION['customer']['id'], 
         $_SESSION['customer']['address'], 
@@ -34,12 +31,11 @@
                 $row['product_id']
             ]);    
         }else{
-            $hai['name'][$flag]=$row['product_name'];
-           $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
-            $flag++;
+            $flag=false;
+            $str.=$row['product_name'].'の在庫が'.$row['cart_quantity']-$row['stock'].'個足りません\n';
         }
     }
-    if($flag==0){
+    if($flag){
         $sql6=$pdo->prepare('delete from Carts  where customer_id=?');  
         $sql6->execute([$id]); 
         header('Location:purchase-output.php');
@@ -47,11 +43,6 @@
     }else{
         $sql8=$pdo->prepare('delete from Orders Where order_id=?');
         $sql8->execute([$last_id]); 
-   
-       $str='';
-       for( $i=0;$i<$flag;$i++){
-       $str.=$hai['name'][$i].'の在庫が'.$hai['nostock'][$i].'個足りません\n';
-       }
        header('Location:purchase-input.php?hogeA='.$str);
        exit();
     }
