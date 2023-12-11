@@ -32,7 +32,7 @@
         }
     }
     $fee=100;
-    $total=rund($sum-$discount+$fee);
+    $total=round($sum-$discount+$fee);
     echo '<p>ご請求金額',$total,'</p>';
     echo '<p>小計',$sum,'</p>';
     for( $i=0;$i<$n;$i++){
