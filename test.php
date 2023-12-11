@@ -4,25 +4,25 @@
 <?php require 'header-menu.php'; ?>
 <?php
 $pdo=new PDO($connect, USER, PASS);
-    $flag=0;
-    $hai=[
-       'name'=>[],
-       'nostock'=>[]
-    ];
-    $id=$_SESSION['customer']['id'];
-    //cartテーブルの中身を出力
-    $sql3=$pdo->prepare('select P.*,c.* from Products as P inner join Carts as c on P.product_id = c.product_id where customer_id=?');
-    $sql3->execute([$id]);
-    foreach ($sql3 as $row){
-            $hai['name'][$flag]=$row['product_name'];
-           $hai['nostock'][$flag]=$row['cart_quantity']-$row['stock'];
-            $flag++;
-    }
-       $str='';
-       for( $i=0;$i<$flag;$i++){
-       $str+=$hai['name'][$i].'の在庫が'.$hai['nostock'][$i].'個足りません\n';
-       }
-       echo $str;
+$sql=$pdo->query('select * from Products');
+echo '<div class="top_products">';
+foreach ($sql as $i => $row) {
+   $id=$row['product_id'];
+   echo '<div style="width:50vw;">'; 
+   echo '<div class="box p-0 m-1">';
+   echo '<figure class="image is-fullwidth has-background-white-ter full_image py-6" style="height:41.5vh">';
+   echo '<a class="center_image" href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'"></a>';
+   echo '</figure>';
+   echo '<div style="height:calc(3rem * 1.5)">';
+   echo '<a class="txt-limit3" style="text-decoration:none;">',$row['product_name'],'</a>';
+   echo '</div>';
+   echo '<div class="py-3">';
+   echo '<p class="subtitle txt-limit2 has-text-danger py-0">￥',number_format($row['price']),'</p>';
+   echo '</div>';
+   echo '</div>';
+   echo '</div>';
+}
+echo '</div>';
 ?>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>

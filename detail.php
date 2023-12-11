@@ -47,9 +47,9 @@ foreach($sql as $row){
     echo '<p style="white-space: pre-wrap;">',$row['product_description'],'</p>';
     echo '</div>';
     echo '</form>';
-    echo '<div class="block">';
-    echo '<a href="favorite-insert.php?id=',$row['product_id'],'">お気に入りに追加</a>';
-    echo '</div>';
+    //echo '<div class="block">';
+    //echo '<a href="favorite-insert.php?id=',$row['product_id'],'">お気に入りに追加</a>';
+    //echo '</div>';
 }
 echo '</table>';
 ?>

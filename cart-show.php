@@ -47,7 +47,7 @@ foreach ($sql as $row){
         echo '<a href="detail.php?id=',$row["product_id"],'">';
         echo '<img alt="images" class="mx-auto" src="images/products/',$row2['image_pass'],'">';
         echo '</a>';
-        echo '</fugure>';
+        echo '</figure>';
         echo '</div>';
 
         echo '<div class="column is-two-thirds">';
