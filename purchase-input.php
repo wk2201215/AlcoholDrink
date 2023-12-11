@@ -5,6 +5,9 @@
 <?php require 'header-menu-back.php'; ?>
 
 <?php
+    if(isset($_GET['hogeA'])){
+        echo '<p class="has-text-danger">',$_GET['hogeA'],'</p>';
+    }
     $pdo=new PDO($connect, USER, PASS);
     $id=$_SESSION['customer']['id'];
     $sql=$pdo->prepare('select P.*,c.* from Products as P inner join Carts as c 
