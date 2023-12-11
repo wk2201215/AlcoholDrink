@@ -32,8 +32,8 @@
         }
     }
     $fee=100;
-    $total=$sum-$discount+$fee;
-    echo '<p>ご請求金額',round($total),'</p>';
+    $total=rund($sum-$discount+$fee);
+    echo '<p>ご請求金額',$total,'</p>';
     echo '<p>小計',$sum,'</p>';
     for( $i=0;$i<$n;$i++){
     echo '<p>割引',$wari['name'][$i],$wari['dp'][$i],'円(',$wari['d'][$i],'%)×',$wari['c'][$i],'</p>';
@@ -43,6 +43,10 @@
     echo 'お届け先';
     
     echo $_SESSION['customer']['address'];
+    $_SESSION['order']=[
+        'total'=>$total,
+        'fee'=>$fee
+    ];
     ?>
     <button type="button" onclick="location.href='customer-input.php'">住所変更</button><br>
 <?php

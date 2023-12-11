@@ -2,7 +2,7 @@
 <?php require 'db-connect.php'; ?>
 <?php
     $pdo=new PDO($connect, USER, PASS);
-    $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?)');
+    $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?,?,?)');
     $flag=0;
     $hai=[
        'name'=>[],
@@ -11,10 +11,12 @@
     $sql->execute([
         $_SESSION['customer']['id'], 
         $_SESSION['customer']['address'], 
-        $_SESSION['customer']['payment']    
+        $_SESSION['customer']['payment'],
+        $_SESSION['order']['total'], 
+        $_SESSION['order']['fee'],
     ]); 
     $last_id = $pdo->lastInsertId();
-    $sql2=$pdo->prepare('insert into Order_details values(?,?,?)');
+    $sql2=$pdo->prepare('insert into Order_details values(?,?,?,?)');
     $id=$_SESSION['customer']['id'];
     //cartテーブルの中身を出力
     $sql3=$pdo->prepare('select P.*,c.* from Products as P inner join Carts as c 
@@ -23,7 +25,8 @@
     $sql3->execute([$id]);
     foreach ($sql3 as $row){
         if($row['stock']>=$row['cart_quantity']){
-            $sql2->execute([$last_id, $row['product_id'], $row['cart_quantity']]);
+            $s=$row['cart_quantity']*$row['price']*($row['discount']/100);
+            $sql2->execute([$last_id, $row['product_id'], $row['cart_quantity'],$s]);
             $sql5=$pdo->prepare('update  Products set stock=?  where product_id=?');   
             $not=$row['stock']-$row['cart_quantity'];      
             $sql5->execute([
