@@ -13,7 +13,7 @@
         $_SESSION['customer']['address'], 
         $_SESSION['customer']['payment'],
         $_SESSION['order']['total'], 
-        $_SESSION['order']['fee'],
+        $_SESSION['order']['fee']
     ]); 
     $last_id = $pdo->lastInsertId();
     $sql2=$pdo->prepare('insert into Order_details values(?,?,?,?)');
