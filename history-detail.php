@@ -26,7 +26,7 @@ $postage=$row["postage"];
 $sql2=$pdo->prepare('select * from Order_details where order_id=?');
 $sql2->execute([$_GET['order_id']]);
 foreach ($sql2 as $row2){
-    $sum+=$row2['quantity']*$row2['payment_price'];
+    $sum+=$row2['payment_price'];
     $count+=$row2['quantity'];
 }
 }

@@ -32,11 +32,11 @@
                     where customer_id=?');
         $sql3->execute([$id]);
         foreach ($sql3 as $row){
-            $s=$row['cart_quantity']*$row['price']*($row['discount']/100);
+            $s=$row['cart_quantity']*$row['price']*((100-$row['discount'])/100);
             $sql5=$pdo->prepare('update Products set stock=? where product_id=?');   
             $not=$row['stock']-$row['cart_quantity'];      
             $sql5->execute([
-                $not,          
+                $not,
                 $row['product_id']
             ]);
             if($row['cart_quantity']==0){}
