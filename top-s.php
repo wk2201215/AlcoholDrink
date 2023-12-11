@@ -2,16 +2,20 @@
   <!-- スライド（コンテンツ） -->
   <div id="slide" class="slide">
     <div>
-      <img src="images/oni.jpg"> 
+      <!-- <img src="images/oni.jpg">  -->
+      <p>suraido1</p>
     </div>
     <div>
-    <img src="images/oni.jpg"> 
+    <!-- <img src="images/oni.jpg">  -->
+    <p>suraido2</p>
     </div>
     <div>
-    <img src="images/oni.jpg"> 
+    <!-- <img src="images/oni.jpg">  -->
+    <p>suraido3</p>
     </div>
     <div>
-    <img src="images/oni.jpg"> 
+    <!-- <img src="images/oni.jpg">  -->
+    <p>suraido4</p>
     </div>
   </div>
   <!-- 左右のボタン -->

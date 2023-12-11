@@ -58,7 +58,7 @@ if(empty($sql->fetchAll())) {
         $image_name = $random_name . '.' . $path_parts['extension'];
         $uploadfile = $uploaddir . $image_name;
         $sql3=$pdo->prepare('update Customers set identification_image_pass = ? where customer_id = ?');
-        $sql3->execute([$image,$id]);
+        $sql3->execute([$image_name,$id]);
         //imagesディレクトリにファイル保存
         if (move_uploaded_file($_FILES['idcard']['tmp_name'], $uploadfile)) {
             echo "<p>画像は正常にアップロードされました。</p>";
