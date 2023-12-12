@@ -23,9 +23,10 @@
         $pdo=new PDO($connect, USER, PASS);
         echo '<p>値段範囲検索</p>';
         echo '<li><a href="top.php?priceA=0&priceB=1000">～￥1000</a></li>';
-        echo '<li><a href="top.php?priceA=1000&priceB=3000">￥1000～￥3000</a></li>';
-        echo '<li><a href="top.php?priceA=3000&priceB=6000">￥3000～￥6000</a></li>';
-        echo '<li><a href="top.php?priceA=6000&priceB=max">￥6000～</a></li>';
+        echo '<li><a href="top.php?priceA=1000&priceB=3000">￥1,000～￥3,000</a></li>';
+        echo '<li><a href="top.php?priceA=3000&priceB=6000">￥3,000～￥6,000</a></li>';
+        echo '<li><a href="top.php?priceA=6000&priceB=9000">￥6,000～￥9,000</a></li>';
+        echo '<li><a href="top.php?priceA=9000&priceB=max">￥9,000～</a></li>';
         echo '<p>カテゴリ検索</p>';
         foreach($pdo->query('select * from Categories') as $row){
             echo '<li><a href="top.php?category_id=',$row['category_id'],'">',$row['category_name'],'</a></li>';
