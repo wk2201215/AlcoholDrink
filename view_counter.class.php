@@ -60,6 +60,7 @@ class ViewCounter
         flock($fp, LOCK_UN);
         fclose($fp);
 
+        ftruncate ($fp_data, 0);
         rewind($fp_data);
         fwrite($fp_data, $ip."\n");
 
