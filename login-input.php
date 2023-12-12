@@ -3,6 +3,7 @@
 <div class="loginheight100">
     <form action="login-output.php" method="post" class="box mx-auto my-auto width85">
 <?php
+    unset($_SESSION['customer']);
     echo '<div class="field">';
     echo '<label class="label">アカウントID</label>';
     echo '<input type="text" class="input" name="login_id">';

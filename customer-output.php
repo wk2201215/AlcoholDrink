@@ -5,9 +5,7 @@
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
-//画像アップロード先
 $uploaddir = 'images/customer/';
-//同じログインIDがいるかどうか
 if(isset($_SESSION['customer'])){
     $id=$_SESSION['customer']['id'];
     $sql=$pdo->prepare('select * from Customers where customer_id!=? and login_id=?');
@@ -16,12 +14,9 @@ if(isset($_SESSION['customer'])){
     $sql=$pdo->prepare('select * from Customers where login_id=?');
     $sql->execute([$_POST['login_id']]);
 }
-//いない場合
 if(empty($sql->fetchAll())) {
     echo '<div class="hero-body py-5">';
-    //ログインしている
     if(isset($_SESSION['customer'])){
-        //画像以外
         $sql2=$pdo->prepare('update Customers set login_id=?, 
         customer_name=?, customer_password=?, postcode=?, address=?, 
         telephone=?, mail=?, birth=? where customer_id=?');
@@ -31,9 +26,7 @@ if(empty($sql->fetchAll())) {
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['birth'],
             $_SESSION['customer']['id']]);
-        //画像の変更がある場合
-        if(!empty($_FILES['idcard']['name'])){
-            //ファイル名をユニーク化
+        if(!empty($_FILES['idcard'])){
             $str=$_FILES['idcard']['name'];
             $path_parts = pathinfo($str);
             $random_name = uniqid(mt_rand());
@@ -41,7 +34,6 @@ if(empty($sql->fetchAll())) {
             $uploadfile = $uploaddir . $image_name;
             $sql3=$pdo->prepare('update Customers set identification_image_pass = ? where customer_id = ?');
             $sql3->execute([$image_name,$id]);
-            //imagesディレクトリにファイル保存
             if (move_uploaded_file($_FILES['idcard']['tmp_name'], $uploadfile)) {
                 echo "<p>画像は正常にアップロードされました。</p>";
               } else {
@@ -49,7 +41,6 @@ if(empty($sql->fetchAll())) {
             }
         }
             echo '<label class="label">お客様情報を更新しました。</label>';
-    //ログインしていない
     } else {
         //ファイル名をユニーク化
         $str=$_FILES['idcard']['name'];
@@ -57,8 +48,6 @@ if(empty($sql->fetchAll())) {
         $random_name = uniqid(mt_rand());
         $image_name = $random_name . '.' . $path_parts['extension'];
         $uploadfile = $uploaddir . $image_name;
-        $sql3=$pdo->prepare('update Customers set identification_image_pass = ? where customer_id = ?');
-        $sql3->execute([$image_name,$id]);
         //imagesディレクトリにファイル保存
         if (move_uploaded_file($_FILES['idcard']['tmp_name'], $uploadfile)) {
             echo "<p>画像は正常にアップロードされました。</p>";
@@ -72,10 +61,9 @@ if(empty($sql->fetchAll())) {
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['birth'],
             $image_name]);
-            unset($_SESSION['customer']);
         echo '<label class="label">アカウントの登録が完了しました。</label>';
     }
-
+    unset($_SESSION['customer']);
 
     $sql5=$pdo->prepare('select * from Customers where login_id=?');
     $sql5->execute([$_POST['login_id']]);
