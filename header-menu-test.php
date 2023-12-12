@@ -19,12 +19,19 @@
 </nav>
 <div id="sidebarMenu">
     <ul class="sidebarMenuInner">
-      <li>Jelena Jovanovic <span>Web Developer</span></li>
-      <li><a href="https://vanila.io" target="_blank">Company</a></li>
-      <li><a href="https://instagram.com/plavookac" target="_blank">Instagram</a></li>
-      <li><a href="https://twitter.com/plavookac" target="_blank">Twitter</a></li>
-      <li><a href="https://www.youtube.com/channel/UCDfZM0IK6RBgud8HYGFXAJg" target="_blank">YouTube</a></li>
-      <li><a href="https://www.linkedin.com/in/plavookac/" target="_blank">Linkedin</a></li>
+        <?php
+        $pdo=new PDO($connect, USER, PASS);
+        echo '<p>値段範囲検索</p>';
+        echo '<li><a href="top.php?priceA=0&priceB=1000">～￥1000</a></li>';
+        echo '<li><a href="top.php?priceA=1000&priceB=3000">￥1,000～￥3,000</a></li>';
+        echo '<li><a href="top.php?priceA=3000&priceB=6000">￥3,000～￥6,000</a></li>';
+        echo '<li><a href="top.php?priceA=6000&priceB=9000">￥6,000～￥9,000</a></li>';
+        echo '<li><a href="top.php?priceA=9000&priceB=max">￥9,000～</a></li>';
+        echo '<p>カテゴリ検索</p>';
+        foreach($pdo->query('select * from Categories') as $row){
+            echo '<li><a href="top.php?category_id=',$row['category_id'],'">',$row['category_name'],'</a></li>';
+        }
+        ?>
     </ul>
   </div>
 <div id="app">
