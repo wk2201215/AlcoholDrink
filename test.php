@@ -1,7 +1,7 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
+<?php require 'header-menu-test.php'; ?>
 <?php
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->query('select * from Products');
