@@ -25,30 +25,51 @@
     
     echo '<div class="table-container">';
     echo '<table class="table is-striped">';
-    
-    //order_detail(個数,商品ID),Products(商品名),categories(category_name)
-    echo '<tr><th>商品ID</th><th>商品名</th><th>商品種別</th><th>個数</th><th></th></tr>';
-    //order_detail(1)とProducts(1,2)とCategories(2)で商品種別をだす?
-    $sql = $pdo->prepare('SELECT Categories.category_name FROM Order_details
-    INNER JOIN Products ON Order_details.product_id  = Products.product_id
-    INNER JOIN Categories ON Products.category_id = Categories.category_id
-    WHERE Order_details.order_id = ?');
-    
-        $sql->execute([$order_id]);
-        $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $category_name = $row['category_name'];
 
-    //order_detail(個数),Products(商品ID,商品名)をだす
-    $orders=$pdo->prepare('select Products.product_id,Products.product_name,Order_details.quantity from Products 
-    inner join Order_details on Products.product_id = Order_details.product_id 
-    where Order_details.order_id=?');
-    $orders->execute([$order_id]);
-    foreach($orders as $row){
-        echo '<tr><td>',$row['product_id'],'</td>';
-        echo '<td>',$row['product_name'] ,'</td>';
-        echo '<td>',$category_name ,'</td>';
-        echo '<td>',$row['quantity'],'</td></tr>';
-    }
+    //order_detailとProductsでproduct_idがあるか?
+    $sql = $pdo->prepare('SELECT Products.product_id FROM Order_details
+    INNER JOIN Products ON Order_details.product_id  = Products.product_id
+    WHERE Order_details.order_id = ?');
+    $sql->execute([$order_id]);
+    $count = $sql->rowCount();
+
+        //product_idあれば
+        if($count != 0){
+            //order_detail(個数,商品ID),Products(商品名),categories(category_name)
+            echo '<tr><th>商品ID</th><th>商品名</th><th>商品種別</th><th>個数</th><th></th></tr>';
+            //order_detail(1)とProducts(1,2)とCategories(2)で商品種別をだす?
+            $sql = $pdo->prepare('SELECT Categories.category_name FROM Order_details
+            INNER JOIN Products ON Order_details.product_id  = Products.product_id
+            INNER JOIN Categories ON Products.category_id = Categories.category_id
+            WHERE Order_details.order_id = ?');
+            $sql->execute([$order_id]);
+
+            $i=0;
+            foreach ($sql as $row) {
+                $category_name[$i] =  $row['category_name'];
+                $i++;
+              }
+
+            // $row = $sql->fetchAll(PDO::FETCH_ASSOC);
+            // $category_name = $row['category_name'];
+
+            //order_detail(個数),Products(商品ID,商品名)をだす
+            $orders=$pdo->prepare('SELECT Products.product_id,Products.product_name,Order_details.quantity from Products 
+            inner join Order_details on Products.product_id = Order_details.product_id 
+            where Order_details.order_id=?');
+            $orders->execute([$order_id]);
+
+            $i=0;
+            foreach($orders as $order){
+             echo '<tr><td>',$order['product_id'],'</td>';
+                echo '<td>',$order['product_name'] ,'</td>';
+                echo '<td>',$category_name[$i] ,'</td>';
+                echo '<td>',$order['quantity'],'</td></tr>';
+                $i++;
+            }
+        }else{
+            echo 'データが1件もありません';
+        }
     ?>
     </table>
 </div>

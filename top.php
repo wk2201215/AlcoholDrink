@@ -1,25 +1,23 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<?php require 'judge.php'; ?>
 <?php require 'header-top.php'; ?>
 <?php require 'header-menu.php'; ?>
 <?php require 'top-s.php'; ?>
+<?php include_once 'view_counter.class.php';
+// $log_dir = dirname(__FILE__) . '/log/';
+// $db_dir  = dirname(__FILE__) . '/db/';
+// $counter = new ViewCounter($log_dir, $db_dir);
+$counter = new ViewCounter();
+//ページ固有のID
+$id = 1010;
+$count = $counter->log($id,$_SESSION['customer']['id']);
+// echo $count;
+?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 if(isset($_POST['keyword'])){
     $sql=$pdo->prepare('select * from Products where product_name like ?');
     $sql->execute(['%'.$_POST['keyword'].'%']);
-}else if(isset($_GET['category_id'])){
-    $sql=$pdo->prepare('select * from Products where category_id = ?');
-    $sql->execute([$_GET['category_id']]);
-}else if(isset($_GET['priceA'])){
-    if($_GET['priceB']=='max'){
-        $sql=$pdo->prepare('select * from Products where price >= ?');
-        $sql->execute([$_GET['priceA']]);
-    }else{
-        $sql=$pdo->prepare('select * from Products where price BETWEEN ? AND ?');
-        $sql->execute([$_GET['priceA'],$_GET['priceB']]);
-    }
 }else{
     $pdor=new PDO($connect,USER,PASS);
     $sqlr=$pdor->query('
