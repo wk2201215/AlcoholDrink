@@ -9,10 +9,10 @@ $pdo=new PDO($connect,USER,PASS);
 if(isset($_POST['keyword'])){
     $sql=$pdo->prepare('select * from Products where product_name like ?');
     $sql->execute(['%'.$_POST['keyword'].'%']);
-}else if($_GET['category_id']){
+}else if(isset($_GET['category_id'])){
     $sql=$pdo->prepare('select * from Products where category_id = ?');
     $sql->execute([$_GET['category_id']]);
-}else if($_GET['priceA']){
+}else if(isset($_GET['priceA'])){
     if($_GET['priceB']=='max'){
         $sql=$pdo->prepare('select * from Products where price >= ?');
         $sql->execute([$_GET['priceA']]);
