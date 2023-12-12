@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <?php require '../db-connect.php'; ?>
-
 <?php
 unset($_SESSION['control']);
 $pdo=new PDO($connect, USER, PASS);
