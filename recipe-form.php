@@ -2,7 +2,7 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
+<?php require 'header-menu-back.php'; ?>
 <div class="hero-body py-5">
 
 <?php
