@@ -10,6 +10,13 @@ CREATE TABLE Payments(
     PRIMARY KEY(payment_id)
 );
 
+CREATE TABLE Administrator(
+    Administrator_id INT auto_increment,
+    Administrator_name VARCHAR(50) NOT NULL,
+    Administrator_password VARCHAR(200) NOT NULL,
+    PRIMARY KEY(Administrator_id)
+);
+
 CREATE TABLE Customers(
     customer_id INT auto_increment,
     login_id VARCHAR(50) NOT NULL,
