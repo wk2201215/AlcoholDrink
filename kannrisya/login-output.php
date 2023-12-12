@@ -3,21 +3,22 @@
 <?php
 unset($_SESSION['control']);
 $pdo=new PDO($connect, USER, PASS);
-$sql=$pdo->prepare('select * from control where login=? and password=?');
-$sql->execute([$_POST['name'],$_POST['password']]);
+$sql=$pdo->prepare('select * from Administrator where dministrator_password=?');
+$sql->execute([$_POST['password']]);
 foreach($sql as $row){
-    $_SESSION['control'] = [
-        'id'=>$row['id'],
-        'name'=>$row['name'],
-        'login'=>$row['login'],
-        'password'=>$row['password']
-    ];
+    if(password_verify($_POST['dministrator_password'],$row['dministrator_password'])){
+        $_SESSION['control'] = [
+            'id'=>$row['administrator_id'],
+            'name'=>$row['administrator_name'],
+            'password'=>$row['dministrator_password']
+        ];
+    }
 }
 if(isset($_SESSION['control'])){
     header("Location: start.html");
     exit;
 }else{
-    header("Location: login-input.php");
-    exit;
+    header('Location:login-input.php?hogeA=ログイン名またはパスワードが違います');
+exit();
 }
 ?>

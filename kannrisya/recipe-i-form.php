@@ -8,7 +8,7 @@
 </head>
 <body>
 <!-- <h1>レシピ投稿画面</h1> -->
-
+<div id="app">
 <form action = "recipe-insert.php" class="box" method="post" enctype="multipart/form-data">
 <div class="field" id="cookingimage">
     <div class="file is-boxed image has-name is-fullwidth">
@@ -80,6 +80,7 @@
 <input class="button is-link" type = "submit" value = "投稿">
 </div>
 </form>
+</div>
 <a class="button is-link is-medium mx-auto my-3" href="recipe-top.php">戻る</a>
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
