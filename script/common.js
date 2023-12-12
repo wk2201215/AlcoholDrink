@@ -101,3 +101,8 @@ function deleteIngredient(element) {
     const value=e.target.value;
     location.href = "cart-show-change-stock.php?change="+value+"&product_id="+id;
   }
+
+  function onfilter(){
+    const el = document.getElementById("filter")
+    el.classList.toggle('is-active');
+  }
