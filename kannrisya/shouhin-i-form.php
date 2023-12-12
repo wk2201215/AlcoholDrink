@@ -11,7 +11,32 @@
            
                         <tr>
                             <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "product_name"></td>
-                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "categori_name"></td>
+                            <!-- ドロップダウンに変更↓ -->
+                            <td>
+                                <!-- <div class="box"> -->
+                                <select name = "category_id">
+									<option value="1">ビール</option>
+									<option value="2">発泡酒</option>
+									<option value="3">その他の発泡性酒類</option>
+									<option value="4">清酒</option>
+									<option value="5">果実酒</option>
+									<option value="6">その他の醸造酒</option>
+									<option value="7">連続式蒸留焼酎</option>
+									<option value="8">単式蒸留焼酎</option>
+									<option value="9">ウイスキー</option>
+									<option value="10">ブランデー</option>
+									<option value="11">原料用アルコール</option>
+									<option value="12">スピリッツ</option>
+									<option value="13">合成清酒</option>
+									<option value="14">みりん</option>
+									<option value="15">甘味果実酒</option>
+									<option value="16">リキュール</option>
+									<option value="17">粉末酒</option>
+									<option value="18">雑酒</option>
+									<option value="19">その他</option>
+								</select> 
+                                <!-- </div> -->
+                            </td> 
                         </tr>
                     </p>
                 </div>
