@@ -26,8 +26,6 @@
         } else {
           echo "画像のアップロードができませんでした\n";
         }
-        //imagesディレクトリにファイル保存
-        move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
 
         //画像update文
         $sql=$pdo->prepare('UPDATE Recipes SET recipe_image_pass = ? WHERE recipe_id = ?');
