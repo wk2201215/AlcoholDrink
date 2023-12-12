@@ -2,7 +2,7 @@ const app = new Vue({
   el: '#app', // Vue.jsを適用する要素のCSSセレクター 
   data() {
     return {
-        image_name : "ファイル名",
+        image_name : "ファイルを選択...",
     }
   },
   methods: {
@@ -13,6 +13,14 @@ const app = new Vue({
     },
     Myrecipes_dropdown(){
       document.getElementById('Myrecipes').classList.toggle("is-active");
+    },
+    logout(){
+      var result = window.confirm('ログアウトしますか？');
+      if( result ) {
+      location.href = "logout.php";
+      }
+    else {
+    }
     }
   }
 })
@@ -24,7 +32,7 @@ function change(e){
   if(elm.classList.contains("open")){
      elm.style.height = elm.scrollHeight + 'px';
   }else{
-     elm.style.height = "3em";
+     elm.style.height = "0";
   }
 }
 
@@ -61,4 +69,16 @@ function deleteIngredient(element) {
       <td class="width5 clear-column pb-2"><span class="cooking_close-icon" onclick="deleteCooking(this)">✖</span></td>
     `;
     tbody2.appendChild(newRow2);
+  }
+
+  function delete_recipe(e){
+    const id = e.target.childNodes[0].value;
+    const name = e.target.childNodes[1].value;
+    var result = window.confirm(name+'\nを削除しますか？');
+    if( result ) {
+      alert("レシピが削除されました！");
+      location.href = "recipe-delete.php?recipe_id="+id;
+  }
+  else {
+  }
   }
