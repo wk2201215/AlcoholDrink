@@ -19,18 +19,18 @@
                         </span>
                     </button>
                 </div>
-            <div class="dropdown-menu" id="dropdown-menu6" role="menu">
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="max-height: 70vh;overflow: scroll;">
                 <div class="dropdown-content">
                     <ul class="dropdown-item">
                     <?php
                         $pdo=new PDO($connect, USER, PASS);
-                        echo '<p>値段範囲検索</p>';
+                        echo '値段範囲検索';
                         echo '<li><a href="top.php?priceA=0&priceB=1000">～￥1,000</a></li>';
                         echo '<li><a href="top.php?priceA=1000&priceB=3000">￥1,000～￥3,000</a></li>';
                         echo '<li><a href="top.php?priceA=3000&priceB=6000">￥3,000～￥6,000</a></li>';
                         echo '<li><a href="top.php?priceA=6000&priceB=9000">￥6,000～￥9,000</a></li>';
                         echo '<li><a href="top.php?priceA=9000&priceB=max">￥9,000～</a></li>';
-                        echo '<p>カテゴリ検索</p>';
+                        echo 'カテゴリ検索';
                         foreach($pdo->query('select * from Categories') as $row){
                             echo '<li><a href="top.php?category_id=',$row['category_id'],'">',$row['category_name'],'</a></li>';
                         }
