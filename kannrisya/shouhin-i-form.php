@@ -13,7 +13,7 @@
                             <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "product_name"></td>
                             <!-- ドロップダウンに変更↓ -->
                             <td>
-                                <!-- <div class="box"> -->
+                                
                                 <select name = "category_id">
 									<option value="1">ビール</option>
 									<option value="2">発泡酒</option>
@@ -35,7 +35,7 @@
 									<option value="18">雑酒</option>
 									<option value="19">その他</option>
 								</select> 
-                                <!-- </div> -->
+                                
                             </td> 
                         </tr>
                     </p>
@@ -46,10 +46,12 @@
                         <tr>
                             <th><label class="has-text-weight-semibold">販売価格</label></th>
                             <th><label class="has-text-weight-semibold">商品画像パス</label></th>
+                            <th><label class="has-text-weight-semibold">割引</label></th>
                         </tr>
                         <tr>
                             <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "price"></td>
                             <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "image_pass"></td>
+                            <td style="padding: 10px 20px;"><input style="width:300px; height: 30px;" type = "text" name = "discount"></td>
                         </tr>
                     </p>
                 </div>
