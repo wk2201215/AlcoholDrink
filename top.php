@@ -4,9 +4,6 @@
 <?php require 'header-menu.php'; ?>
 <?php require 'top-s.php'; ?>
 <?php include_once 'view_counter.class.php';
-// $log_dir = dirname(__FILE__) . '/log/';
-// $db_dir  = dirname(__FILE__) . '/db/';
-// $counter = new ViewCounter($log_dir, $db_dir);
 $counter = new ViewCounter();
 //ページ固有のID
 $id = 1010;

@@ -2,6 +2,13 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-test.php'; ?>
+<?php include_once 'view_counter.class.php';
+$counter = new ViewCounter();
+//ページ固有のID
+$id = 0019;
+$count = $counter->log($id,$_SESSION['customer']['id']);
+// echo $count;
+?>
 <?php
 $pdo=new PDO($connect, USER, PASS);
 $sql=$pdo->query('select * from Products');
