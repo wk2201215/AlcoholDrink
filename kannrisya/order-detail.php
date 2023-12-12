@@ -33,15 +33,9 @@
     INNER JOIN Products ON Order_details.product_id  = Products.product_id
     INNER JOIN Categories ON Products.category_id = Categories.category_id
     WHERE Order_details.order_id = ?');
-
-// SELECT Categories.category_name FROM Orders
-// INNER JOIN Order_details ON Orders.order_id = Order_details.order_id
-// INNER JOIN Products ON Order_details.product_id = Products.product_id
-// INNER JOIN Categories ON Products.category_id = Categories.category_id
-// WHERE Orders.order_id = ?
     
         $sql->execute([$order_id]);
-        $row = $sql->fetch(PDO::FETCH_ASSOC);
+        $row = $sql->fetchAll(PDO::FETCH_ASSOC);
         $category_name = $row['category_name'];
 
     //order_detail(個数),Products(商品ID,商品名)をだす
