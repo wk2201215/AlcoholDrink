@@ -45,7 +45,7 @@ echo '<p>',$date->format('Y年m月d日'),'</p>';
 echo '</div>';
 //お届け先
 echo '<div class="block mb-4">';
-echo '<label class="label">届け先住所</label>';
+echo '<label class="label">お届け先</label>';
 echo '<p>',$address,'</p>';
 echo '</div>';
 //支払い方法

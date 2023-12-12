@@ -3,7 +3,7 @@
 <?php require 'judge.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu-back.php'; ?>
-
+<div class="hero-body py-5">
 <?php
     if(isset($_GET['hogeA'])){
         echo '<p class="has-text-danger">',$_GET['hogeA'],'</p>';
@@ -15,7 +15,7 @@
                         where customer_id=?');
     $sql->execute([$id]);
     $sum=$discount=0;
-
+    $count=0;
     $wari=[
         'name'=>[],
         'd'=>[],
@@ -25,6 +25,7 @@
     $n=0;
     foreach ($sql as $row){
         $sum+=$row["cart_quantity"]*$row["price"];
+        $count += $row["cart_quantity"];
         if($row["discount"] != 0){
         $discount+=$row['price']*($row["discount"]/100)*$row['cart_quantity'];
         $wari['name'][$n] = $row['product_name'];
@@ -36,28 +37,30 @@
     }
     $fee=100;
     $total=round($sum-$discount+$fee);
-    echo '<p>ご請求金額',$total,'</p>';
-    echo '<p>小計',$sum,'</p>';
+    echo '<label class="label">ご請求額：￥',number_format($total),'</label>';
+    echo '<div class="box">';
+    echo '<p>商品合計(',$count,'点)：',number_format($sum),'円</p>';
     for( $i=0;$i<$n;$i++){
-    echo '<p>割引',$wari['name'][$i],$wari['dp'][$i],'円(',$wari['d'][$i],'%)×',$wari['c'][$i],'</p>';
+    echo '<p class="txt-limit2">割引：',$wari['name'][$i],'</p>','<p class="pl-6">-',$wari['dp'][$i],'円(',$wari['d'][$i],'%)×',$wari['c'][$i],'</p>';
     }
-    echo '<p>配送料・手数料',$fee,'円','</p>';
-
-    echo 'お届け先';
-    
-    echo $_SESSION['customer']['address'];
+    echo '<p>配送料・手数料：',number_format($fee),'円','</p>';
+    echo '</div>';
+    echo '<label class="label">お届け先</label>';
+    echo '<div class="box">';
+    echo '<p>',$_SESSION['customer']['address'],'</p>';
     $_SESSION['order']=[
         'total'=>$total,
         'fee'=>$fee
     ];
+    echo '<a href="customer-input.php">住所変更</a>';
+    echo '</div>';
+    echo '<label class="label">支払い方法</label>';
+    echo '<div class="box">';
+    echo '<p>',$_SESSION['customer']['payment'],'</p>';
+    echo '<a href="customer-payment-input.php">支払い方法を変更</a>';
+    echo '</div>';
     ?>
-    <button type="button" onclick="location.href='customer-input.php'">住所変更</button><br>
-<?php
-    echo '支払い方法';
-    echo $_SESSION['customer']['payment'];
-    ?>
-    <button type="button" onclick="location.href='customer-payment-input.php'">支払い方法を変更</button><br>
-    <button type="button" onclick="location.href='purchase-process.php'">購入を確定する</button>
-
+    <button type="button" class="button is-large is-warning mx-auto is-fullwidth" onclick="location.href='purchase-process.php'">購入を確定する</button>
+</div>
 <?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
