@@ -11,6 +11,9 @@
     if($sum==0){
         header('Location:purchase-input.php?hogeA=カートに購入できる商品がありません。');
         exit();
+    }else if(empty($_SESSION['customer']['payment'])){
+        header('Location:purchase-input.php?hogeA=お支払い方法が登録されていません。');
+        exit();
     }else{
         $sql=$pdo->prepare('insert into Orders values(null,?,default,?,?,?,?)');
         $flag=true;

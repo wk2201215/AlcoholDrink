@@ -33,7 +33,7 @@ if(empty($sql->fetchAll())) {
             $_POST['address'],$_POST['tel'],
             $_POST['mail'],$_POST['birth'],
             $_SESSION['customer']['id']]);
-        if(!empty($_FILES['idcard'])){
+        if(!empty($_FILES['idcard']['name'])){
             $str=$_FILES['idcard']['name'];
             $path_parts = pathinfo($str);
             $random_name = uniqid(mt_rand());
@@ -74,6 +74,14 @@ if(empty($sql->fetchAll())) {
 
     $sql5=$pdo->prepare('select * from Customers where login_id=?');
     $sql5->execute([$_POST['login_id']]);
+    if(!empty($row['payment_id'])){
+        $sql6=$pdo->prepare('select * from Payments where payment_id=?');
+        $sql6->execute([$row['payment_id']]);
+        $result=$sql6->fetch();
+        $payment=$result['payment_name'];
+    }else{
+        $payment=null;
+    }
     foreach($sql5 as $row) {
         $_SESSION['customer']=[
             'id'=>$row['customer_id'],
@@ -85,7 +93,7 @@ if(empty($sql->fetchAll())) {
             'tel'=>$row['telephone'],
             'mail'=>$row['mail'],
             'birth'=>$row['birth'],
-            'payment'=>$row['payment_id']
+            'payment'=>$payment
         ];
 
         echo '<div class="box">';
