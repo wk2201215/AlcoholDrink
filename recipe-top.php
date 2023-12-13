@@ -1,3 +1,4 @@
+<?php require 'not-access.php'; ?>
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'judge.php'; ?>

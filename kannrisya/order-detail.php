@@ -50,9 +50,6 @@
                 $i++;
               }
 
-            // $row = $sql->fetchAll(PDO::FETCH_ASSOC);
-            // $category_name = $row['category_name'];
-
             //order_detail(個数),Products(商品ID,商品名)をだす
             $orders=$pdo->prepare('SELECT Products.product_id,Products.product_name,Order_details.quantity from Products 
             inner join Order_details on Products.product_id = Order_details.product_id 

@@ -23,7 +23,8 @@
             echo '<td>', $row['address'],'</td>';
             echo '<td>', $row['telephone'],'</td>';
             echo '<td>', $row['mail'],'</td>';
-            echo '<td style="word-break: break-word">', $row['customer_password'],'</td>';
+            // echo '<td style="word-break: break-word">', $row['customer_password'],'</td>';
+            echo '<td style="word-break: break-word">', '●●●●','</td>';
             echo '<td>', '<a href = "customer-delete.php?customer_id=', $row['customer_id'] ,'">','削除','</td></tr>';
         }
         ?>

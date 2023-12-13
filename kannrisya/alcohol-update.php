@@ -11,14 +11,5 @@
         header("Location: alcohol-list.php");
         exit;
       }
-
-      //送信済みか✓
-        // if (headers_sent()) {
-        //   echo 'リダイレクトに失敗しました。このリンクをクリックしてください: <a href = "alcohol-list.php">';
-        // } else{
-        //   // リダイレクトする
-        //   header("Location: alcohol-list.php");
-        //   exit;
-        // }
 ?>
 
