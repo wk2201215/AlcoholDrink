@@ -1,5 +1,6 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
+<?php require 'judge.php'; ?>
 <?php require 'header-top.php'; ?>
 <?php require 'header-menu.php'; ?>
 <?php require 'top-s.php'; ?>
@@ -46,9 +47,11 @@ if(isset($_POST['keyword'])){
     // var_dump($sqlr);
     // $k=$sqlr->fetchAll();
     // var_dump($k);
-    // echo '<hr>';
-    echo '<ul class="horizontal_scroll">';
-        foreach($sqlr as $row){
+    echo '<label class="title has-text-primary mb-0">売上ランキングTOP10</label>';
+    echo '<hr>';
+    echo '<div>';
+    echo '<ul class="horizontal_scroll m-0" style="height:30vh">';
+        foreach($sqlr as $index => $row){
             $id=$row['product_id'];
             // $rank=1;
             // echo $rank;
@@ -56,13 +59,18 @@ if(isset($_POST['keyword'])){
             // echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">
             //     ',$row['product_name'],'</a>';
             // echo '<p>価格:',$row['price'],'</p>';
-            echo '<li>';
-                echo '<a href="detail.php?id=',$id,'"><img alt="images" src="images/products/',$row['image_pass'],'">';
-                echo '<div>',$row['product_name'],'</div></a>';
-                echo '<div>価格:',$row['price'],'</div>';
+            echo '<li style="height:100%;">';
+            echo '<div class="full_image" style="height:100%;">';
+            echo '<a href="detail.php?id=',$id,'" style="display: flex;justify-content: center;align-items: center;"><img alt="images" src="images/products/',$row['image_pass'],'"></a>';
+                //echo '<a href="detail.php?id=',$id,'">',$row['product_name'],'</a>';
+                //echo '<div>価格:',$row['price'],'</div>';
+            echo '</div>';
+            echo '<img alt="images" src="images/rank/ranking',$index+1,'.png" style="margin-top: -21%;pointer-events: none;">';
             echo '</li>';
         }
     echo '</ul>';
+    echo '</div>';
+    echo '<hr>';
     $sql=$pdo->query('select * from Products');
 }
 // var_dump($sqlr);

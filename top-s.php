@@ -1,4 +1,4 @@
-<div class="slide-wrapper">
+<div class="slide-wrapper mb-4">
   <!-- スライド（コンテンツ） -->
   <div id="slide" class="slide">
     <?php

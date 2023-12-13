@@ -1,8 +1,8 @@
-*,body,ul {
+.slide-wrapper *,.slide-wrapper ul {
     margin: 0;
     padding: 0;
   }
-  li {
+.slide-wrapper li {
     list-style: none;
   }
   /* ↓ スライドの外枠 */
@@ -13,13 +13,13 @@
     overflow: hidden; /* はみ出したスライドを隠す */
   }
   /*  ↓ スライド（コンテンツ） */
-  /* .slide { スライド全体 
+.slide { 
     width: 400%;
     height: 100%;
     display: flex;
     transition: all 0.3s;
-  } */
-  /* .slide div {  スライド 
+  } 
+.slide div { 
     width: 25%;
     height: 100%;
     font-size: 16px;
@@ -27,7 +27,7 @@
     text-align: center;
     justify-content: center;
     align-items: center;
-  } */
+  } 
    /* .slide1 {  スライドさせるために必要なクラス 
     transform: translateX(0);
   }
@@ -39,19 +39,25 @@
   }
   .slide4 {  スライドさせるために必要なクラス 
     transform: translateX(-75%);
-  }  */
-  .slide div:nth-of-type(1){ /* 背景色 */
+  }  
+  */
+  .slide div{  
     background-color: #E1F3FC;
   }
-  .slide div:nth-of-type(2){ /* 背景色 */
+  /*
+  .slide div:nth-of-type(1){  
+    background-color: #E1F3FC;
+  }
+  .slide div:nth-of-type(2){ 
     background-color: #FCE8F0;
   }
-  .slide div:nth-of-type(3){ /* 背景色 */
+  .slide div:nth-of-type(3){ 
     background-color: #E3F1E4;
   }
-  .slide div:nth-of-type(4){ /* 背景色 */
+  .slide div:nth-of-type(4){ 
     background-color: #f0f1e3;
   }
+  */
   /* ↓ 左右のボタン */
   .next {
     position: absolute;
@@ -103,8 +109,10 @@
     background-color: #000;
   }
   .slide img{
-    width: 100%;
-    height: auto;
+    max-width: 100%;
+	  width:auto;
+	  max-height: 100%;
+	  height:auto;
   }
 
   #slide{
