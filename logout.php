@@ -2,7 +2,6 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
-<?php require 'header-menu.php'; ?>
 <?php include_once 'view_counter.class.php';
 $counter = new ViewCounter();
 //ページ固有のID
@@ -23,5 +22,4 @@ if(isset($_SESSION['customer'])) {
 <button type="button" class="button" onclick="location.href='login-input.php'">ログイン画面へ</button>
 </div>
 </div>
-<?php require 'footer-menu.php'; ?>
 <?php require 'footer.php'; ?>
