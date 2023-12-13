@@ -6,7 +6,7 @@
     $count=0;
     foreach($pdo2->query('select * from Slide') as $row){
       echo '<div>';
-      echo '<img src="'.$row['img_pas'].'">';
+      echo '<img src="images/slide/'.$row['img_pas'].'">';
       echo '</div>';
       $count++;
     }
