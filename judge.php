@@ -7,6 +7,7 @@ if(!isset($_SESSION['customer'])){
     $sql->execute([$_SESSION['customer']['id']]);
     $judge=$sql->fetchAll();
     if($judge[0]['delete_flag']==1){
+        unset($_SESSION['customer']);
         header('Location:login-input.php?hogeA=このアカウントは削除されています。');
     }
 }

@@ -1,5 +1,6 @@
 <?php require '../db-connect.php'; ?>
 <?php require 'header.php'; ?>
+<div id="app">
 <?php
 // echo '<h1>レシピ更新画面</h1>';
 $pdo=new PDO($connect, USER, PASS);
@@ -84,6 +85,7 @@ $pdo=new PDO($connect, USER, PASS);
     echo '</div>';
     echo '</form>';
 ?>
+</div>
 <a class="button is-link is-medium mx-auto my-3" href="recipe-top.php">戻る</a>
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
