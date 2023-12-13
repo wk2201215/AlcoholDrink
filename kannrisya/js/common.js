@@ -23,7 +23,7 @@ const app = new Vue({
     }
     }
   }
-})
+});
 
 function change(e){
   const elm = e.target.parentNode.querySelector('.contents-hide');

@@ -8,7 +8,7 @@
       //画像処理
         $image_name = null;
         if(!empty($_FILES['cooking_image']['name'])){
-        $uploaddir = 'images/cooking/';
+        $uploaddir = '../images/cooking/';
         //ファイル名をユニーク化
         $str=$_FILES['cooking_image']['name'];
         $path_parts = pathinfo($str);
@@ -21,7 +21,7 @@
           echo "画像のアップロードができませんでした\n";
         }
         //imagesディレクトリにファイル保存
-        move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
+        // move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
 
         //画像update文
         $sql=$pdo->prepare('UPDATE Recipes SET recipe_image_pass = ? WHERE recipe_id = ?');
@@ -65,32 +65,6 @@
         $sql=$pdo->prepare('UPDATE Recipes SET recipe_name = ? , recipe_description = ? WHERE recipe_id = ?');
         $sql->execute([$_POST['recipe_name'], $_POST['recipe_description'], $recipe_id]);
     }
-    header("Location: recipe-top.php");
+    header('Location: recipe-top.php');
         exit;
 ?>
-
-
-
-
-<!-- <?php
-    
-    // $pdo=new PDO($connect, USER, PASS);
-	
-// idの取得
-// $recipe_id = $_GET['recipe_id'];
-
-// 	$sql=$pdo->prepare('select * from Recipes where recipe_id=?');
-// 	$sql->execute([$recipe_id]);
-// 	$result = $sql->fetch(PDO::FETCH_ASSOC);
-
-	//情報を保持して表示したい
-		// echo '<form action="recipe-update.php" method="post">';
-		// echo '<input type="hidden" name="recipe_id" value="' . $recipe_id . '">';
-		// echo 'レシピ名<input type="text" name="recipe_name" value="', $result['recipe_name'], '"><br>';
-		// echo '材料<input type="text" name="ingredient_name[]" value="', $result['ingredient_name[]'], '">';
-		// echo '数量<input type="text" name="ingredient_quantity[]" value="', $result['ingredient_quantity[]'], '"><br>';
-		// echo 'レシピ画像<input type="text" name="recipe_img" value="', $result['recipe_image_pass'], '"><br>';
-		// echo '作り方<textarea name="recipe_description" rows="4" cols="40">"'.$result['recipe_description'].'"</textarea><br>';
-		// echo '<input type="submit" value="更新">';
-		// echo '</form>';
-?> -->
