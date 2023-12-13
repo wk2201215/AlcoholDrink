@@ -9,7 +9,6 @@
     <p class="has-text-centered">
 		<input class="button is-link is-medium"  type="submit" value="投稿">
 	</p>
-    <!-- <input type = "submit" class="is-medium" value = "投稿"> -->
 </form>
 <button class="button is-light tabs is-right" onclick="location.href='alcohol-list.php'">戻る</button>
 

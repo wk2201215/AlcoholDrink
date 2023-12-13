@@ -64,7 +64,6 @@
             <tfoot>
                 <tr>
                     <td><button id="cooking_add" type="button" onclick="addCookingRow()">＋作り方を追加</button></td>
-                    <!-- <td><button id="cooking_add" type="button" onclick="addCookingRow()">＋作り方を追加</button></td> -->
                 </tr>
             </tfoot>
         </table>
