@@ -15,9 +15,9 @@
         $image_name = $random_name . '.' . $path_parts['extension'];
         $uploadfile = $uploaddir . $image_name;
         if (move_uploaded_file($_FILES['cooking_image']['tmp_name'], $uploadfile)) {
-          echo "正常にアップロードされました。\n";
+          // echo "正常にアップロードされました。\n";
         } else {
-          echo "画像のアップロードができませんでした\n";
+          // echo "画像のアップロードができませんでした\n";
         }
         //imagesディレクトリにファイル保存
         // move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
@@ -55,10 +55,8 @@
                 $key++;
             }
         }
-    }
-?>
-<?php $recipe_id=$last_recipe_id; ?>
-<?php 
-  header("Location: recipe-top.php");
-  exit; 
+        $recipe_id=$last_resipi_id;
+      }
+   header("Location: recipe-top.php");
+   exit; 
 ?>

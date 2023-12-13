@@ -15,11 +15,11 @@
         $random_name = uniqid(mt_rand());
         $image_name = $random_name . '.' . $path_parts['extension'];
         $uploadfile = $uploaddir . $image_name;
-        if (move_uploaded_file($_FILES['cooking_image']['tmp_name'], $uploadfile)) {
-          echo "正常にアップロードされました。\n";
-        } else {
-          echo "画像のアップロードができませんでした\n";
-        }
+         if (move_uploaded_file($_FILES['cooking_image']['tmp_name'], $uploadfile)) {
+ //   echo "正常にアップロードされました。\n";
+         } else {
+ //   echo "画像のアップロードができませんでした\n";
+         }
         //imagesディレクトリにファイル保存
         // move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
 
