@@ -7,7 +7,7 @@
       //画像処理
         $image_name = null;
         if(!empty($_FILES['cooking_image']['name'])){
-        $uploaddir = 'images/cooking/';
+        $uploaddir = '../images/cooking/';
         //ファイル名をユニーク化
         $str=$_FILES['cooking_image']['name'];
         $path_parts = pathinfo($str);
@@ -20,7 +20,7 @@
           echo "画像のアップロードができませんでした\n";
         }
         //imagesディレクトリにファイル保存
-        move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
+        // move_uploaded_file($_FILES['recipe_image']['tmp_name'],$image);
        }
       
         $sql=$pdo->prepare('insert into Recipes values(null,?,?,default,default,?,?)');
@@ -57,7 +57,8 @@
         }
     }
 ?>
-<?php $recipe_id=$last_resipi_id; ?>
-<?php header("Location: recipe-top.php");
-        exit;
+<?php $recipe_id=$last_recipe_id; ?>
+<?php 
+  header("Location: recipe-top.php");
+  exit; 
 ?>
