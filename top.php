@@ -48,7 +48,7 @@ if(isset($_POST['keyword'])){
     // var_dump($sqlr);
     // $k=$sqlr->fetchAll();
     // var_dump($k);
-    echo '<label class="title has-text-primary mb-0">売上ランキングTOP10</label>';
+    echo '<label class="title has-text-primary mb-0 is-4">売上ランキングTOP10</label>';
     echo '<hr>';
     echo '<div>';
     echo '<ul class="horizontal_scroll m-0" style="height:30vh">';

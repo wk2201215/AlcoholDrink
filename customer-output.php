@@ -3,13 +3,6 @@
 <?php require 'db-connect.php'; ?>
 <?php require 'header.php'; ?>
 <?php require 'header-menu.php'; ?>
-<?php include_once 'view_counter.class.php';
-$counter = new ViewCounter();
-//ページ固有のID
-$id = 0003;
-$count = $counter->log($id,$_SESSION['customer']['id']);
-// echo $count;
-?>
 <?php
 $pdo=new PDO($connect,USER,PASS);
 $pass=password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -154,6 +147,14 @@ if(empty($sql->fetchAll())) {
         echo '</div>';
     }
 echo '</div>';
+
+include_once 'view_counter.class.php';
+$counter = new ViewCounter();
+//ページ固有のID
+$id = 0003;
+$count = $counter->log($id,$_SESSION['customer']['id']);
+// echo $count;
+
 //いる場合
 } else {
     echo '<div class="displaycenter"><div class="has-text-centered" style="width:85%;">';
