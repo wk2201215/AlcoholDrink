@@ -29,6 +29,11 @@ foreach ($sql as $i => $row) {
    echo '</div>';
    echo '</div>';
 }
+#!/bin/bash
+dnf install -y httpd
+systemctl enable httpd
+systemctl start httpd
+echo '<html><h1>Hello From Your WebServer!</h1></html>' > /var/www/html/index.html
 echo '</div>';
 ?>
 <?php require 'footer-menu.php'; ?>
