@@ -21,7 +21,7 @@ CREATE TABLE Customers(
     customer_id INT auto_increment,
     login_id VARCHAR(50) NOT NULL,
     customer_name VARCHAR(50) NOT NULL,
-    customer_password VARCHAR(50) NOT NULL,
+    customer_password VARCHAR(200) NOT NULL,
     postcode VARCHAR(7) NOT NULL,
     address VARCHAR(100) NOT NULL,
     telephone VARCHAR(16) NOT NULL,
